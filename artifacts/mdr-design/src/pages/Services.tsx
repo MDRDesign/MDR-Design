@@ -2,6 +2,11 @@ import { Link } from 'wouter';
 import { Reveal, Lines } from '@/components/Reveal';
 import { routeMeta } from '@/data/routeMeta';
 import { useSeo } from '@/lib/seo';
+import { projectReferences } from '@/data/projectReferences';
+
+const appExamples = projectReferences.filter((project) =>
+  project.slug === 'captains-galley' || project.slug === 'z-delivery',
+);
 
 const services = [
   { n: 'A', name: 'Brand Starter', need: 'Brand Starter', lede: 'For the business that’s outgrown its first logo.', items: ['Discovery conversation', 'Logo & wordmark system', 'Color and type palette', 'Voice notes & tagline', 'Signage, card and social basics'] },
@@ -31,6 +36,22 @@ export default function Services() {
               <ul className="mt-8 flex-1">
                 {s.items.map((it) => <li key={it} className="py-3 border-t border-[var(--rule)] text-sm">{it}</li>)}
               </ul>
+              {s.need === 'Business App' && (
+                <div className="mt-6 text-sm leading-relaxed" data-testid="business-app-examples">
+                  <p className="label mb-3">In practice</p>
+                  {appExamples.map((project) => (
+                    <p key={project.slug} className="mt-3 muted">
+                      <a href={project.liveUrl} target="_blank" rel="noopener noreferrer" className="ulink text-[var(--fg)]" data-testid={`link-app-example-${project.slug}`}>
+                        {project.client} <span aria-hidden="true">↗</span>
+                        <span className="sr-only"> — opens in a new tab</span>
+                      </a>
+                      {project.slug === 'captains-galley'
+                        ? ' — customers order local food ahead for pickup.'
+                        : ' — staff quote and schedule deliveries in a protected web app.'}
+                    </p>
+                  ))}
+                </div>
+              )}
               <Link href={`/contact?need=${encodeURIComponent(s.need)}`} className="btn mt-10 justify-between" data-testid={`link-inquire-${i}`}>
                 Inquire <span className="arrow">→</span>
               </Link>
