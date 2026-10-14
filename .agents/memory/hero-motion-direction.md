@@ -25,4 +25,10 @@ The hero should not repeat the app and website showcases already below it. The o
 
 **Why:** After choosing the drafting frame, the owner reconsidered the tablet itself because the projects are already showcased in multiple places, and explicitly described this new film.
 
-**How to apply:** Treat the city-street film as the requested new subject rather than continuing to refine the client-project tablet. Make the phone close-up recognizably show the actual MDR Design website, not invented interface text. Do not remove the current artwork until a usable replacement has been produced and verified.
+**How to apply:** Treat the city-street film as the requested new subject rather than continuing to refine the client-project tablet. Do not remove the current artwork until a usable replacement has been produced and verified.
+
+The phone close-up should show a clean, stable graphic saying “MDR Design,” not the actual homepage.
+
+**Why:** After seeing the homepage composite, the owner explicitly asked to remove it and replace it with a graphic without shaking or glitching.
+
+**How to apply:** Keep the branding still and readable. A locked-off close-up is preferable to unstable per-frame screen tracking; preserve the rest of the street film.

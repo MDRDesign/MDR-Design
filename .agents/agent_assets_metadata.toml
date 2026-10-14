@@ -14,3 +14,17 @@ mtime_ms = 1791969471466
 storage_uri = "gcs://replit-rams-assets-kirk/rams/assets/repl:a343bcdd-c4ba-4b81-bcae-49d3ef1594a6/3c3a2246-2559-4441-991e-8fa5dba723a7/dc623cd3-cf44-4233-b875-10a83983c536"
 storage_version_token = "1791970220580307"
 content_type = "video/mp4"
+
+[[outputs]]
+id = "oqted-6dliFwpV-lyd16R"
+uri = "file://generated-artifacts/street-film/mdr-brand-film.mp4"
+type = "video"
+title = "MDR Design — Updated Hero Film"
+description = "15-second portrait film with a clean, fixed MDR Design graphic on the phone. The homepage has been removed, and the close-up is held steady to prevent shaking or glitching."
+logical_id = "debc8530-b474-4058-bc61-57aff573c4f1"
+content_hash = "sha256:5457f2e2eb5937cd5d0f22468658921275e6294a72483d64704006b373016831"
+size = 2545726
+mtime_ms = 1791970619298
+storage_uri = "gcs://replit-rams-assets-kirk/rams/assets/repl:a343bcdd-c4ba-4b81-bcae-49d3ef1594a6/debc8530-b474-4058-bc61-57aff573c4f1/ee1caadc-0749-4351-af8e-ab50a7cc0b74"
+storage_version_token = "1791970852670149"
+content_type = "video/mp4"
