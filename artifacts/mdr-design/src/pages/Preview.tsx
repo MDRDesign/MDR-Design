@@ -21,12 +21,12 @@ export default function Preview() {
     <main id="main" className="min-h-[100dvh]">
       <div className="band band-blue wrap pb-20">
       <Reveal as="header" immediate className="pt-8 flex justify-between items-baseline fade">
-        <span className="serif italic text-[1.85rem]">MDR</span>
+        <span className="serif italic text-[1.6rem]">MDR</span>
         <span className="label">Unlisted concept preview</span>
       </Reveal>
       <Reveal as="section" immediate className="pt-20 md:pt-32">
         <p className="label fade d1"><span className="n">Prepared for {p.clientName}</span>{p.businessName}</p>
-        <h1 className="mega !text-[clamp(3.2rem,12vw,14rem)] mt-8" data-testid="text-preview-title">
+        <h1 className="mega !text-[clamp(2.6rem,6vw,6.5rem)] mt-8" data-testid="text-preview-title">
           <Lines lines={[`Prepared for ${p.clientName} —`, <em key="b">{p.businessName}</em>]} start={0.15} />
         </h1>
         <div className="hr hr-ink draw d3 mt-12" />
@@ -52,7 +52,7 @@ export default function Preview() {
       <Reveal as="section" className="band band-ivory wrap pad">
         <div className="grid12 gap-y-6">
           <p className="label col-span-4 md:col-span-3"><span className="n">A note</span>from Danielle</p>
-          <p className="col-span-4 md:col-span-7 md:col-start-5 serif text-[clamp(1.6rem,2.6vw,2.3rem)] leading-snug fade d2" data-testid="text-preview-note">{p.note}</p>
+          <p className="col-span-4 md:col-span-7 md:col-start-5 serif text-[clamp(1.35rem,2vw,1.85rem)] leading-snug fade d2" data-testid="text-preview-note">{p.note}</p>
         </div>
       </Reveal>
 

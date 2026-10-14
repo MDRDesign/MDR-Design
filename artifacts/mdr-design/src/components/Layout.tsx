@@ -27,7 +27,7 @@ function useWorkLink() {
 export function Wordmark() {
   return (
     <Link href="/" className="group inline-flex items-baseline gap-3" data-testid="link-home" aria-label="MDR Design, home">
-      <span className="serif italic text-[1.85rem] leading-none">MDR</span>
+      <span className="hb serif italic text-[1.6rem] leading-none" style={{ ['--hb-w' as string]: '3.4rem' }}>MDR</span>
       <span className="label hidden sm:inline">Design</span>
     </Link>
   );
@@ -66,7 +66,7 @@ export function Header() {
       <div className="wrap flex items-center justify-between py-6 md:py-8">
         <Wordmark />
         <nav aria-label="Primary" className="hidden md:block">
-          <ul className="label !text-[var(--fg)] flex gap-10 !text-[0.875rem]">
+          <ul className="label !text-[var(--fg)] flex gap-10 !text-[0.75rem]">
             {NAV.map((n) => (
               <li key={n.href}>
                 <Link href={n.href} onClick={(e: MouseEvent) => go(e, n.href)} className="ulink" aria-current={loc === n.href ? 'page' : undefined} data-testid={`link-nav-${n.label.toLowerCase()}`}>
@@ -88,7 +88,7 @@ export function Header() {
         <div className="hr" />
         <nav aria-label="Mobile" className="wrap flex-1 flex flex-col justify-center">
           {NAV.map((n, i) => (
-            <Link key={n.href} href={n.href} onClick={(e: MouseEvent) => go(e, n.href, () => setOpen(false))} className="display text-[4.4rem] py-3 border-b border-[var(--rule)] flex items-baseline justify-between" data-testid={`link-mobile-${n.label.toLowerCase()}`}>
+            <Link key={n.href} href={n.href} onClick={(e: MouseEvent) => go(e, n.href, () => setOpen(false))} className="display text-[2.6rem] py-3 border-b border-[var(--rule)] flex items-baseline justify-between" data-testid={`link-mobile-${n.label.toLowerCase()}`}>
               <span>{i === 3 ? <em>{n.label}</em> : n.label}</span>
               <span className="label">0{i + 1}</span>
             </Link>
@@ -130,9 +130,9 @@ export function Footer() {
         <div className="grid12 gap-y-10">
           <div className="col-span-4 md:col-span-5">
             <p className="label">Studio time — Los Angeles</p>
-            <p className="display text-[clamp(3rem,7vw,6.5rem)] mt-3"><LaTime /></p>
+            <p className="display text-[clamp(2.2rem,4vw,3.5rem)] mt-3"><LaTime /></p>
           </div>
-          <nav aria-label="Footer" className="col-span-2 md:col-span-3 md:col-start-7 flex flex-col gap-3 label !text-[var(--fg)] !text-[0.9rem]">
+          <nav aria-label="Footer" className="col-span-2 md:col-span-3 md:col-start-7 flex flex-col gap-3 label !text-[var(--fg)] !text-[0.75rem]">
             {NAV.map((n) => (
               <Link key={n.href} href={n.href} onClick={(e: MouseEvent) => go(e, n.href)} className="ulink self-start" data-testid={`link-footer-${n.label.toLowerCase()}`}>{n.label}</Link>
             ))}
@@ -144,7 +144,7 @@ export function Footer() {
           </div>
         </div>
       </div>
-      <p className="foot-mark mt-16 md:mt-24 text-center" aria-hidden="true">MDR <em>Design</em></p>
+      <div className="wrap mt-16 md:mt-24"><p className="foot-mark hb" aria-hidden="true" style={{ ['--hb-w' as string]: '72vw' }}>MDR <em>Design</em></p></div>
       <div className="wrap mt-8 flex justify-between label">
         <span>© {new Date().getFullYear()} MDR Design</span>
         <span>Catalogue No. 01</span>

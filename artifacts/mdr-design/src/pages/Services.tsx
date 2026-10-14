@@ -25,11 +25,11 @@ export default function Services() {
         <div className="grid grid-cols-1 md:grid-cols-3">
           {services.map((s, i) => (
             <article key={s.n} className={`py-10 md:px-8 flex flex-col border-b md:border-b-0 border-[var(--rule)] ${i > 0 ? 'md:border-l' : 'md:pl-0'} fade d${i + 2}`} data-testid={`card-service-${i}`}>
-              <span className="numeral text-[7rem]">{s.n}</span>
-              <h2 className="display text-6xl md:text-7xl mt-6">{i === 2 ? <>Brand <em>+</em> Website</> : s.name}</h2>
+              <span className="numeral text-[4.5rem]">{s.n}</span>
+              <h2 className="display text-4xl md:text-5xl mt-6">{i === 2 ? <>Brand <em>+</em> Website</> : s.name}</h2>
               <p className="serif text-xl italic mt-4 muted">{s.lede}</p>
               <ul className="mt-8 flex-1">
-                {s.items.map((it) => <li key={it} className="py-3 border-t border-[var(--rule)] text-base">{it}</li>)}
+                {s.items.map((it) => <li key={it} className="py-3 border-t border-[var(--rule)] text-sm">{it}</li>)}
               </ul>
               <Link href={`/contact?need=${encodeURIComponent(s.need)}`} className="btn mt-10 justify-between" data-testid={`link-inquire-${i}`}>
                 Inquire <span className="arrow">→</span>

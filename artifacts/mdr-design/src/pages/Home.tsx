@@ -101,31 +101,22 @@ export default function Home() {
   return (
     <>
       {/* HERO */}
-      <Reveal as="section" immediate className="band band-blue relative min-h-[100dvh] pt-28 md:pt-32 pb-10">
+      <Reveal as="section" immediate className="band band-blue pt-28 md:pt-32 pb-16 md:pb-20">
         <div ref={heroWrap} className="wrap relative">
-          <p className="label fade d1" data-testid="text-hero-label"><span className="n">MDR Design</span>— Web Design & Brand Identity</p>
-          <div className="relative mt-8 md:mt-10 md:min-h-[calc(20vw+84vh)]">
-            <div className="hero-frame hidden md:block md:absolute md:right-0 md:top-[20vw] md:w-[32%] z-0">
-              <div ref={heroFrame} className="relative h-[78vh]">
-                <span className="crop tl" aria-hidden="true" /><span className="crop tr" aria-hidden="true" /><span className="crop bl" aria-hidden="true" /><span className="crop br" aria-hidden="true" />
-                <div className="frame wipe d3 absolute inset-0">
-                  <SmartVideo eager src="media/hero-loop.mp4" poster="media/og-image.png" label="Studio film loop" fallback={<HeroArt />} />
+          <div className="grid12 gap-y-10 items-stretch">
+            <div className="col-span-4 md:col-span-7 relative z-10 flex flex-col justify-between md:min-h-[78vh]">
+              <p className="label fade d1" data-testid="text-hero-label"><span className="n">MDR Design</span>— Web Design & Brand Identity</p>
+              <div className="relative mt-10 md:mt-0 md:mr-[-14%]">
+                <h1 className="mega">
+                  <Lines lines={heroLines} start={0.2} delayStep={0.14} />
+                </h1>
+                <div className="hero-blend" aria-hidden="true">
+                  <p className="mega"><Lines lines={heroLines} start={0.2} delayStep={0.14} /></p>
                 </div>
               </div>
-              <div className="mt-4 flex justify-between label"><span>Pl. 01 · Fig. 01</span><span>Local brands, seen properly</span></div>
-            </div>
-            <div className="relative z-10">
-              <h1 className="mega">
-                <Lines lines={heroLines} start={0.2} delayStep={0.14} />
-              </h1>
-              <div className="hero-blend" aria-hidden="true">
-                <p className="mega"><Lines lines={heroLines} start={0.2} delayStep={0.14} /></p>
-              </div>
-            </div>
-            <div className="relative z-10 grid12 mt-10 md:mt-14 gap-y-10">
-              <div className="col-span-4 md:col-span-5">
+              <div className="mt-10 md:mt-0 max-w-md">
                 <div className="hr hr-ink draw d4 mb-5" />
-                <p className="text-xl md:text-2xl leading-snug fade d5" data-testid="text-hero-promise">
+                <p className="text-lg md:text-xl leading-snug fade d5" data-testid="text-hero-promise">
                   Websites and brands for local businesses that deserve to look established.
                 </p>
                 <div className="mt-8 flex flex-wrap gap-6 items-center fade d6">
@@ -134,14 +125,15 @@ export default function Home() {
                 </div>
               </div>
             </div>
-            {/* mobile frame: stacked, no blend */}
-            <div className="md:hidden relative mt-12 mx-3">
-              <span className="crop tl" aria-hidden="true" /><span className="crop tr" aria-hidden="true" /><span className="crop bl" aria-hidden="true" /><span className="crop br" aria-hidden="true" />
-              <div className="frame wipe d3 h-[62vh]"><HeroArt /></div>
+            <div className="col-span-4 md:col-span-5 relative z-0 px-3 md:px-0">
+              <div ref={heroFrame} className="relative h-[60vh] md:h-[78vh]">
+                <span className="crop tl" aria-hidden="true" /><span className="crop tr" aria-hidden="true" /><span className="crop bl" aria-hidden="true" /><span className="crop br" aria-hidden="true" />
+                <div className="frame frame-fill wipe d3">
+                  <SmartVideo eager src="media/hero-loop.mp4" poster="media/og-image.png" label="Studio film loop" fallback={<HeroArt />} />
+                </div>
+              </div>
+              <div className="mt-4 flex justify-between label"><span>Pl. 01 · Fig. 01</span><span>Local brands, seen properly</span></div>
             </div>
-          </div>
-          <div className="md:hidden mt-6 mx-3 flex justify-between label">
-            <span>Pl. 01 · Fig. 01</span><span>Local brands, seen properly</span>
           </div>
         </div>
       </Reveal>
@@ -168,9 +160,9 @@ export default function Home() {
               <div className="relative"><ConceptTag text="Concept visual" /></div>
             </div>
             <div className="col-span-4 md:col-span-3 flex md:flex-col justify-between">
-              <span className="numeral text-[clamp(6rem,14vw,13rem)]">{wiz.number}</span>
+              <span className="numeral text-[clamp(4rem,8vw,8rem)]">{wiz.number}</span>
               <div className="fade d3 text-right md:text-left">
-                <p className="serif text-4xl">{wiz.client}</p>
+                <p className="serif text-3xl">{wiz.client}</p>
                 <p className="muted mt-2 text-base">{wiz.disciplines.join(' + ')} — {wiz.location}</p>
                 <p className="mt-6 text-sm ulink">Read the case <span className="arrow">→</span></p>
               </div>
@@ -189,14 +181,14 @@ export default function Home() {
           {cases.map((c) => (
             <Link key={c.slug} href={`/work/${c.slug}`} role="row" data-thumb className="idx-row grid12 py-6 border-b border-[var(--rule)] items-baseline" data-testid={`row-case-${c.slug}`}>
               <span role="cell" className="col-span-1 numeral text-2xl !text-[var(--fg)]">{c.number}</span>
-              <span role="cell" className="col-span-3 md:col-span-5 serif text-2xl md:text-3xl">{c.client} <span className="idx-arrow inline-block">→</span></span>
+              <span role="cell" className="col-span-3 md:col-span-5 serif text-xl md:text-2xl">{c.client} <span className="idx-arrow inline-block">→</span></span>
               <span role="cell" className="hidden md:block md:col-span-4 muted text-sm">{c.disciplines.join(' + ')}</span>
               <span role="cell" className="hidden md:block md:col-span-2 text-right text-sm tabular-nums">{c.year}</span>
             </Link>
           ))}
           <div className="grid12 py-6 border-b border-[var(--rule)] items-baseline muted">
             <span className="col-span-1 numeral text-2xl">02</span>
-            <span className="col-span-3 md:col-span-11 serif text-2xl md:text-3xl italic">Your business — the next entry.</span>
+            <span className="col-span-3 md:col-span-11 serif text-xl md:text-2xl italic">Your business — the next entry.</span>
           </div>
         </div>
         </div>
@@ -217,9 +209,9 @@ export default function Home() {
           {approach.map((a, i) => (
             <li key={a.n} className={`col-span-4 md:col-span-4 relative pt-6 fade d${i + 2}`}>
               <div className="hr hr-ink draw absolute top-0" />
-              <span className="numeral text-[clamp(5rem,9vw,8rem)] block">{a.n}</span>
-              <h3 className="display text-6xl md:text-7xl mt-4">{i === 0 ? <em>{a.t}</em> : a.t}</h3>
-              <p className="mt-5 muted text-lg leading-relaxed max-w-sm">{a.b}</p>
+              <span className="numeral text-[clamp(3.5rem,6vw,5.5rem)] block">{a.n}</span>
+              <h3 className="display text-4xl md:text-5xl mt-4">{i === 0 ? <em>{a.t}</em> : a.t}</h3>
+              <p className="mt-5 muted leading-relaxed max-w-sm">{a.b}</p>
             </li>
           ))}
         </ol>
@@ -251,7 +243,7 @@ export default function Home() {
         <div className="wrap">
         <div className="hr hr-ink draw" />
         <div className="grid12 pt-12 gap-y-10 items-end">
-          <h2 className="col-span-4 md:col-span-9 mega !text-[clamp(3.4rem,12vw,14rem)]">
+          <h2 className="col-span-4 md:col-span-9 mega">
             <Lines lines={['Have a business', <>worth <em>noticing?</em></>]} />
           </h2>
           <div className="col-span-4 md:col-span-3 fade d3">

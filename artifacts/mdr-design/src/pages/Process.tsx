@@ -24,7 +24,7 @@ export default function Process() {
           <Lines lines={['Listen.', <em key="s">Shape.</em>, 'Launch.']} start={0.15} />
         </h1>
         <div className="grid12 mt-10">
-          <p className="col-span-4 md:col-span-5 md:col-start-8 text-xl leading-relaxed fade d4">
+          <p className="col-span-4 md:col-span-5 md:col-start-8 text-lg leading-relaxed fade d4">
             Around eight weeks, one designer, no hand-offs. You’ll always know what’s happening and why.
           </p>
         </div>
@@ -41,12 +41,12 @@ export default function Process() {
           {steps.map((s) => (
             <Reveal as="li" key={s.n} className="grid12 gap-y-4 py-10 md:py-14 relative">
               <div className="hr draw absolute top-0 left-0" />
-              <span className="col-span-1 md:col-span-2 numeral text-[clamp(3.5rem,7vw,7rem)]">{s.n}</span>
+              <span className="col-span-1 md:col-span-2 numeral text-[clamp(2.8rem,4.5vw,4.5rem)]">{s.n}</span>
               <div className="col-span-3 md:col-span-2 fade d1">
                 <p className="label">{s.phase}</p>
                 <p className="mt-2 text-sm muted">{s.w}</p>
               </div>
-              <h2 className="col-span-4 md:col-span-4 display text-5xl md:text-6xl fade d2">{s.t}</h2>
+              <h2 className="col-span-4 md:col-span-4 display text-3xl md:text-4xl fade d2">{s.t}</h2>
               <div className="col-span-4 md:col-span-4 fade d3">
                 <p className="leading-relaxed muted">{s.b}</p>
                 <p className="mt-4 text-sm"><span className="label mr-3">You get</span>{s.out}</p>
@@ -59,7 +59,7 @@ export default function Process() {
       <Reveal as="section" className="band band-ink wrap pad">
         <div className="grid12 gap-y-8 items-end">
           <Label n="—" className="col-span-4 md:col-span-3">Next</Label>
-          <p className="col-span-4 md:col-span-6 serif text-4xl leading-tight"><Lines lines={[<>It starts with <em>one conversation.</em></>]} /></p>
+          <p className="col-span-4 md:col-span-6 serif text-3xl leading-tight"><Lines lines={[<>It starts with <em>one conversation.</em></>]} /></p>
           <Link href="/contact" className="col-span-4 md:col-span-3 btn btn-solid justify-between" data-testid="link-process-contact">Let’s talk <span className="arrow">→</span></Link>
         </div>
       </Reveal>

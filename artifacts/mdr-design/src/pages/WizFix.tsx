@@ -24,10 +24,10 @@ export default function WizFix() {
       <Reveal as="header" immediate className="band band-blue wrap pt-36 md:pt-44 pb-20">
         <p className="label fade d1"><span className="n">Case {c.number}</span>Selected Work</p>
         <div className="grid12 mt-8 gap-y-8 items-end">
-          <h1 className="col-span-4 md:col-span-9 mega" data-testid="text-case-title">
+          <h1 className="col-span-4 md:col-span-9 mega !text-[clamp(2.8rem,6.5vw,7rem)]" data-testid="text-case-title">
             <Lines lines={['WizFix', <em key="c">Computers</em>]} start={0.15} delayStep={0.15} />
           </h1>
-          <span aria-hidden="true" className="hidden md:block col-span-3 numeral text-[13rem] text-right">{c.number}</span>
+          <span aria-hidden="true" className="hidden md:block col-span-3 numeral text-[8rem] text-right">{c.number}</span>
         </div>
         <div className="hr hr-ink draw d3 mt-10" />
         <dl className="grid12 gap-y-6 pt-6">
@@ -39,7 +39,7 @@ export default function WizFix() {
           ))}
         </dl>
         <div className="grid12 mt-10">
-          <p className="col-span-4 md:col-span-6 text-xl leading-relaxed fade d5">{c.summary}</p>
+          <p className="col-span-4 md:col-span-6 text-lg leading-relaxed fade d5">{c.summary}</p>
           <div className="col-span-4 md:col-span-3 md:col-start-10 mt-8 md:mt-0 fade d6">
             <a href={c.liveUrl} target="_blank" rel="noopener noreferrer" className="btn w-full justify-between" data-testid="link-live-site">
               Visit live site <span className="arrow">↗</span>
@@ -64,7 +64,7 @@ export default function WizFix() {
             <p className="title">
               <Lines lines={[c.needed.statement]} />
             </p>
-            <p className="mt-8 text-xl max-w-2xl fade d3">{c.needed.supporting}</p>
+            <p className="mt-8 text-lg max-w-2xl fade d3">{c.needed.supporting}</p>
             {approvedQuote && (
               <figure className="mt-8">
                 <blockquote className="title">
@@ -81,7 +81,7 @@ export default function WizFix() {
       <Reveal as="section" className="band band-ivory wrap pad">
         <div className="grid12 gap-y-6">
           <Label n="02" className="col-span-4 md:col-span-3">What I heard</Label>
-          <p className="col-span-4 md:col-span-7 md:col-start-5 serif text-[clamp(1.7rem,2.8vw,2.5rem)] leading-tight">
+          <p className="col-span-4 md:col-span-7 md:col-start-5 serif text-[clamp(1.5rem,2.2vw,2rem)] leading-tight">
             <Lines lines={[c.heard.lead]} />
           </p>
         </div>
@@ -90,7 +90,7 @@ export default function WizFix() {
             <div key={p.title} className={`col-span-4 ${i === 0 ? 'md:col-start-5 md:col-span-4' : i === 1 ? 'md:col-span-4' : 'md:col-start-5 md:col-span-4'} relative pt-5 fade d${i + 2}`}>
               <div className="hr draw absolute top-0" />
               <p className="label"><span className="n">0{i + 1}</span></p>
-              <h3 className="display text-4xl mt-3"><em>{p.title}</em></h3>
+              <h3 className="display text-3xl mt-3"><em>{p.title}</em></h3>
               <p className="mt-4 muted leading-relaxed">{p.body}</p>
             </div>
           ))}
@@ -136,7 +136,7 @@ export default function WizFix() {
             </div>
             <p className="label mt-3">Fig. 04 — Across devices</p>
           </div>
-          <p className="col-span-4 md:col-span-3 md:col-start-10 serif text-2xl leading-snug fade d3">
+          <p className="col-span-4 md:col-span-3 md:col-start-10 serif text-xl leading-snug fade d3">
             Most customers meet the shop on a phone, in a hurry, with something broken. <em>It had to work there first.</em>
           </p>
         </div>
@@ -151,7 +151,7 @@ export default function WizFix() {
             {measuredResults.map((r, i) => (
               <div key={r.label} className={`py-8 md:pr-6 border-b md:border-b-0 border-[var(--rule)] ${i > 0 ? 'md:border-l md:pl-6' : ''}`} data-testid={`text-result-${i}`}>
                 <p className="label">{r.label}</p>
-                <p className="numeral text-7xl mt-4">{r.value ?? '—'}</p>
+                <p className="numeral text-6xl mt-4">{r.value ?? '—'}</p>
                 <p className="mt-3 text-sm muted">{r.note}</p>
               </div>
             ))}
