@@ -20,9 +20,11 @@ export function ConceptTag({ text = 'Concept placeholder' }: { text?: string }) 
 export function HeroArt() {
   return (
     <img
-      src={`${import.meta.env.BASE_URL}media/mdr-structure.webp`}
-      alt="Dimensional coral crescent sculpture with an ivory inner core and cutaway faces on a dark teal surface"
+      src={`${import.meta.env.BASE_URL}media/mdr-digital-system.webp`}
+      alt="Dimensional coral and ivory website and mobile-app panels connected by a shared base on a deep teal backdrop"
       className="frame-media"
+      width={1000}
+      height={1250}
       loading="eager"
       decoding="async"
     />

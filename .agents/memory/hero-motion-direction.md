@@ -14,3 +14,9 @@ Hero artwork should have striking impact and dimensional depth, rather than look
 **Why:** The owner requested “something else that has more striking impact without being ordinary or one dimensional.”
 
 **How to apply:** Apply this direction to new hero artwork, not to authentic project screenshots or other client materials.
+
+The hero artwork should reflect the studio's expanded mix of website design, branding and business apps while retaining its approved aesthetic and motion.
+
+**Why:** The owner liked the existing sculpture's aesthetic and motion but asked to change it to something that reflects the website better now.
+
+**How to apply:** Update the subject matter without replacing the drafting treatment or treating studio artwork as a real client interface.
