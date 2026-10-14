@@ -18,7 +18,7 @@ Danielle Crowder’s web design and branding portfolio for local businesses that
 - Pair heavy condensed Archivo caps with Instrument Serif italics; retain Instrument Sans for body text, square corners, strict grids and deliberate motion.
 - Hero imagery should demonstrate robust, three-dimensional design and structure, not the rejected flat storefront line drawing.
 - Portfolio chronology: Armada-Catering is the first website, built and sold in 2025; WizFix Computers is second, in 2026. These years follow the owner's requested ordering.
-- Treat Armada-Catering as a portfolio reference, without inventing results, a client testimonial or a case-study story. Do not describe WizFix as sold without confirmation.
+- Armada's case study covers Web Design + Brand Direction for a small Southern California catering company seeking a fresh direction for branding and networking. Ground it in the owner's brief and published website; do not invent results, testimonials or historical screenshots. Do not describe WizFix as sold without confirmation.
 - Avoid gradient blobs, glassmorphism, neon/purple gradients, bubbly cards, stock-photo people, emoji, icon grids, generic SaaS heroes and carousels.
 - Never present sample quotes, concept before/after images or placeholder results as verified client testimonials or measured outcomes.
 - WizFix needed a major redesign appropriate for the tech industry. The client has seen and likes the redesign direction; do not describe the sales-pitch stage publicly.

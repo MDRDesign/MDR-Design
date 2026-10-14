@@ -6,6 +6,7 @@ import { Shell } from '@/components/Layout';
 import { ScrollProgress } from '@/components/Chrome';
 import Home from '@/pages/Home';
 import WizFix from '@/pages/WizFix';
+import Armada from '@/pages/Armada';
 import Process from '@/pages/Process';
 import Services from '@/pages/Services';
 import Contact from '@/pages/Contact';
@@ -42,6 +43,7 @@ function Router() {
         <Switch>
           <Route path="/" component={Home} />
           <Route path="/work/wizfix" component={WizFix} />
+          <Route path="/work/armada-catering" component={Armada} />
           <Route path="/process" component={Process} />
           <Route path="/services" component={Services} />
           <Route path="/contact" component={Contact} />

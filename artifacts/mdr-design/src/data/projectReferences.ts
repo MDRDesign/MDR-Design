@@ -13,16 +13,7 @@ export type ProjectReference = {
 
 /** Public portfolio references. A reference does not imply a published case study. */
 export const projectReferences: ProjectReference[] = [
-  {
-    slug: 'armada-catering',
-    number: '01',
-    client: 'Armada-Catering',
-    disciplines: ['Web Design'],
-    year: '2025',
-    milestone: 'Built & sold',
-    liveUrl: 'https://www.armada-catering.com/',
-  },
-  ...cases.map(({ slug, number, client, disciplines, year, liveUrl }) => ({
-    slug, number, client, disciplines, year, liveUrl, casePath: `/work/${slug}`,
+  ...cases.map(({ slug, number, client, disciplines, year, milestone, liveUrl }) => ({
+    slug, number, client, disciplines, year, milestone, liveUrl, casePath: `/work/${slug}`,
   })),
 ];

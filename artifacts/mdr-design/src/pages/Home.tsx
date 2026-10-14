@@ -4,7 +4,7 @@ import { Reveal, Lines, Label } from '@/components/Reveal';
 import { SmartVideo } from '@/components/Media';
 import { HeroArt } from '@/components/Art';
 import { WizFixScreenshot } from '@/components/WizFixMedia';
-import { cases } from '@/data/cases';
+import { getCase } from '@/data/cases';
 import { projectReferences } from '@/data/projectReferences';
 import { routeMeta } from '@/data/routeMeta';
 import { useSeo } from '@/lib/seo';
@@ -22,7 +22,7 @@ export default function Home() {
   useEffect(() => {
     if (window.location.hash === '#work') setTimeout(() => document.getElementById('work')?.scrollIntoView(), 50);
   }, []);
-  const wiz = cases[0];
+  const wiz = getCase('wizfix')!;
 
   return (
     <>
@@ -104,6 +104,7 @@ export default function Home() {
                 <span role="cell" className="col-span-1 label !text-[var(--fg)]">{r.number}</span>
                 <span role="cell" className="col-span-3 md:col-span-4 serif text-xl md:text-2xl">
                   {r.client}
+                  <span className="mt-1 block font-sans text-xs muted md:hidden">{r.disciplines.join(' + ')}</span>
                   {r.milestone && <span className="mt-2 block font-sans text-xs muted">{r.milestone}<span className="md:hidden"> · {r.year}</span></span>}
                   {!r.milestone && r.year && <span className="mt-2 block font-sans text-xs muted md:hidden">{r.year}</span>}
                 </span>

@@ -6,6 +6,7 @@ import { previews } from "./src/data/previews";
 const pages: Record<string, [string, string]> = {
   "/": ["MDR Design — Web Design & Brand Identity", "Websites and brands for local businesses that deserve to look established. Danielle Crowder listens first, then designs a presence worth noticing."],
   "/work/wizfix": ["WizFix Computers — A Brand Story | MDR Design", "A web design and brand direction concept for WizFix Computers in Diamond Bar, CA. What Joey said, what Danielle heard, and what she built."],
+  "/work/armada-catering": ["Armada-Catering — Case Study · MDR Design", "Web design and brand direction for a small Southern California catering company seeking a fresh identity and a clearer presence for introductions and referrals."],
   "/process": ["Listen. Shape. Launch. — The Process | MDR Design", "From the first conversation to a considered launch. Explore Danielle Crowder’s approach to building websites and brands around your business."],
   "/services": ["Web Design & Branding Services | MDR Design", "Brand Starter, Website, or Brand + Website. Thoughtful design for local businesses ready for an established, credible presence. Start a conversation."],
   "/contact": ["Tell Me About Your Business | MDR Design", "Have a business worth noticing? Share your goals with Danielle Crowder at MDR Design and start a conversation about your website and brand."],

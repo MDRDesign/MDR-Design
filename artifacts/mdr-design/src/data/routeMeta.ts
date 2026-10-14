@@ -16,6 +16,10 @@ export const routeMeta: Record<string, RouteMeta> = {
     title: 'WizFix Computers — Case Study · MDR Design',
     description: 'Web design and brand direction for a Diamond Bar, CA computer repair, IT and printing shop: clarity, trust and discoverability.',
   },
+  '/work/armada-catering': {
+    title: 'Armada-Catering — Case Study · MDR Design',
+    description: 'Web design and brand direction for a small Southern California catering company seeking a fresh identity and a clearer presence for introductions and referrals.',
+  },
   '/process': {
     title: 'Process — Listen, Shape, Launch · MDR Design',
     description: 'From first conversation to launch day: how MDR Design turns what you say into a brand and website that work.',
