@@ -26,10 +26,10 @@ export default function Preview() {
         <span className="serif italic text-[1.6rem]">MDR</span>
         <span className="label">{isWizFix ? 'Unlisted project preview' : 'Unlisted concept preview'}</span>
       </Reveal>
-      <Reveal as="section" immediate className="pt-20 md:pt-32">
+      <Reveal as="section" immediate className="pt-14 md:pt-20">
         <p className="label fade d1"><span className="n">Prepared for {p.clientName}</span>{p.businessName}</p>
         <h1 className="mega mt-8" data-testid="text-preview-title">
-          <Lines lines={[`Prepared for ${p.clientName} —`, <em key="b">{p.businessName}</em>]} start={0.15} />
+          <Lines lines={[`Prepared for ${p.clientName}`, <em key="b">{`—\u00a0${p.businessName}`}</em>]} start={0.15} />
         </h1>
         <div className="hr hr-ink draw d3 mt-12" />
       </Reveal>

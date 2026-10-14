@@ -27,15 +27,15 @@ export default function Home() {
   return (
     <>
       {/* HERO */}
-      <Reveal as="section" immediate className="band band-blue pt-32 md:pt-36 pb-16 md:pb-24">
+      <Reveal as="section" immediate className="band band-blue pt-28 md:pt-32 pb-14 md:pb-20">
         <div className="wrap">
           <div className="grid12 gap-y-12 items-end">
             <div className="col-span-4 md:col-span-7 flex flex-col">
               <p className="label fade d1" data-testid="text-hero-label"><span className="n">MDR Design</span>— Web Design & Brand Identity</p>
-              <h1 className="mega mt-10 md:mt-16">
+              <h1 className="mega mt-8 md:mt-10">
                 <Lines lines={heroLines} start={0.2} delayStep={0.14} />
               </h1>
-              <div className="mt-12 md:mt-16 grid grid-cols-7 gap-6">
+              <div className="mt-10 grid grid-cols-7 gap-6">
                 <div className="col-span-7 md:col-span-5">
                   <div className="hr hr-ink draw d4 mb-6" />
                   <p className="text-lg leading-relaxed fade d5" data-testid="text-hero-promise">
@@ -91,7 +91,7 @@ export default function Home() {
           </div>
 
           {/* Index */}
-          <div className="mt-24" role="table" aria-label="Project index">
+          <div className="mt-16" role="table" aria-label="Project index">
             <div role="row" className="grid12 label pb-3 border-b border-[var(--fg)]">
               <span role="columnheader" className="col-span-1">No.</span>
               <span role="columnheader" className="col-span-3 md:col-span-4">Client</span>
@@ -102,7 +102,11 @@ export default function Home() {
             {projectReferences.map((r) => (
               <div key={r.slug} role="row" className="grid12 py-6 border-b border-[var(--rule)] items-baseline gap-y-3" data-testid={`row-case-${r.slug}`}>
                 <span role="cell" className="col-span-1 label !text-[var(--fg)]">{r.number}</span>
-                <span role="cell" className="col-span-3 md:col-span-4 serif text-xl md:text-2xl">{r.client}</span>
+                <span role="cell" className="col-span-3 md:col-span-4 serif text-xl md:text-2xl">
+                  {r.client}
+                  {r.milestone && <span className="mt-2 block font-sans text-xs muted">{r.milestone}<span className="md:hidden"> · {r.year}</span></span>}
+                  {!r.milestone && r.year && <span className="mt-2 block font-sans text-xs muted md:hidden">{r.year}</span>}
+                </span>
                 <span role="cell" className="hidden md:block md:col-span-3 muted text-sm">{r.disciplines.join(' + ')}</span>
                 <span role="cell" className="hidden md:block md:col-span-1 text-sm tabular-nums">{r.year ?? <span aria-label="Year not listed">—</span>}</span>
                 <span role="cell" className="col-span-3 col-start-2 md:col-span-3 flex gap-6 md:justify-end label !text-[var(--fg)]">
@@ -128,7 +132,7 @@ export default function Home() {
             <Lines lines={[<>The best brief is the one you <em>say out loud.</em></>]} />
           </p>
         </div>
-        <ol className="mt-16 grid12 gap-y-14">
+        <ol className="mt-12 grid12 gap-y-10">
           {approach.map((a, i) => (
             <li key={a.n} className={`col-span-4 md:col-span-4 relative pt-6 fade d${i + 2}`}>
               <div className="hr hr-ink draw absolute top-0" />
@@ -138,7 +142,7 @@ export default function Home() {
             </li>
           ))}
         </ol>
-        <Link href="/process" className="ulink label !text-[var(--fg)] inline-block mt-14" data-testid="link-process">The full process <span className="arrow">→</span></Link>
+        <Link href="/process" className="ulink label !text-[var(--fg)] inline-block mt-10" data-testid="link-process">The full process <span className="arrow">→</span></Link>
         </div>
       </Reveal>
 

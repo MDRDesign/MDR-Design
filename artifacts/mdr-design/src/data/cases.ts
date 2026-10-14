@@ -27,7 +27,7 @@ export type CaseStudy = {
 export const cases: CaseStudy[] = [
   {
     slug: 'wizfix',
-    number: '01',
+    number: '02',
     client: 'WizFix Computers',
     location: 'Diamond Bar, CA',
     disciplines: ['Web Design', 'Brand Direction'],

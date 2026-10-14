@@ -18,7 +18,7 @@ export default function Process() {
   useSeo(routeMeta['/process'], '/process');
   return (
     <>
-      <Reveal as="header" immediate className="band band-crimson wrap pt-36 md:pt-44 pb-20">
+      <Reveal as="header" immediate className="band band-crimson wrap pt-28 md:pt-32 pb-14 md:pb-16">
         <p className="label fade d1"><span className="n">Process</span>Discovery to launch</p>
         <h1 className="mega mt-8">
           <Lines lines={['Listen.', <em key="s">Shape.</em>, 'Launch.']} start={0.15} />

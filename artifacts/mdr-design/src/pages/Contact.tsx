@@ -78,7 +78,7 @@ export default function Contact() {
 
   if (success) {
     return (
-      <Reveal as="section" immediate className="band band-blue wrap min-h-[80dvh] pt-40 pb-20">
+      <Reveal as="section" immediate className="band band-blue wrap min-h-[70dvh] pt-32 pb-16">
         <p className="label fade d1"><span className="n">Received</span>Thank you</p>
         <h1 className="mega mt-8"><Lines lines={['Noted —', <em key="w">with care.</em>]} start={0.1} /></h1>
         <p className="mt-10 max-w-xl serif text-xl leading-snug whitespace-pre-line fade d4" data-testid="text-success" role="status">{success}</p>
@@ -92,7 +92,7 @@ export default function Contact() {
 
   return (
     <>
-      <Reveal as="header" immediate className="band band-blue wrap pt-36 md:pt-44 pb-20">
+      <Reveal as="header" immediate className="band band-blue wrap pt-28 md:pt-32 pb-14 md:pb-16">
         <p className="label fade d1"><span className="n">Contact</span>Start a conversation</p>
         <div className="grid12 mt-8 gap-y-8 items-end">
           <h1 className="col-span-4 md:col-span-9 mega">

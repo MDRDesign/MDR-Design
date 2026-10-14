@@ -3,7 +3,7 @@ import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { Route, Switch, useLocation, Router as WouterRouter } from 'wouter';
 import { ErrorBoundary } from '@/components/error-boundary';
 import { Shell } from '@/components/Layout';
-import { Intro, RouteWipe, ScrollProgress } from '@/components/Chrome';
+import { ScrollProgress } from '@/components/Chrome';
 import Home from '@/pages/Home';
 import WizFix from '@/pages/WizFix';
 import Process from '@/pages/Process';
@@ -59,8 +59,6 @@ function App() {
         <ScrollTop />
         <Router />
         <ScrollProgress />
-        <RouteWipe />
-        <Intro />
       </WouterRouter>
     </QueryClientProvider>
   );

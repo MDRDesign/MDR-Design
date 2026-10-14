@@ -13,7 +13,7 @@ export default function Services() {
   useSeo(routeMeta['/services'], '/services');
   return (
     <>
-      <Reveal as="header" immediate className="band band-ink wrap pt-36 md:pt-44 pb-20">
+      <Reveal as="header" immediate className="band band-ink wrap pt-28 md:pt-32 pb-14 md:pb-16">
         <p className="label fade d1"><span className="n">Services</span>Three ways in</p>
         <h1 className="mega mt-8">
           <Lines lines={['Choose a door.', <>I’ll <em>listen</em> either way.</>]} start={0.15} />

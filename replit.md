@@ -10,12 +10,15 @@ Danielle Crowder’s web design and branding portfolio for local businesses that
 - Prioritize a polished Home page and WizFix case study over additional features.
 - The user wants sophisticated, classy, clean-lined editorial design that is sharp, high-impact and attention-demanding, like a confident art-gallery or fashion-house identity—not a quiet template.
 - The latest refinement is deliberate and restrained: the user found the accumulated effects “too obnoxious and a bit messy.” Do not equate visual impact with more effects or oversized typography.
+- Designjoy is a reference for clarity, directness and hierarchy—not a design to copy. Keep MDR's own identity and project-based studio positioning; do not borrow subscription pricing, claims or graphics.
+- Favor immediate access to the offer, real work and inquiry action over intro screens and route-covering animations.
 - Colored backgrounds should dominate; ivory is a breather. The user clarified that “bold” means design, typography and the location of wording across the site, not excessively large fonts.
 - Dial back the electric blue to dark blue-teal with subtle color shifts and a restrained heartbeat-like highlight passing across the MDR Design name. This supersedes the Klein Blue direction.
 - Retain ink #0E0E0E, ivory #F4F1EA and crimson #B3261E alongside dark blue-teal. Reduce typography sizes overall while keeping strong weight and thoughtful composition.
 - Pair heavy condensed Archivo caps with Instrument Serif italics; retain Instrument Sans for body text, square corners, strict grids and deliberate motion.
 - Hero imagery should demonstrate robust, three-dimensional design and structure, not the rejected flat storefront line drawing.
-- The studio also built the Armada-Catering website. Treat it as a portfolio reference, without inventing a launch year, results, client testimonial or case-study story.
+- Portfolio chronology: Armada-Catering is the first website, built and sold in 2025; WizFix Computers is second, in 2026. These years follow the owner's requested ordering.
+- Treat Armada-Catering as a portfolio reference, without inventing results, a client testimonial or a case-study story. Do not describe WizFix as sold without confirmation.
 - Avoid gradient blobs, glassmorphism, neon/purple gradients, bubbly cards, stock-photo people, emoji, icon grids, generic SaaS heroes and carousels.
 - Never present sample quotes, concept before/after images or placeholder results as verified client testimonials or measured outcomes.
 - WizFix needed a major redesign appropriate for the tech industry. The client has seen and likes the redesign direction; do not describe the sales-pitch stage publicly.

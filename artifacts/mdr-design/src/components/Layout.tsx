@@ -63,14 +63,14 @@ export function Header() {
   return (
     <header className="chrome-ink absolute inset-x-0 top-0 z-40">
       <a href="#main" className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 bg-[var(--bg)] px-3 py-2">Skip to content</a>
-      <div className="wrap flex items-center justify-between py-6 md:py-8">
+      <div className="wrap flex items-center justify-between py-5 md:py-6">
         <Wordmark />
         <nav aria-label="Primary" className="hidden md:block">
-          <ul className="label !text-[var(--fg)] flex gap-10 !text-[0.75rem]">
+          <ul className="label !text-[var(--fg)] flex items-center gap-9 !text-[0.75rem]">
             {NAV.map((n) => (
-              <li key={n.href}>
-                <Link href={n.href} onClick={(e: MouseEvent) => go(e, n.href)} className="ulink" aria-current={loc === n.href ? 'page' : undefined} data-testid={`link-nav-${n.label.toLowerCase()}`}>
-                  {n.label}
+              <li key={n.href} className="flex items-center">
+                <Link href={n.href} onClick={(e: MouseEvent) => go(e, n.href)} className={n.href === '/contact' ? 'btn nav-cta' : 'ulink'} aria-current={loc === n.href ? 'page' : undefined} data-testid={`link-nav-${n.label.toLowerCase()}`}>
+                  {n.href === '/contact' ? <>Start a project <span className="arrow">→</span></> : n.label}
                 </Link>
               </li>
             ))}
@@ -88,7 +88,7 @@ export function Header() {
         <div className="hr" />
         <nav aria-label="Mobile" className="wrap flex-1 flex flex-col justify-center">
           {NAV.map((n, i) => (
-            <Link key={n.href} href={n.href} onClick={(e: MouseEvent) => go(e, n.href, () => setOpen(false))} className="display text-[2.6rem] py-3 border-b border-[var(--rule)] flex items-baseline justify-between" data-testid={`link-mobile-${n.label.toLowerCase()}`}>
+            <Link key={n.href} href={n.href} onClick={(e: MouseEvent) => go(e, n.href, () => setOpen(false))} className="display text-[2rem] py-4 border-b border-[var(--rule)] flex items-baseline justify-between" data-testid={`link-mobile-${n.label.toLowerCase()}`}>
               <span>{i === 3 ? <em>{n.label}</em> : n.label}</span>
               <span className="label">0{i + 1}</span>
             </Link>
@@ -125,7 +125,7 @@ function LaTime() {
 export function Footer() {
   const go = useWorkLink();
   return (
-    <footer className="band band-ink pt-20 md:pt-28 pb-8">
+    <footer className="band band-ink pt-16 md:pt-20 pb-8">
       <div className="wrap">
         <div className="grid12 gap-y-10">
           <div className="col-span-4 md:col-span-5">
@@ -144,7 +144,7 @@ export function Footer() {
           </div>
         </div>
       </div>
-      <div className="wrap mt-16 md:mt-24"><p className="foot-mark hb" aria-hidden="true" style={{ ['--hb-w' as string]: '54vw' }}>MDR <em>Design</em></p></div>
+      <div className="wrap mt-12 md:mt-16"><p className="foot-mark hb" aria-hidden="true" style={{ ['--hb-w' as string]: '54vw' }}>MDR <em>Design</em></p></div>
       <div className="wrap mt-8 flex justify-between label">
         <span>© {new Date().getFullYear()} MDR Design</span>
         <span>Catalogue No. 01</span>

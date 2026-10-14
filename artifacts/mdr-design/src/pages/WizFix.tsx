@@ -20,7 +20,7 @@ export default function WizFix() {
 
   return (
     <article>
-      <Reveal as="header" immediate className="band band-blue wrap pt-36 md:pt-44 pb-20">
+      <Reveal as="header" immediate className="band band-blue wrap pt-28 md:pt-32 pb-14 md:pb-16">
         <p className="label fade d1"><span className="n">Case {c.number}</span>Selected Work</p>
         <div className="grid12 mt-8 gap-y-8 items-end">
           <h1 className="col-span-4 md:col-span-9 mega" data-testid="text-case-title">
