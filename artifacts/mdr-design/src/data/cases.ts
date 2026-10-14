@@ -3,8 +3,8 @@
  * - `year`: change to the real launch year.
  * - `results`: placeholders only. Replace `value` with a real, verifiable figure
  *   (or delete the row). Never publish invented numbers.
- * - `quote.isSample`: keep `true` until Joey approves a real quote, then paste his
- *   exact words in `quote.text` and set `isSample: false`.
+ * - `quote`: hidden until `text` contains Joey's approved words and `isSample`
+ *   is false. Never insert an unapproved testimonial.
  */
 export type CaseResult = { label: string; value: string | null; note: string };
 
@@ -17,6 +17,7 @@ export type CaseStudy = {
   year: string;
   liveUrl: string;
   summary: string;
+  needed: { statement: string; supporting: string };
   quote: { text: string; attribution: string; isSample: boolean };
   heard: { lead: string; points: { title: string; body: string }[] };
   built: { title: string; body: string }[];
@@ -30,12 +31,16 @@ export const cases: CaseStudy[] = [
     client: 'WizFix Computers',
     location: 'Diamond Bar, CA',
     disciplines: ['Web Design', 'Brand Direction'],
-    year: 'Year TBD',
+    year: '2026',
     liveUrl: 'https://wiz-fix-computers-website.replit.app',
     summary:
       'A neighborhood computer repair, IT and printing shop that had earned its reputation in person — and needed a presence that said so before anyone walked in.',
+    needed: {
+      statement: 'A major redesign — one that finally looks like it belongs in the tech industry.',
+      supporting: 'WizFix had the expertise. The brand needed to look as capable as the people behind the counter.',
+    },
     quote: {
-      text: 'People trust us once they’re standing at the counter. I want them to feel that before they ever call.',
+      text: '',
       attribution: 'Joey, WizFix Computers',
       isSample: true,
     },

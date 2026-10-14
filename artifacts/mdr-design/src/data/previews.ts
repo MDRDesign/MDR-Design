@@ -21,7 +21,7 @@ export const previews: Preview[] = [
     clientName: 'Joey',
     businessName: 'WizFix Computers',
     note:
-      'Joey — I’ve prepared a direction that makes it easier for someone new to understand WizFix: computer repair, IT, and printing, clearly presented as one local business. These are concepts, not finished work. I’d love to hear what feels right, what doesn’t, and what matters most to your customers. — Danielle',
+      "Joey — here's the redesign direction for WizFix, all in one place. Repair, IT and printing, presented as the established tech business you already are. Take a look, share it with anyone whose opinion matters, and let me know when you're ready to move forward. — Danielle",
     images: [
       { src: 'media/wizfix-mockup.jpg', caption: 'Homepage direction — concept' },
     ],

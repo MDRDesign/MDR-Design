@@ -19,19 +19,21 @@ export default function Preview() {
 
   return (
     <main id="main" className="min-h-[100dvh]">
-      <Reveal as="header" immediate className="wrap pt-8 flex justify-between items-baseline fade">
-        <span className="serif text-[1.65rem]">MDR</span>
+      <div className="band band-blue wrap pb-20">
+      <Reveal as="header" immediate className="pt-8 flex justify-between items-baseline fade">
+        <span className="serif italic text-[1.85rem]">MDR</span>
         <span className="label">Unlisted concept preview</span>
       </Reveal>
-      <Reveal as="section" immediate className="wrap pt-20 md:pt-32">
+      <Reveal as="section" immediate className="pt-20 md:pt-32">
         <p className="label fade d1"><span className="n">Prepared for {p.clientName}</span>{p.businessName}</p>
-        <h1 className="display text-[clamp(3rem,9vw,9rem)] mt-8" data-testid="text-preview-title">
+        <h1 className="mega !text-[clamp(3.2rem,12vw,14rem)] mt-8" data-testid="text-preview-title">
           <Lines lines={[`Prepared for ${p.clientName} —`, <em key="b">{p.businessName}</em>]} start={0.15} />
         </h1>
         <div className="hr hr-ink draw d3 mt-12" />
       </Reveal>
+      </div>
 
-      <section className="wrap mt-12 space-y-16">
+      <section className="band band-ink wrap pad space-y-16">
         {p.images.map((img, i) => (
           <Reveal key={img.src} as="figure">
             <div className="frame wipe aspect-[4/3] md:aspect-[16/9] border border-[var(--rule)]" data-cursor="view">
@@ -47,14 +49,14 @@ export default function Preview() {
         </Reveal>
       </section>
 
-      <Reveal as="section" className="wrap pt-24 md:pt-36">
+      <Reveal as="section" className="band band-ivory wrap pad">
         <div className="grid12 gap-y-6">
           <p className="label col-span-4 md:col-span-3"><span className="n">A note</span>from Danielle</p>
           <p className="col-span-4 md:col-span-7 md:col-start-5 serif text-[clamp(1.6rem,2.6vw,2.3rem)] leading-snug fade d2" data-testid="text-preview-note">{p.note}</p>
         </div>
       </Reveal>
 
-      <Reveal as="section" className="wrap py-24 md:py-36">
+      <Reveal as="section" className="band band-blue wrap pad">
         <div className="hr hr-ink draw" />
         <div className="grid12 pt-12 gap-y-6 items-end">
           <div className="col-span-4 md:col-span-6 md:col-start-5 fade d2">
@@ -62,7 +64,7 @@ export default function Preview() {
               I’m interested — let’s talk. <span className="arrow">→</span>
             </Link>
             {p.liveUrl && (
-              <a href={p.liveUrl} target="_blank" rel="noopener noreferrer" className="ulink mt-6 inline-block text-sm muted" data-testid="link-preview-live">See the current build ↗</a>
+              <a href={p.liveUrl} target="_blank" rel="noopener noreferrer" className="ulink mt-6 inline-block text-base muted" data-testid="link-preview-live">See the current build ↗</a>
             )}
           </div>
         </div>

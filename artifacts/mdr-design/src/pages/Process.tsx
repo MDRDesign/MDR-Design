@@ -18,25 +18,25 @@ export default function Process() {
   useSeo(routeMeta['/process'], '/process');
   return (
     <>
-      <Reveal as="header" immediate className="wrap pt-36 md:pt-44">
+      <Reveal as="header" immediate className="band band-crimson wrap pt-36 md:pt-44 pb-20">
         <p className="label fade d1"><span className="n">Process</span>Discovery to launch</p>
-        <h1 className="display text-[clamp(3.2rem,9vw,9rem)] mt-8">
+        <h1 className="mega mt-8">
           <Lines lines={['Listen.', <em key="s">Shape.</em>, 'Launch.']} start={0.15} />
         </h1>
         <div className="grid12 mt-10">
-          <p className="col-span-4 md:col-span-5 md:col-start-8 text-lg leading-relaxed fade d4">
+          <p className="col-span-4 md:col-span-5 md:col-start-8 text-xl leading-relaxed fade d4">
             Around eight weeks, one designer, no hand-offs. You’ll always know what’s happening and why.
           </p>
         </div>
       </Reveal>
 
-      <Reveal as="section" className="wrap mt-16">
+      <Reveal as="section" className="band band-ink wrap pad">
         <div className="frame wipe aspect-[16/10] md:aspect-[16/6] border border-[var(--rule)]">
           <SmartVideo src="media/process-texture.mp4" label="Process texture film" fallback={<ProcessTexture />} />
         </div>
       </Reveal>
 
-      <section className="wrap pt-24 md:pt-36" aria-label="Timeline">
+      <section className="band band-ivory wrap pad" aria-label="Timeline">
         <ol>
           {steps.map((s) => (
             <Reveal as="li" key={s.n} className="grid12 gap-y-4 py-10 md:py-14 relative">
@@ -46,7 +46,7 @@ export default function Process() {
                 <p className="label">{s.phase}</p>
                 <p className="mt-2 text-sm muted">{s.w}</p>
               </div>
-              <h2 className="col-span-4 md:col-span-4 display text-4xl md:text-5xl fade d2">{s.t}</h2>
+              <h2 className="col-span-4 md:col-span-4 display text-5xl md:text-6xl fade d2">{s.t}</h2>
               <div className="col-span-4 md:col-span-4 fade d3">
                 <p className="leading-relaxed muted">{s.b}</p>
                 <p className="mt-4 text-sm"><span className="label mr-3">You get</span>{s.out}</p>
@@ -56,7 +56,7 @@ export default function Process() {
         </ol>
       </section>
 
-      <Reveal as="section" className="wrap pt-20">
+      <Reveal as="section" className="band band-ink wrap pad">
         <div className="grid12 gap-y-8 items-end">
           <Label n="—" className="col-span-4 md:col-span-3">Next</Label>
           <p className="col-span-4 md:col-span-6 serif text-4xl leading-tight"><Lines lines={[<>It starts with <em>one conversation.</em></>]} /></p>

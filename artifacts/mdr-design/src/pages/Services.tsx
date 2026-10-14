@@ -13,23 +13,23 @@ export default function Services() {
   useSeo(routeMeta['/services'], '/services');
   return (
     <>
-      <Reveal as="header" immediate className="wrap pt-36 md:pt-44">
+      <Reveal as="header" immediate className="band band-ink wrap pt-36 md:pt-44 pb-20">
         <p className="label fade d1"><span className="n">Services</span>Three ways in</p>
-        <h1 className="display text-[clamp(3rem,8vw,8.5rem)] mt-8 max-w-[14ch]">
+        <h1 className="mega mt-8">
           <Lines lines={['Choose a door.', <>I’ll <em>listen</em> either way.</>]} start={0.15} />
         </h1>
         <p className="mt-8 max-w-xl text-lg muted fade d4">Every project is scoped after we talk — so there are no price tags here, only a starting point.</p>
       </Reveal>
-      <Reveal as="section" className="wrap mt-20">
+      <Reveal as="section" className="band band-ivory wrap pad">
         <div className="hr hr-ink draw" />
         <div className="grid grid-cols-1 md:grid-cols-3">
           {services.map((s, i) => (
             <article key={s.n} className={`py-10 md:px-8 flex flex-col border-b md:border-b-0 border-[var(--rule)] ${i > 0 ? 'md:border-l' : 'md:pl-0'} fade d${i + 2}`} data-testid={`card-service-${i}`}>
               <span className="numeral text-[7rem]">{s.n}</span>
-              <h2 className="display text-5xl mt-6">{i === 2 ? <>Brand <em>+</em> Website</> : s.name}</h2>
+              <h2 className="display text-6xl md:text-7xl mt-6">{i === 2 ? <>Brand <em>+</em> Website</> : s.name}</h2>
               <p className="serif text-xl italic mt-4 muted">{s.lede}</p>
               <ul className="mt-8 flex-1">
-                {s.items.map((it) => <li key={it} className="py-3 border-t border-[var(--rule)] text-sm">{it}</li>)}
+                {s.items.map((it) => <li key={it} className="py-3 border-t border-[var(--rule)] text-base">{it}</li>)}
               </ul>
               <Link href={`/contact?need=${encodeURIComponent(s.need)}`} className="btn mt-10 justify-between" data-testid={`link-inquire-${i}`}>
                 Inquire <span className="arrow">→</span>

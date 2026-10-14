@@ -1,6 +1,7 @@
 import { Router, type IRouter } from "express";
 import { db, inquiriesTable } from "@workspace/db";
 import { CreateInquiryBody, CreateInquiryResponse } from "@workspace/api-zod";
+import { sendInquiryNotification } from "../lib/inquiry-notifications";
 
 const router: IRouter = Router();
 const attempts = new Map<string, { count: number; expires: number }>();
@@ -45,13 +46,29 @@ router.post("/inquiries", async (req, res): Promise<void> => {
       return;
     }
   }
+  const storedData = { ...data, website: data.website || null, source: data.source || null };
+  let inquiryId: number;
   try {
-    await db.insert(inquiriesTable).values({ ...data, website: data.website || null, source: data.source || null });
-    res.status(201).json(CreateInquiryResponse.parse(confirmation));
+    const [inquiry] = await db.insert(inquiriesTable).values(storedData).returning({ id: inquiriesTable.id });
+    inquiryId = inquiry.id;
   } catch (error) {
     req.log.error({ err: error }, "Inquiry storage failed");
     res.status(503).json({ error: "Your inquiry could not be saved. Please try again shortly." });
+    return;
   }
+  // Notification errors must never undo a saved inquiry or encourage a duplicate submission.
+  try {
+    const result = await sendInquiryNotification(storedData, inquiryId);
+    if (result.ok) {
+      req.log.info({ inquiryId, emailId: result.emailId }, "Inquiry notification accepted");
+    } else {
+      req.log.warn({ inquiryId, status: result.status, reason: result.reason }, "Inquiry saved; notification not accepted");
+    }
+  } catch {
+    // Do not log request data, connector credentials, or provider error bodies.
+    req.log.warn({ inquiryId }, "Inquiry saved; notification unavailable");
+  }
+  res.status(201).json(CreateInquiryResponse.parse(confirmation));
 });
 
 export default router;

@@ -78,9 +78,9 @@ export default function Contact() {
 
   if (success) {
     return (
-      <Reveal as="section" immediate className="wrap min-h-[80dvh] pt-40 pb-20">
+      <Reveal as="section" immediate className="band band-blue wrap min-h-[80dvh] pt-40 pb-20">
         <p className="label fade d1"><span className="n">Received</span>Thank you</p>
-        <h1 className="display text-[clamp(3rem,8vw,8rem)] mt-8"><Lines lines={['Noted —', <em key="w">with care.</em>]} start={0.1} /></h1>
+        <h1 className="mega mt-8"><Lines lines={['Noted —', <em key="w">with care.</em>]} start={0.1} /></h1>
         <p className="mt-10 max-w-xl serif text-2xl leading-snug whitespace-pre-line fade d4" data-testid="text-success" role="status">{success}</p>
       </Reveal>
     );
@@ -92,19 +92,19 @@ export default function Contact() {
 
   return (
     <>
-      <Reveal as="header" immediate className="wrap pt-36 md:pt-44">
+      <Reveal as="header" immediate className="band band-blue wrap pt-36 md:pt-44 pb-20">
         <p className="label fade d1"><span className="n">Contact</span>Start a conversation</p>
         <div className="grid12 mt-8 gap-y-8 items-end">
-          <h1 className="col-span-4 md:col-span-8 display text-[clamp(3rem,8vw,8.5rem)]">
+          <h1 className="col-span-4 md:col-span-9 mega !text-[clamp(3.4rem,13vw,15rem)]">
             <Lines lines={['Have a business', <>worth <em>noticing?</em></>, 'Let’s talk.']} start={0.15} />
           </h1>
-          <p className="col-span-4 md:col-span-3 md:col-start-10 muted fade d4">
+          <p className="col-span-4 md:col-span-3 md:col-start-10 text-lg fade d4">
             {source?.startsWith('preview') ? `Following up on your concept preview${client ? `, ${client}` : ''}. Tell me what felt right.` : 'Tell me about it in your own words. I read every note personally. Let’s start with what matters to your business.'}
           </p>
         </div>
       </Reveal>
 
-      <Reveal as="section" className="wrap mt-16">
+      <Reveal as="section" className="band band-ivory wrap pad">
         <div className="hr hr-ink draw" />
         <form noValidate onSubmit={submit} className="grid12 gap-y-10 pt-12" data-testid="form-inquiry">
           <div className="hidden" aria-hidden="true">
