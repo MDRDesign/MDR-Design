@@ -8,10 +8,10 @@ import { useSeo } from '@/lib/seo';
 const steps = [
   { n: '01', phase: 'Listen', t: 'Discovery conversation', w: 'Week 1', b: 'An unhurried call or visit. Your story, your customers, your competitors, what you’d fix if you could. I take notes; you talk.', out: 'Written summary of what I heard' },
   { n: '02', phase: 'Listen', t: 'Audit & landscape', w: 'Week 1–2', b: 'A look at your current presence, your search footprint and the shops your customers compare you to.', out: 'Short audit with priorities' },
-  { n: '03', phase: 'Shape', t: 'Direction', w: 'Week 2–3', b: 'Two focused visual directions — type, color, voice, structure — each tied back to something you said.', out: 'Direction boards, one chosen' },
-  { n: '04', phase: 'Shape', t: 'Design & words', w: 'Week 3–5', b: 'Brand marks and page designs refined together, with copy written to sound like you on a good day.', out: 'Full designs, two revision rounds' },
-  { n: '05', phase: 'Launch', t: 'Build', w: 'Week 5–7', b: 'A fast, accessible site built properly, with local search foundations and the details most templates skip.', out: 'Staging site to review' },
-  { n: '06', phase: 'Launch', t: 'Launch & handover', w: 'Week 7–8', b: 'Go-live, a walkthrough, and brand files organized so you can actually use them.', out: 'Live site, brand kit, guide' },
+  { n: '03', phase: 'Shape', t: 'Direction', w: 'Week 2–3', b: 'A focused direction for your identity, website or app — including how customers and staff move through it — tied back to what you said.', out: 'Visual direction & workflow plan' },
+  { n: '04', phase: 'Shape', t: 'Design & words', w: 'Week 3–5', b: 'Brand marks, pages or app screens refined with you, with clear wording and interactions that make sense.', out: 'Full designs, two revision rounds' },
+  { n: '05', phase: 'Launch', t: 'Build', w: 'Week 5–7', b: 'A fast, accessible website or business app, with the right foundations for search, data and everyday use.', out: 'Working build to review' },
+  { n: '06', phase: 'Launch', t: 'Launch & handover', w: 'Week 7–8', b: 'Go-live, a walkthrough, and the files and guidance you need to use your brand, website or app confidently.', out: 'Finished work, files & guide' },
 ];
 
 export default function Process() {
@@ -25,7 +25,7 @@ export default function Process() {
         </h1>
         <div className="grid12 mt-10">
           <p className="col-span-4 md:col-span-5 md:col-start-8 text-lg leading-relaxed fade d4">
-            Around eight weeks, one designer, no hand-offs. You’ll always know what’s happening and why.
+            One point of contact, from discovery to launch. The timeline below is a guide; business app scope and timing are agreed together.
           </p>
         </div>
       </Reveal>

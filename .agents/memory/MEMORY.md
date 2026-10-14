@@ -7,3 +7,4 @@
 - [Approved hero motion](hero-motion-direction.md) — the owner loves the top-right drafting animation; preserve it when replacing the artwork.
 - [Editorial italics](editorial-italic-treatment.md) — include Approach and red-band italics; sweeps must visibly affect the lettering, not just exist in CSS.
 - [Public attribution](public-attribution.md) — the owner wants initials only on the site, including notes and metadata.
+- [Service positioning](service-positioning.md) — business app development belongs alongside websites and branding, with no added clutter.

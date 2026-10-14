@@ -94,7 +94,7 @@ export function Header() {
             </Link>
           ))}
         </nav>
-        <p className="wrap pb-10 label">MDR Design — Web Design & Brand Identity</p>
+        <p className="wrap pb-10 label">MDR Design — Websites · Apps · Branding</p>
       </div>
     </header>
   );
@@ -139,7 +139,7 @@ export function Footer() {
           </nav>
           <div className="col-span-2 md:col-span-3 md:col-start-10 flex flex-col gap-3 text-base muted">
             <p className="text-[var(--fg)]">D.C.</p>
-            <p>Web Design & Brand Identity for local businesses.</p>
+            <p>Web design, business app development & branding for local businesses.</p>
             <ThemeToggle />
           </div>
         </div>

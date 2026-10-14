@@ -11,8 +11,8 @@ export const DEFAULT_OG_IMAGE = '/media/og-image.png';
 
 export const routeMeta: Record<string, RouteMeta> = {
   '/': {
-    title: 'MDR Design — Web Design & Brand Identity for Local Businesses',
-    description: 'Websites and brands for local businesses that deserve to look established. D.C. listens first, then builds the presence you’ve earned.',
+    title: 'MDR Design — Websites, Business Apps & Branding',
+    description: 'Websites, business apps and brands for local businesses that deserve to look established. D.C. listens first, then builds what your business needs.',
   },
   '/work/wizfix': {
     title: 'WizFix Computers — Case Study · MDR Design',
@@ -28,15 +28,15 @@ export const routeMeta: Record<string, RouteMeta> = {
   },
   '/process': {
     title: 'Process — Listen, Shape, Launch · MDR Design',
-    description: 'From first conversation to launch day: how MDR Design turns what you say into a brand and website that work.',
+    description: 'From first conversation to launch day: how MDR Design turns what you say into a brand, website or business app that works.',
   },
   '/services': {
-    title: 'Services — Brand Starter, Website, Brand + Website · MDR Design',
-    description: 'Three ways to work together. Brand identity, websites, or both — built for local businesses.',
+    title: 'Services — Branding, Websites & Business Apps · MDR Design',
+    description: 'Brand identity, website design and custom business app development for local businesses. One service, or one connected launch.',
   },
   '/contact': {
     title: 'Contact — Let’s talk · MDR Design',
-    description: 'Have a business worth noticing? Tell D.C. about it.',
+    description: 'Tell D.C. what your business needs: branding, a website or a custom business app.',
   },
   '/preview/:slug': {
     title: 'A concept, prepared for you · MDR Design',

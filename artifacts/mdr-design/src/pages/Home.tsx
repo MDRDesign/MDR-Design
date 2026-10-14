@@ -10,8 +10,8 @@ import { useSeo } from '@/lib/seo';
 
 const approach = [
   { n: '01', t: 'Listen', b: 'We start with a conversation, not a questionnaire. What you’re proud of, what customers misunderstand, what keeps you up. Most of the brand is already in the room.' },
-  { n: '02', t: 'Shape', b: 'I turn what I heard into a visual direction — type, color, words, structure — and show you why each choice serves your customer.' },
-  { n: '03', t: 'Launch', b: 'A finished brand and site, built properly, handed over with care. You walk away looking like the business you already are.' },
+  { n: '02', t: 'Shape', b: 'I turn what I heard into a clear direction — identity, pages, or app workflows — and show you why each choice serves your customer.' },
+  { n: '03', t: 'Launch', b: 'A brand, website or business app, built properly and handed over with care. You leave with something that looks right and works for your business.' },
 ];
 
 const heroLines: ReactNode[] = ['Your business,', <><em className="hb hb-word">finally</em> looking</>, 'like it means it.'];
@@ -31,7 +31,7 @@ export default function Home() {
         <div className="wrap">
           <div className="grid12 gap-y-12 items-end">
             <div className="col-span-4 md:col-span-7 flex flex-col">
-              <p className="label fade d1" data-testid="text-hero-label"><span className="n">MDR Design</span>— Web Design & Brand Identity</p>
+              <p className="label fade d1" data-testid="text-hero-label"><span className="n">MDR Design</span>— Websites · Apps · Branding</p>
               <h1 className="mega mt-8 md:mt-10">
                 <Lines lines={heroLines} start={0.2} delayStep={0.14} />
               </h1>
@@ -39,7 +39,7 @@ export default function Home() {
                 <div className="col-span-7 md:col-span-5">
                   <div className="hr hr-ink draw d4 mb-6" />
                   <p className="text-lg leading-relaxed fade d5" data-testid="text-hero-promise">
-                    Websites and brands for local businesses that deserve to look established.
+                    Websites, business apps and brands for local businesses that deserve to look established.
                   </p>
                   <div className="mt-8 flex flex-wrap gap-8 items-center fade d6">
                     <Link href="/contact" className="btn" data-testid="link-hero-contact">Start a conversation <span className="arrow">→</span></Link>

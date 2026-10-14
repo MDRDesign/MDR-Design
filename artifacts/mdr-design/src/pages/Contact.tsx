@@ -5,7 +5,7 @@ import { Reveal, Lines } from '@/components/Reveal';
 import { routeMeta } from '@/data/routeMeta';
 import { useSeo } from '@/lib/seo';
 
-const NEEDS = ['Brand Starter', 'Website', 'Brand + Website', 'Not sure yet'];
+const NEEDS = ['Brand Starter', 'Website', 'Business App', 'Brand + Website', 'Not sure yet'];
 const BUDGETS = ['Under $2,500', '$2,500 – $5,000', '$5,000 – $10,000', '$10,000+', 'Let’s discuss'];
 const TIMELINES = ['As soon as possible', 'Within 1–2 months', 'Within 3–6 months', 'Just exploring'];
 
@@ -150,7 +150,7 @@ export default function Contact() {
           </div>
           <div className="field col-span-4 md:col-span-11" data-invalid={!!errors.message}>
             <label htmlFor="f-message" className="label">08 — Tell me about the business</label>
-            <textarea value={form.message} onChange={set('message')} {...aria('message')} maxLength={5000} placeholder="What you do, who you serve, and what isn’t working yet." data-testid="input-message" />
+            <textarea value={form.message} onChange={set('message')} {...aria('message')} maxLength={5000} placeholder="What you do, who you serve, and what your brand, website or app needs to do better." data-testid="input-message" />
             {err('message')}
           </div>
 

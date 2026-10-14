@@ -5,7 +5,7 @@ import { sendInquiryNotification } from "../lib/inquiry-notifications";
 
 const router: IRouter = Router();
 const attempts = new Map<string, { count: number; expires: number }>();
-const confirmation = { message: "Thank you for sharing your business with me. Your inquiry is safely received. I look forward to learning more. — Danielle" };
+const confirmation = { message: "Thank you for sharing your business with me. Your inquiry is safely received. I look forward to learning more. — D.C." };
 
 router.post("/inquiries", async (req, res): Promise<void> => {
   const key = req.ip ?? "unknown";
