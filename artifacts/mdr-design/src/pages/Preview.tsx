@@ -68,7 +68,7 @@ export default function Preview() {
 
       <Reveal as="section" className="band band-ivory wrap pad">
         <div className="grid12 gap-y-6">
-          <p className="label col-span-4 md:col-span-3"><span className="n">A note</span>from Danielle</p>
+          <p className="label col-span-4 md:col-span-3"><span className="n">A note</span>from D.C.</p>
           <p className="col-span-4 md:col-span-7 md:col-start-5 serif text-[clamp(1.35rem,2vw,1.85rem)] leading-snug fade d2" data-testid="text-preview-note">{p.note}</p>
         </div>
       </Reveal>

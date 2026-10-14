@@ -15,7 +15,7 @@ const expectedAssets = [
   'wizfix-before.webp', 'wizfix-desktop.webp', 'wizfix-desktop-960.webp',
   'wizfix-detail.webp', 'wizfix-mobile.webp',
 ];
-const note = "Joey — here's the redesign direction for WizFix, all in one place. Repair, IT and printing, presented as the established tech business you already are. Take a look, share it with anyone whose opinion matters, and let me know when you're ready to move forward. — Danielle";
+const note = "Joey — here's the redesign direction for WizFix, all in one place. Repair, IT and printing, presented as the established tech business you already are. Take a look, share it with anyone whose opinion matters, and let me know when you're ready to move forward. — D.C.";
 let browser;
 let origin;
 const deployments = [];

@@ -12,7 +12,7 @@ export const DEFAULT_OG_IMAGE = '/media/og-image.png';
 export const routeMeta: Record<string, RouteMeta> = {
   '/': {
     title: 'MDR Design — Web Design & Brand Identity for Local Businesses',
-    description: 'Websites and brands for local businesses that deserve to look established. Danielle Crowder listens first, then builds the presence you’ve earned.',
+    description: 'Websites and brands for local businesses that deserve to look established. D.C. listens first, then builds the presence you’ve earned.',
   },
   '/work/wizfix': {
     title: 'WizFix Computers — Case Study · MDR Design',
@@ -36,7 +36,7 @@ export const routeMeta: Record<string, RouteMeta> = {
   },
   '/contact': {
     title: 'Contact — Let’s talk · MDR Design',
-    description: 'Have a business worth noticing? Tell Danielle about it.',
+    description: 'Have a business worth noticing? Tell D.C. about it.',
   },
   '/preview/:slug': {
     title: 'A concept, prepared for you · MDR Design',

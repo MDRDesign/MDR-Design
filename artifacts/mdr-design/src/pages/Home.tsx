@@ -141,7 +141,7 @@ export default function Home() {
               <>carefully, and <em>for good.</em></>,
             ]} />
           </blockquote>
-          <p className="col-span-4 md:col-span-4 md:col-start-9 mt-12 muted fade d4">— Danielle Crowder, MDR Design</p>
+          <p className="col-span-4 md:col-span-4 md:col-start-9 mt-12 muted fade d4">— D.C., MDR Design</p>
         </div>
         </div>
       </Reveal>

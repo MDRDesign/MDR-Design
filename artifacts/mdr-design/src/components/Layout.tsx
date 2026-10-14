@@ -138,7 +138,7 @@ export function Footer() {
             ))}
           </nav>
           <div className="col-span-2 md:col-span-3 md:col-start-10 flex flex-col gap-3 text-base muted">
-            <p className="text-[var(--fg)]">Danielle Crowder</p>
+            <p className="text-[var(--fg)]">D.C.</p>
             <p>Web Design & Brand Identity for local businesses.</p>
             <ThemeToggle />
           </div>

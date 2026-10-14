@@ -41,7 +41,7 @@
   --crimson: #b3261e;
   --crimson-lift: #e0645a; /* 5.6:1 on ink */
   --italic-gold: #e5ad63;
-  --italic-lemon: #ffdf80;
+  --italic-dark: #030303;
   --stone: #8a857c; /* decorative / large type only */
   --hairline: #d9d4c9;
   --oxblood: var(--crimson);
@@ -344,7 +344,7 @@ input:focus-visible + .chip { outline: 1px solid var(--accent-c); outline-offset
    the letterforms instead of the old near-invisible one-pixel rule.
    The gradient is confined to text; section backgrounds remain solid colours. */
 .band-ink { --italic-color: var(--italic-gold); --italic-highlight: #fff0ce; }
-.band-crimson { --italic-color: var(--italic-lemon); --italic-highlight: #fff7dd; }
+.band-crimson { --italic-color: var(--italic-dark); --italic-highlight: #fff7dd; }
 .band-blue { --italic-color: var(--crimson-lift); --italic-highlight: #ffb5a5; }
 .band-ivory { --italic-color: #8d5518; --italic-highlight: #4e2b0d; }
 .dark .band-ivory { --italic-color: var(--italic-gold); --italic-highlight: #fff0ce; }
@@ -364,6 +364,25 @@ input:focus-visible + .chip { outline: 1px solid var(--accent-c); outline-offset
   }
 }
 :is(.band-ink:not(footer), .band-crimson, .band-blue, .band-ivory) em::after { display: none; }
+/* Near-black on crimson is AA for large display type (3.16:1).
+   Sweep beneath the letters: interpolating black to a light text highlight
+   would briefly lose contrast against the red. */
+.band.band-crimson em {
+  display: inline-block; color: var(--italic-dark); background-image: none;
+  animation: none;
+}
+.band.band-crimson em::after {
+  content: ''; display: block; position: absolute; top: auto; bottom: 0;
+  left: 0; width: 25%; height: 2px; opacity: 0; transform: none;
+  background: var(--italic-highlight); pointer-events: none;
+  animation: italic-underline-sweep 8s ease-in-out infinite;
+}
+@keyframes italic-underline-sweep {
+  0%,8% { left: 0; opacity: 0; }
+  12% { opacity: .9; }
+  45% { left: 75%; opacity: .9; }
+  48%,100% { left: 75%; opacity: 0; }
+}
 @keyframes italic-sweep {
   0%,8% { background-position: 100% 0; }
   48%,100% { background-position: 0% 0; }
@@ -373,11 +392,13 @@ input:focus-visible + .chip { outline: 1px solid var(--accent-c); outline-offset
   :is(.band-ink:not(footer), .band-crimson, .band-blue, .band-ivory) em {
     animation: none !important; background-image: none !important; color: var(--italic-color);
   }
+  .band-crimson em::after { display: none !important; animation: none !important; }
 }
 @media (forced-colors: active) {
   :is(.band-ink:not(footer), .band-crimson, .band-blue, .band-ivory) em {
     animation: none !important; background-image: none !important; color: CanvasText;
   }
+  .band-crimson em::after { display: none !important; animation: none !important; }
 }
 .band-blue .frame, .band-crimson .frame { --fg: #0e0e0e; --rule: #cfc9bc; --stone: #6f6a62; --accent-c: #b3261e; --surface: #f4f1ea; --bg: #f4f1ea; }
 .chrome-ink { background: transparent; color: var(--fg); }
