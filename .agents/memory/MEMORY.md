@@ -5,3 +5,4 @@
 - [Static share routing](static-share-routing.md) — Vite preview does not simulate production rewrites; verify deep-route shells and production routing separately.
 - [Runway media inputs](runway-media-inputs.md) — model availability does not guarantee text-only support; preview asset URLs may fetch as HTML.
 - [Approved hero motion](hero-motion-direction.md) — the owner loves the top-right drafting animation; preserve it when replacing the artwork.
+- [Editorial italics](editorial-italic-treatment.md) — include Approach and red-band italics; sweeps must visibly affect the lettering, not just exist in CSS.
