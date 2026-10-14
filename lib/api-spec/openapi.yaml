@@ -11,6 +11,28 @@ tags:
   - name: health
     description: Health operations
 paths:
+  /inquiries:
+    post:
+      operationId: createInquiry
+      tags: [inquiries]
+      summary: Submit a studio inquiry
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/InquiryInput"
+      responses:
+        "201":
+          description: Inquiry saved
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/InquiryConfirmation"
+        "400":
+          description: Invalid inquiry
+        "429":
+          description: Too many submissions
   /healthz:
     get:
       operationId: healthCheck
@@ -26,6 +48,53 @@ paths:
                 $ref: "#/components/schemas/HealthStatus"
 components:
   schemas:
+    InquiryInput:
+      type: object
+      required: [name, business, email, need, budget, timeline, message]
+      properties:
+        name:
+          type: string
+          minLength: 1
+          maxLength: 120
+        business:
+          type: string
+          minLength: 1
+          maxLength: 180
+        email:
+          type: string
+          format: email
+          maxLength: 254
+        website:
+          type: string
+          maxLength: 500
+        need:
+          type: string
+          minLength: 1
+          maxLength: 120
+        budget:
+          type: string
+          minLength: 1
+          maxLength: 120
+        timeline:
+          type: string
+          minLength: 1
+          maxLength: 120
+        message:
+          type: string
+          minLength: 1
+          maxLength: 5000
+        source:
+          type: string
+          maxLength: 120
+        honeypot:
+          type: string
+          maxLength: 200
+    InquiryConfirmation:
+      type: object
+      required: [message]
+      properties:
+        message:
+          type: string
     HealthStatus:
       type: object
       properties:

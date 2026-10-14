@@ -1,0 +1,28 @@
+kind = "web"
+previewPath = "/"
+title = "MDR Design"
+description = "An editorial portfolio for Danielle Crowder’s web design and branding studio, with client case studies, private concept previews, and a database-backed inquiry form."
+version = "1.0.0"
+id = "artifacts/mdr-design"
+router = "path"
+
+[[services]]
+name = "web"
+paths = [ "/" ]
+localPort = 18424
+
+[services.development]
+run = "pnpm --filter @workspace/mdr-design run dev"
+
+[services.production]
+build = [ "pnpm", "--filter", "@workspace/mdr-design", "run", "build" ]
+serve = "static"
+publicDir = "artifacts/mdr-design/dist/public"
+
+[[services.production.rewrites]]
+from = "/*"
+to = "/index.html"
+
+[services.env]
+PORT = "18424"
+BASE_PATH = "/"

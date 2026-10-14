@@ -1,0 +1,57 @@
+import { Router, type IRouter } from "express";
+import { db, inquiriesTable } from "@workspace/db";
+import { CreateInquiryBody, CreateInquiryResponse } from "@workspace/api-zod";
+
+const router: IRouter = Router();
+const attempts = new Map<string, { count: number; expires: number }>();
+const confirmation = { message: "Thank you for sharing your business with me. Your inquiry is safely received. I look forward to learning more. — Danielle" };
+
+router.post("/inquiries", async (req, res): Promise<void> => {
+  const key = req.ip ?? "unknown";
+  const now = Date.now();
+  for (const [ip, bucket] of attempts) {
+    if (bucket.expires < now) attempts.delete(ip);
+  }
+  const bucket = attempts.get(key) ?? { count: 0, expires: now + 15 * 60_000 };
+  bucket.count++;
+  attempts.set(key, bucket);
+  if (bucket.count > 8) {
+    res.set("Retry-After", String(Math.ceil((bucket.expires - now) / 1000)));
+    res.status(429).json({ error: "Please wait a little before sending another inquiry." });
+    return;
+  }
+  const parsed = CreateInquiryBody.safeParse(req.body);
+  if (!parsed.success) {
+    res.status(400).json({ error: "Please check the required fields and your email address." });
+    return;
+  }
+  const { honeypot, ...input } = parsed.data;
+  if (honeypot) {
+    res.status(201).json(CreateInquiryResponse.parse(confirmation));
+    return;
+  }
+  const data = Object.fromEntries(Object.entries(input).map(([k, v]) => [k, typeof v === "string" ? v.trim() : v])) as typeof input;
+  if ([data.name, data.business, data.need, data.budget, data.timeline, data.message].some((v) => !v)) {
+    res.status(400).json({ error: "Please complete all required fields." });
+    return;
+  }
+  if (data.website) {
+    try {
+      const url = new URL(/^https?:\/\//i.test(data.website) ? data.website : `https://${data.website}`);
+      if (!["http:", "https:"].includes(url.protocol) || !url.hostname.includes(".")) throw new Error("Invalid website");
+      data.website = url.href;
+    } catch {
+      res.status(400).json({ error: "Please enter a valid website address, or leave it blank." });
+      return;
+    }
+  }
+  try {
+    await db.insert(inquiriesTable).values({ ...data, website: data.website || null, source: data.source || null });
+    res.status(201).json(CreateInquiryResponse.parse(confirmation));
+  } catch (error) {
+    req.log.error({ err: error }, "Inquiry storage failed");
+    res.status(503).json({ error: "Your inquiry could not be saved. Please try again shortly." });
+  }
+});
+
+export default router;
