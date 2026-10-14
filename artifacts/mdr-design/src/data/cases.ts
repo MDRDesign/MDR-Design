@@ -63,7 +63,7 @@ export const cases: CaseStudy[] = [
   },
   {
     slug: 'wizfix',
-    number: '06',
+    number: '07',
     client: 'WizFix Computers',
     location: 'Diamond Bar, CA',
     disciplines: ['Web Design', 'Brand Direction'],

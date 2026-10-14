@@ -253,7 +253,9 @@ for (const width of [1440, 375, 320]) {
           await page.getByTestId(`button-${prefix}-prev`).click();
           await page.waitForFunction(() =>
             document.querySelector('[data-testid="slide-project-wizfix"]')?.getAttribute('data-active') === 'true');
-          assert.match(await page.getByTestId(`text-${prefix}-number`).textContent(), /06 \/ 06/);
+          const portfolioCount = await page.getByTestId(`carousel-${prefix}`).locator('[data-testid^="slide-project-"]').count();
+          const lastNumber = String(portfolioCount).padStart(2, '0');
+          assert.match(await page.getByTestId(`text-${prefix}-number`).textContent(), new RegExp(`${lastNumber} / ${lastNumber}`));
         }
         const captures = page.locator('img[src*="media/wizfix-"]');
         assert.equal(await captures.count(), screenshots, 'Missing screenshot or concept fallback used');
