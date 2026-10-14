@@ -75,8 +75,10 @@ export const projectReferences: ProjectReference[] = [
     year: '2026',
     liveUrl: 'https://captainsgalley.org/',
     casePath: '/work/captains-galley',
-    image: 'media/captains-galley-desktop.webp',
-    imageAlt: 'Published Captain’s Galley homepage',
+    image: 'media/captains-galley-mobile-overview.webp',
+    imageFit: 'contain',
+    imageAlt: 'Owner-provided Captain’s Galley mobile screenshots showing the homepage and food menu with prices and an Add to Order action',
+    imageCaption: 'Owner-provided mobile screens — home and food ordering',
   },
   {
     slug: 'z-delivery',

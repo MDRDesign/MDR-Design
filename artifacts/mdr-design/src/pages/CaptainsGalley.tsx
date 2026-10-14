@@ -8,8 +8,23 @@ import NotFound from './not-found';
 
 const steps: { title: string; body: string }[] = [
   { title: 'Browse the menu', body: 'The published homepage offers both a Menu link and a View Menu action, giving visitors a clear place to start.' },
-  { title: 'Order ahead', body: 'Advance food ordering is the app’s core function: visitors can order local food for pickup, rather than only read about it.' },
+  { title: 'Order ahead', body: 'Menu cards pair food photography, descriptions and prices with a direct Add to Order action, turning browsing into the start of an order.' },
   { title: 'Pick up', body: 'Pickup completes the workflow. The homepage explains the intended use plainly: order ahead and pick up when you’re ready.' },
+];
+
+const screens = [
+  {
+    file: 'media/captains-galley-mobile-home.webp',
+    height: 1048,
+    caption: 'Fig. 01 — Homepage, the ordering entry point',
+    alt: 'Captain’s Galley mobile homepage introducing local meals for pickup with a View Menu button',
+  },
+  {
+    file: 'media/captains-galley-mobile-menu.webp',
+    height: 1050,
+    caption: 'Fig. 02 — Menu, from browsing to Add to Order',
+    alt: 'Captain’s Galley mobile menu showing a breakfast burrito, its description and price, and an Add to Order button',
+  },
 ];
 
 export default function CaptainsGalley() {
@@ -51,27 +66,30 @@ export default function CaptainsGalley() {
       </Reveal>
 
       <Reveal as="section" className="band band-ink wrap pad">
-        <figure>
-          <a href={p.liveUrl} target="_blank" rel="noopener noreferrer" className="block group" data-testid="link-galley-screenshot">
-             <div className="frame frame-zoom wipe aspect-[36/25]">
-              <img
-                src={mediaUrl(p.image)}
-                alt="Captain’s Galley published homepage on desktop, showing the Menu and View Menu actions and an invitation to order ahead and pick up when ready"
-                className="frame-media"
-                width={1440}
-                 height={1000}
-                loading="lazy"
-                decoding="async"
-                data-testid="img-galley-desktop"
-              />
-            </div>
-            <span className="sr-only"> — opens the live Captain’s Galley web app in a new tab</span>
-          </a>
-          <figcaption className="mt-4 flex flex-wrap justify-between gap-3 label">
-            <span>Fig. 01 — Homepage, the ordering entry point</span>
-            <span>{host}</span>
-          </figcaption>
-        </figure>
+        <div className="grid sm:grid-cols-2 gap-10 md:gap-16 max-w-5xl mx-auto">
+          {screens.map((screen, i) => (
+            <figure key={screen.file} className={`fade d${i + 1}`}>
+              <a href={p.liveUrl} target="_blank" rel="noopener noreferrer" className="block max-w-[420px] mx-auto border border-[var(--rule)] wipe overflow-hidden frame-zoom" data-testid={`link-galley-screenshot-${i}`}>
+                <img
+                  src={mediaUrl(screen.file)}
+                  alt={screen.alt}
+                  className="block w-full h-auto"
+                  width={565}
+                  height={screen.height}
+                  loading="lazy"
+                  decoding="async"
+                  data-testid={`img-galley-mobile-${i}`}
+                />
+                <span className="sr-only"> — opens the live Captain’s Galley web app in a new tab</span>
+              </a>
+              <figcaption className="mt-4 label">{screen.caption}</figcaption>
+            </figure>
+          ))}
+        </div>
+        <p className="mt-10 flex flex-wrap justify-between gap-3 label">
+          <span>Owner-provided mobile screenshots</span>
+          <span>{host}</span>
+        </p>
       </Reveal>
 
       <Reveal as="section" className="band band-crimson wrap pad">

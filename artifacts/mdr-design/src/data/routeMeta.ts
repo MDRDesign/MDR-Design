@@ -29,8 +29,8 @@ export const routeMeta: Record<string, RouteMeta> = {
   '/work/captains-galley': {
     title: 'Captain’s Galley — Web App Case Study · MDR Design',
     description: 'A local food ordering web app: how Captain’s Galley connects menu discovery with ordering ahead for pickup. A business app case study by MDR Design.',
-    image: '/media/og-captains-galley.jpg',
-    imageAlt: 'Captain’s Galley web app case study — published homepage and menu entry point, by MDR Design.',
+    image: '/media/og-captains-galley-mobile.jpg',
+    imageAlt: 'Captain’s Galley web app case study — owner-provided mobile homepage and food-ordering menu, by MDR Design.',
   },
   '/work/z-delivery': {
     title: 'Z-Delivery — Business Web App Case Study · MDR Design',
