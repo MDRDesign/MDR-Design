@@ -41,7 +41,7 @@ export default function Process() {
           {steps.map((s) => (
             <Reveal as="li" key={s.n} className="grid12 gap-y-4 py-10 md:py-14 relative">
               <div className="hr draw absolute top-0 left-0" />
-              <span className="col-span-1 md:col-span-2 numeral text-[clamp(2.8rem,4.5vw,4.5rem)]">{s.n}</span>
+              <span className="col-span-1 md:col-span-2 label !text-[var(--fg)]">{s.n}</span>
               <div className="col-span-3 md:col-span-2 fade d1">
                 <p className="label">{s.phase}</p>
                 <p className="mt-2 text-sm muted">{s.w}</p>

@@ -32,7 +32,7 @@ export const cases: CaseStudy[] = [
     location: 'Diamond Bar, CA',
     disciplines: ['Web Design', 'Brand Direction'],
     year: '2026',
-    liveUrl: 'https://wiz-fix-computers-website.replit.app',
+    liveUrl: 'https://wiz-fix-computers-website.replit.app/',
     summary:
       'A neighborhood computer repair, IT and printing shop that had earned its reputation in person — and needed a presence that said so before anyone walked in.',
     needed: {

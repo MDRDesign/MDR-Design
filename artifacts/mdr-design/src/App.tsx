@@ -3,7 +3,6 @@ import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { Route, Switch, useLocation, Router as WouterRouter } from 'wouter';
 import { ErrorBoundary } from '@/components/error-boundary';
 import { Shell } from '@/components/Layout';
-import { Cursor } from '@/components/Cursor';
 import { Intro, RouteWipe, ScrollProgress } from '@/components/Chrome';
 import Home from '@/pages/Home';
 import WizFix from '@/pages/WizFix';
@@ -59,7 +58,6 @@ function App() {
       <WouterRouter base={import.meta.env.BASE_URL.replace(/\/$/, '')}>
         <ScrollTop />
         <Router />
-        <Cursor />
         <ScrollProgress />
         <RouteWipe />
         <Intro />

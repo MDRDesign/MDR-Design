@@ -27,7 +27,7 @@ function useWorkLink() {
 export function Wordmark() {
   return (
     <Link href="/" className="group inline-flex items-baseline gap-3" data-testid="link-home" aria-label="MDR Design, home">
-      <span className="hb serif italic text-[1.6rem] leading-none" style={{ ['--hb-w' as string]: '3.4rem' }}>MDR</span>
+      <span className="serif italic text-[1.6rem] leading-none">MDR</span>
       <span className="label hidden sm:inline">Design</span>
     </Link>
   );
@@ -144,7 +144,7 @@ export function Footer() {
           </div>
         </div>
       </div>
-      <div className="wrap mt-16 md:mt-24"><p className="foot-mark hb" aria-hidden="true" style={{ ['--hb-w' as string]: '72vw' }}>MDR <em>Design</em></p></div>
+      <div className="wrap mt-16 md:mt-24"><p className="foot-mark hb" aria-hidden="true" style={{ ['--hb-w' as string]: '54vw' }}>MDR <em>Design</em></p></div>
       <div className="wrap mt-8 flex justify-between label">
         <span>© {new Date().getFullYear()} MDR Design</span>
         <span>Catalogue No. 01</span>

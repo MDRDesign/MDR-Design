@@ -24,10 +24,10 @@ export default function WizFix() {
       <Reveal as="header" immediate className="band band-blue wrap pt-36 md:pt-44 pb-20">
         <p className="label fade d1"><span className="n">Case {c.number}</span>Selected Work</p>
         <div className="grid12 mt-8 gap-y-8 items-end">
-          <h1 className="col-span-4 md:col-span-9 mega !text-[clamp(2.8rem,6.5vw,7rem)]" data-testid="text-case-title">
+          <h1 className="col-span-4 md:col-span-9 mega" data-testid="text-case-title">
             <Lines lines={['WizFix', <em key="c">Computers</em>]} start={0.15} delayStep={0.15} />
           </h1>
-          <span aria-hidden="true" className="hidden md:block col-span-3 numeral text-[8rem] text-right">{c.number}</span>
+          
         </div>
         <div className="hr hr-ink draw d3 mt-10" />
         <dl className="grid12 gap-y-6 pt-6">
@@ -109,7 +109,7 @@ export default function WizFix() {
           <ol className="col-span-4 md:col-span-8 md:col-start-5">
             {c.built.map((b, i) => (
               <li key={b.title} className={`grid grid-cols-8 gap-4 py-7 border-t border-[var(--rule)] fade d${i + 1}`}>
-                <span className="col-span-1 numeral text-3xl">{String(i + 1).padStart(2, '0')}</span>
+                <span className="col-span-1 label !text-[var(--fg)]">{String(i + 1).padStart(2, '0')}</span>
                 <h3 className="col-span-7 md:col-span-3 serif text-2xl">{b.title}</h3>
                 <p className="col-span-7 col-start-2 md:col-span-4 muted leading-relaxed">{b.body}</p>
               </li>

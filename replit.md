@@ -9,10 +9,13 @@ Danielle Crowder’s web design and branding portfolio for local businesses that
 - The goal is always to boost exposure and build the client’s brand to Danielle’s best ability.
 - Prioritize a polished Home page and WizFix case study over additional features.
 - The user wants sophisticated, classy, clean-lined editorial design that is sharp, high-impact and attention-demanding, like a confident art-gallery or fashion-house identity—not a quiet template.
+- The latest refinement is deliberate and restrained: the user found the accumulated effects “too obnoxious and a bit messy.” Do not equate visual impact with more effects or oversized typography.
 - Colored backgrounds should dominate; ivory is a breather. The user clarified that “bold” means design, typography and the location of wording across the site, not excessively large fonts.
 - Dial back the electric blue to dark blue-teal with subtle color shifts and a restrained heartbeat-like highlight passing across the MDR Design name. This supersedes the Klein Blue direction.
 - Retain ink #0E0E0E, ivory #F4F1EA and crimson #B3261E alongside dark blue-teal. Reduce typography sizes overall while keeping strong weight and thoughtful composition.
 - Pair heavy condensed Archivo caps with Instrument Serif italics; retain Instrument Sans for body text, square corners, strict grids and deliberate motion.
+- Hero imagery should demonstrate robust, three-dimensional design and structure, not the rejected flat storefront line drawing.
+- The studio also built the Armada-Catering website. Treat it as a portfolio reference, without inventing a launch year, results, client testimonial or case-study story.
 - Avoid gradient blobs, glassmorphism, neon/purple gradients, bubbly cards, stock-photo people, emoji, icon grids, generic SaaS heroes and carousels.
 - Never present sample quotes, concept before/after images or placeholder results as verified client testimonials or measured outcomes.
 - WizFix needed a major redesign appropriate for the tech industry. The client has seen and likes the redesign direction; do not describe the sales-pitch stage publicly.

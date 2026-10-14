@@ -1,10 +1,10 @@
-import { useEffect, useRef, type ReactNode, type RefObject } from 'react';
+import { useEffect, type ReactNode } from 'react';
 import { Link } from 'wouter';
 import { Reveal, Lines, Label } from '@/components/Reveal';
 import { SmartVideo } from '@/components/Media';
 import { HeroArt, WizFixConcept, ConceptTag } from '@/components/Art';
-import { KineticBand } from '@/components/KineticBand';
 import { cases } from '@/data/cases';
+import { projectReferences } from '@/data/projectReferences';
 import { routeMeta } from '@/data/routeMeta';
 import { useSeo } from '@/lib/seo';
 
@@ -16,192 +16,115 @@ const approach = [
 
 const heroLines: ReactNode[] = ['Your business,', <><em>finally</em> looking</>, 'like it means it.'];
 
-/** Clips the difference-blend copy of the headline to the frame rectangle (desktop only). */
-function useBlendClip(wrap: RefObject<HTMLDivElement | null>, frame: RefObject<HTMLDivElement | null>) {
-  useEffect(() => {
-    const w = wrap.current, f = frame.current;
-    if (!w || !f) return;
-    const calc = () => {
-      const a = w.getBoundingClientRect(), b = f.getBoundingClientRect();
-      w.style.setProperty('--ct', `${Math.max(0, b.top - a.top)}px`);
-      w.style.setProperty('--cl', `${Math.max(0, b.left - a.left)}px`);
-      w.style.setProperty('--cr', `${Math.max(0, a.right - b.right)}px`);
-      w.style.setProperty('--cb', `${Math.max(0, a.bottom - b.bottom)}px`);
-    };
-    calc();
-    const ro = new ResizeObserver(calc);
-    ro.observe(w); ro.observe(f);
-    return () => ro.disconnect();
-  }, [wrap, frame]);
-}
-
-/** Scroll-driven unmask/scale/parallax via a CSS variable — no React state. */
-function useScrollVar(ref: RefObject<HTMLDivElement | null>) {
-  useEffect(() => {
-    const el = ref.current;
-    if (!el || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-    let raf = 0;
-    const update = () => {
-      raf = 0;
-      const r = el.getBoundingClientRect(), vh = window.innerHeight;
-      const p = Math.min(1, Math.max(0, (vh - r.top) / (vh * 0.9)));
-      el.style.setProperty('--p', p.toFixed(3));
-    };
-    const on = () => { if (!raf) raf = requestAnimationFrame(update); };
-    update();
-    window.addEventListener('scroll', on, { passive: true });
-    window.addEventListener('resize', on);
-    return () => { cancelAnimationFrame(raf); window.removeEventListener('scroll', on); window.removeEventListener('resize', on); };
-  }, [ref]);
-}
-
-/** Cursor-following concept thumbnail over the index (fine pointer only). */
-function useThumbFollow(zone: RefObject<HTMLDivElement | null>, thumb: RefObject<HTMLDivElement | null>) {
-  useEffect(() => {
-    const z = zone.current, t = thumb.current;
-    if (!z || !t) return;
-    if (!window.matchMedia('(hover: hover) and (pointer: fine)').matches || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-    let x = 0, y = 0, cx = 0, cy = 0, raf = 0, active = false;
-    const loop = () => {
-      cx += (x - cx) * 0.18; cy += (y - cy) * 0.18;
-      t.style.transform = `translate3d(${cx + 24}px, ${cy - 105}px, 0)`;
-      raf = active || Math.abs(x - cx) > 0.5 ? requestAnimationFrame(loop) : 0;
-    };
-    const move = (e: PointerEvent) => {
-      if (e.pointerType !== 'mouse') return;
-      x = e.clientX; y = e.clientY;
-      const over = !!(e.target as HTMLElement).closest('[data-thumb]');
-      if (over && !active) { cx = x; cy = y; }
-      active = over;
-      t.classList.toggle('on', over);
-      if (!raf) raf = requestAnimationFrame(loop);
-    };
-    const leave = () => { active = false; t.classList.remove('on'); };
-    z.addEventListener('pointermove', move);
-    z.addEventListener('pointerleave', leave);
-    return () => { cancelAnimationFrame(raf); z.removeEventListener('pointermove', move); z.removeEventListener('pointerleave', leave); };
-  }, [zone, thumb]);
-}
-
 export default function Home() {
   useSeo(routeMeta['/'], '/');
   useEffect(() => {
     if (window.location.hash === '#work') setTimeout(() => document.getElementById('work')?.scrollIntoView(), 50);
   }, []);
   const wiz = cases[0];
-  const heroWrap = useRef<HTMLDivElement>(null);
-  const heroFrame = useRef<HTMLDivElement>(null);
-  const feat = useRef<HTMLDivElement>(null);
-  const zone = useRef<HTMLDivElement>(null);
-  const thumb = useRef<HTMLDivElement>(null);
-  useBlendClip(heroWrap, heroFrame);
-  useScrollVar(feat);
-  useThumbFollow(zone, thumb);
 
   return (
     <>
       {/* HERO */}
-      <Reveal as="section" immediate className="band band-blue pt-28 md:pt-32 pb-16 md:pb-20">
-        <div ref={heroWrap} className="wrap relative">
-          <div className="grid12 gap-y-10 items-stretch">
-            <div className="col-span-4 md:col-span-7 relative z-10 flex flex-col justify-between md:min-h-[78vh]">
+      <Reveal as="section" immediate className="band band-blue pt-32 md:pt-36 pb-16 md:pb-24">
+        <div className="wrap">
+          <div className="grid12 gap-y-12 items-end">
+            <div className="col-span-4 md:col-span-7 flex flex-col">
               <p className="label fade d1" data-testid="text-hero-label"><span className="n">MDR Design</span>— Web Design & Brand Identity</p>
-              <div className="relative mt-10 md:mt-0 md:mr-[-14%]">
-                <h1 className="mega">
-                  <Lines lines={heroLines} start={0.2} delayStep={0.14} />
-                </h1>
-                <div className="hero-blend" aria-hidden="true">
-                  <p className="mega"><Lines lines={heroLines} start={0.2} delayStep={0.14} /></p>
-                </div>
-              </div>
-              <div className="mt-10 md:mt-0 max-w-md">
-                <div className="hr hr-ink draw d4 mb-5" />
-                <p className="text-lg md:text-xl leading-snug fade d5" data-testid="text-hero-promise">
-                  Websites and brands for local businesses that deserve to look established.
-                </p>
-                <div className="mt-8 flex flex-wrap gap-6 items-center fade d6">
-                  <Link href="/contact" className="btn" data-testid="link-hero-contact">Start a conversation <span className="arrow">→</span></Link>
-                  <Link href="/work/wizfix" className="ulink label !text-[var(--fg)]" data-testid="link-hero-work">See the work</Link>
+              <h1 className="mega mt-10 md:mt-16">
+                <Lines lines={heroLines} start={0.2} delayStep={0.14} />
+              </h1>
+              <div className="mt-12 md:mt-16 grid grid-cols-7 gap-6">
+                <div className="col-span-7 md:col-span-5">
+                  <div className="hr hr-ink draw d4 mb-6" />
+                  <p className="text-lg leading-relaxed fade d5" data-testid="text-hero-promise">
+                    Websites and brands for local businesses that deserve to look established.
+                  </p>
+                  <div className="mt-8 flex flex-wrap gap-8 items-center fade d6">
+                    <Link href="/contact" className="btn" data-testid="link-hero-contact">Start a conversation <span className="arrow">→</span></Link>
+                    <Link href="/work/wizfix" className="ulink label !text-[var(--fg)]" data-testid="link-hero-work">See the work</Link>
+                  </div>
                 </div>
               </div>
             </div>
-            <div className="col-span-4 md:col-span-5 relative z-0 px-3 md:px-0">
-              <div ref={heroFrame} className="relative h-[60vh] md:h-[78vh]">
+            <figure className="col-span-4 md:col-span-5 px-3 md:px-0">
+              <div className="relative aspect-[4/5]">
                 <span className="crop tl" aria-hidden="true" /><span className="crop tr" aria-hidden="true" /><span className="crop bl" aria-hidden="true" /><span className="crop br" aria-hidden="true" />
                 <div className="frame frame-fill wipe d3">
-                  <SmartVideo eager src="media/hero-loop.mp4" poster="media/og-image.png" label="Studio film loop" fallback={<HeroArt />} />
+                  <SmartVideo eager src="media/hero-loop.mp4" poster="media/mdr-structure.webp" label="Studio film loop" fallback={<HeroArt />} />
                 </div>
               </div>
-              <div className="mt-4 flex justify-between label"><span>Pl. 01 · Fig. 01</span><span>Local brands, seen properly</span></div>
-            </div>
+              <figcaption className="mt-4 flex justify-between label"><span>Pl. 01</span><span>Local brands, seen properly</span></figcaption>
+            </figure>
           </div>
         </div>
       </Reveal>
 
-      <KineticBand />
-
       {/* SELECTED WORK */}
       <Reveal as="section" id="work" className="band band-ink pad scroll-mt-0">
-        <span className="edge-num" aria-hidden="true">I.</span>
         <div className="wrap">
-        <div className="grid12 items-end gap-y-6">
-          <Label n="I." className="col-span-4 md:col-span-3">Selected Work</Label>
-          <h2 className="col-span-4 md:col-span-9 md:col-start-4 title">
-            <Lines lines={[<>One shop, <em>seen properly</em></>, 'for the first time.']} />
-          </h2>
-        </div>
-        <div className="hr draw mt-10" />
-        <Link href="/work/wizfix" className="group block mt-10" data-testid="link-case-wizfix">
-          <div className="grid12 gap-y-6">
-            <div className="col-span-4 md:col-span-9">
-              <div ref={feat} className="feat frame aspect-[4/3] md:aspect-[16/9]" data-cursor="view">
-                <div className="feat-inner"><WizFixConcept /></div>
-              </div>
-              <div className="relative"><ConceptTag text="Concept visual" /></div>
-            </div>
-            <div className="col-span-4 md:col-span-3 flex md:flex-col justify-between">
-              <span className="numeral text-[clamp(4rem,8vw,8rem)]">{wiz.number}</span>
-              <div className="fade d3 text-right md:text-left">
-                <p className="serif text-3xl">{wiz.client}</p>
-                <p className="muted mt-2 text-base">{wiz.disciplines.join(' + ')} — {wiz.location}</p>
-                <p className="mt-6 text-sm ulink">Read the case <span className="arrow">→</span></p>
-              </div>
-            </div>
+          <div className="grid12 items-end gap-y-6">
+            <Label n="I." className="col-span-4 md:col-span-3">Selected Work</Label>
+            <h2 className="col-span-4 md:col-span-8 md:col-start-5 title">
+              <Lines lines={[<>One shop, <em>seen properly</em></>, 'for the first time.']} />
+            </h2>
           </div>
-        </Link>
-
-        {/* Index list */}
-        <div ref={zone} className="mt-24" role="table" aria-label="Project index">
-          <div role="row" className="grid12 label pb-3 border-b border-[var(--fg)]">
-            <span role="columnheader" className="col-span-1 md:col-span-1">No.</span>
-            <span role="columnheader" className="col-span-3 md:col-span-5">Client</span>
-            <span role="columnheader" className="hidden md:block md:col-span-4">Discipline</span>
-            <span role="columnheader" className="hidden md:block md:col-span-2 text-right">Year</span>
-          </div>
-          {cases.map((c) => (
-            <Link key={c.slug} href={`/work/${c.slug}`} role="row" data-thumb className="idx-row grid12 py-6 border-b border-[var(--rule)] items-baseline" data-testid={`row-case-${c.slug}`}>
-              <span role="cell" className="col-span-1 numeral text-2xl !text-[var(--fg)]">{c.number}</span>
-              <span role="cell" className="col-span-3 md:col-span-5 serif text-xl md:text-2xl">{c.client} <span className="idx-arrow inline-block">→</span></span>
-              <span role="cell" className="hidden md:block md:col-span-4 muted text-sm">{c.disciplines.join(' + ')}</span>
-              <span role="cell" className="hidden md:block md:col-span-2 text-right text-sm tabular-nums">{c.year}</span>
+          <div className="hr draw mt-12" />
+          <div className="grid12 gap-y-8 mt-12">
+            <Link href="/work/wizfix" className="group col-span-4 md:col-span-8 block" data-testid="link-case-wizfix">
+              <div className="frame frame-zoom wipe aspect-[4/3] md:aspect-[16/10]">
+                <WizFixConcept />
+                <ConceptTag text="Concept visual" />
+              </div>
             </Link>
-          ))}
-          <div className="grid12 py-6 border-b border-[var(--rule)] items-baseline muted">
-            <span className="col-span-1 numeral text-2xl">02</span>
-            <span className="col-span-3 md:col-span-11 serif text-xl md:text-2xl italic">Your business — the next entry.</span>
+            <div className="col-span-4 md:col-span-3 md:col-start-10 flex flex-col justify-between gap-8 fade d3">
+              <span className="label"><span className="n">{wiz.number}</span>{wiz.year}</span>
+              <div>
+                <p className="serif text-3xl leading-tight">{wiz.client}</p>
+                <p className="muted mt-3 text-sm">{wiz.disciplines.join(' + ')} — {wiz.location}</p>
+                <div className="mt-8 flex flex-col gap-4 items-start">
+                  <Link href="/work/wizfix" className="btn" data-testid="link-read-case">Read the case <span className="arrow">→</span></Link>
+                  <a href={wiz.liveUrl} target="_blank" rel="noopener noreferrer" className="ulink label !text-[var(--fg)]" data-testid="link-home-wizfix-live">Visit live site <span aria-hidden="true">↗</span><span className="sr-only"> (opens in a new tab)</span></a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Index */}
+          <div className="mt-24" role="table" aria-label="Project index">
+            <div role="row" className="grid12 label pb-3 border-b border-[var(--fg)]">
+              <span role="columnheader" className="col-span-1">No.</span>
+              <span role="columnheader" className="col-span-3 md:col-span-4">Client</span>
+              <span role="columnheader" className="hidden md:block md:col-span-3">Discipline</span>
+              <span role="columnheader" className="hidden md:block md:col-span-1">Year</span>
+              <span role="columnheader" className="hidden md:block md:col-span-3 text-right">Links</span>
+            </div>
+            {projectReferences.map((r) => (
+              <div key={r.slug} role="row" className="grid12 py-6 border-b border-[var(--rule)] items-baseline gap-y-3" data-testid={`row-case-${r.slug}`}>
+                <span role="cell" className="col-span-1 label !text-[var(--fg)]">{r.number}</span>
+                <span role="cell" className="col-span-3 md:col-span-4 serif text-xl md:text-2xl">{r.client}</span>
+                <span role="cell" className="hidden md:block md:col-span-3 muted text-sm">{r.disciplines.join(' + ')}</span>
+                <span role="cell" className="hidden md:block md:col-span-1 text-sm tabular-nums">{r.year ?? <span aria-label="Year not listed">—</span>}</span>
+                <span role="cell" className="col-span-3 col-start-2 md:col-span-3 flex gap-6 md:justify-end label !text-[var(--fg)]">
+                  {r.casePath && <Link href={r.casePath} className="ulink" data-testid={`link-index-case-${r.slug}`}>Case study <span className="arrow">→</span></Link>}
+                  <a href={r.liveUrl} target="_blank" rel="noopener noreferrer" className="ulink" data-testid={`link-index-live-${r.slug}`}>Website <span aria-hidden="true">↗</span><span className="sr-only"> for {r.client} (opens in a new tab)</span></a>
+                </span>
+              </div>
+            ))}
+            <div className="grid12 py-6 border-b border-[var(--rule)] items-baseline muted">
+              <span className="col-span-1 label">03</span>
+              <span className="col-span-3 md:col-span-11 serif text-xl md:text-2xl italic">Your business — the next entry.</span>
+            </div>
           </div>
         </div>
-        </div>
-        <div ref={thumb} className="thumb-follow" aria-hidden="true"><WizFixConcept /></div>
       </Reveal>
 
       {/* APPROACH */}
       <Reveal as="section" className="band band-ivory pad">
-        <span className="edge-num" aria-hidden="true">II.</span>
         <div className="wrap">
         <div className="grid12 gap-y-6">
           <Label n="II." className="col-span-4 md:col-span-3">Approach</Label>
-          <p className="col-span-4 md:col-span-9 md:col-start-4 title">
+          <p className="col-span-4 md:col-span-8 md:col-start-5 title">
             <Lines lines={[<>The best brief is the one you <em>say out loud.</em></>]} />
           </p>
         </div>
@@ -209,23 +132,22 @@ export default function Home() {
           {approach.map((a, i) => (
             <li key={a.n} className={`col-span-4 md:col-span-4 relative pt-6 fade d${i + 2}`}>
               <div className="hr hr-ink draw absolute top-0" />
-              <span className="numeral text-[clamp(3.5rem,6vw,5.5rem)] block">{a.n}</span>
-              <h3 className="display text-4xl md:text-5xl mt-4">{i === 0 ? <em>{a.t}</em> : a.t}</h3>
+              <span className="label !text-[var(--fg)] block">{a.n}</span>
+              <h3 className="display text-3xl md:text-4xl mt-6">{i === 0 ? <em>{a.t}</em> : a.t}</h3>
               <p className="mt-5 muted leading-relaxed max-w-sm">{a.b}</p>
             </li>
           ))}
         </ol>
-        <Link href="/process" className="btn mt-14" data-testid="link-process">The full process <span className="arrow">→</span></Link>
+        <Link href="/process" className="ulink label !text-[var(--fg)] inline-block mt-14" data-testid="link-process">The full process <span className="arrow">→</span></Link>
         </div>
       </Reveal>
 
       {/* MANIFESTO */}
       <Reveal as="section" className="band band-crimson pad">
-        <span className="edge-num" aria-hidden="true">III.</span>
         <div className="wrap">
         <div className="grid12">
-          <Label n="III." className="col-span-4 md:col-span-2">Belief</Label>
-          <blockquote className="col-span-4 md:col-span-9 md:col-start-4 title mt-6 md:mt-0">
+          <Label n="III." className="col-span-4 md:col-span-3">Belief</Label>
+          <blockquote className="col-span-4 md:col-span-8 md:col-start-5 title mt-6 md:mt-0">
             <Lines delayStep={0.09} lines={[
               'Good local businesses',
               <>are often <em>better</em> than they look.</>,
@@ -243,7 +165,7 @@ export default function Home() {
         <div className="wrap">
         <div className="hr hr-ink draw" />
         <div className="grid12 pt-12 gap-y-10 items-end">
-          <h2 className="col-span-4 md:col-span-9 mega">
+          <h2 className="col-span-4 md:col-span-8 title">
             <Lines lines={['Have a business', <>worth <em>noticing?</em></>]} />
           </h2>
           <div className="col-span-4 md:col-span-3 fade d3">

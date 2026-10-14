@@ -26,7 +26,7 @@ export default function Preview() {
       </Reveal>
       <Reveal as="section" immediate className="pt-20 md:pt-32">
         <p className="label fade d1"><span className="n">Prepared for {p.clientName}</span>{p.businessName}</p>
-        <h1 className="mega !text-[clamp(2.6rem,6vw,6.5rem)] mt-8" data-testid="text-preview-title">
+        <h1 className="mega mt-8" data-testid="text-preview-title">
           <Lines lines={[`Prepared for ${p.clientName} —`, <em key="b">{p.businessName}</em>]} start={0.15} />
         </h1>
         <div className="hr hr-ink draw d3 mt-12" />

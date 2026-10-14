@@ -1,1 +1,2 @@
 - [Testing tool availability](testing-tools.md) — the documented testing subagent kind was unavailable; public-page render checks used screenshots instead.
+- [Media frame CSS cascade](css-cascade.md) — unlayered component styles outrank Tailwind utilities; verify computed positioning when media appears blank.

@@ -13,35 +13,16 @@ export function ConceptTag({ text = 'Concept placeholder' }: { text?: string }) 
   );
 }
 
-/** Hero: architectural elevation — a storefront drawn as a measured facade. */
+/** Hero: photographed sculptural model (studio artwork, not a client project). */
 export function HeroArt() {
   return (
-    <svg viewBox="0 0 600 760" preserveAspectRatio="xMidYMid slice" className="h-full w-full" role="img" aria-label="Architectural line drawing of a storefront facade">
-      <rect width="600" height="760" fill="var(--surface)" />
-      {Array.from({ length: 13 }).map((_, i) => (
-        <line key={i} x1={i * 50} y1="0" x2={i * 50} y2="760" stroke={rule} strokeWidth="1" />
-      ))}
-      <g fill="none" stroke={ink} strokeWidth="1.2">
-        <rect x="90" y="150" width="420" height="520" />
-        <line x1="90" y1="250" x2="510" y2="250" />
-        <rect x="120" y="290" width="160" height="380" />
-        <rect x="320" y="290" width="160" height="230" />
-        <line x1="200" y1="290" x2="200" y2="670" />
-        <line x1="400" y1="290" x2="400" y2="520" />
-        <path d="M90 150 L300 70 L510 150" />
-        <line x1="60" y1="670" x2="540" y2="670" strokeWidth="2" />
-      </g>
-      <text x="300" y="215" textAnchor="middle" fontFamily="Instrument Serif, serif" fontSize="44" fontStyle="italic" fill={ink}>Open</text>
-      <circle cx="268" cy="480" r="4" fill={ox} />
-      <g stroke={stone} strokeWidth="1">
-        <line x1="90" y1="710" x2="510" y2="710" />
-        <line x1="90" y1="702" x2="90" y2="718" />
-        <line x1="510" y1="702" x2="510" y2="718" />
-        <line x1="550" y1="150" x2="550" y2="670" />
-      </g>
-      <text x="300" y="736" textAnchor="middle" fontFamily="Instrument Sans, sans-serif" fontSize="11" letterSpacing="3" fill={stone}>ELEVATION — MAIN STREET</text>
-      <text x="40" y="60" fontFamily="Instrument Sans, sans-serif" fontSize="11" letterSpacing="3" fill={stone}>PL. 01</text>
-    </svg>
+    <img
+      src={`${import.meta.env.BASE_URL}media/mdr-structure.webp`}
+      alt="Abstract architectural model: interlocking stone planes and a slender metal frame, lit in a studio"
+      className="frame-media"
+      loading="eager"
+      decoding="async"
+    />
   );
 }
 

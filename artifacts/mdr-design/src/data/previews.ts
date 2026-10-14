@@ -25,7 +25,7 @@ export const previews: Preview[] = [
     images: [
       { src: 'media/wizfix-mockup.jpg', caption: 'Homepage direction — concept' },
     ],
-    liveUrl: 'https://wiz-fix-computers-website.replit.app',
+    liveUrl: 'https://wiz-fix-computers-website.replit.app/',
   },
 ];
 
