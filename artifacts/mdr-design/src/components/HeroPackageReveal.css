@@ -1,0 +1,93 @@
+/* Hero package -> tablet reveal. Loop now 30s (see keyframes). Timeline (seconds after plate enters view):
+   0.0-0.9 settle | 0.9-1.7 ribbon off | 1.7-2.7 top/bottom flaps | 2.5-3.6 side panels
+   3.0-4.2 tablet rises | 3.6-4.3 screen on | 4.4+ 26s screen browse loop. */
+.hpr {
+  --hpr-coral: #f08a6c; --hpr-coral-d: #d96e52; --hpr-ivory: #f4f1ea; --hpr-teal: #082b36;
+  position: absolute; inset: 0; background: #0b3440; overflow: hidden;
+}
+.hpr-stage { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; perspective: 1400px; }
+
+/* Tablet */
+.hpr-tablet { position: relative; z-index: 1; width: 76%; max-width: calc((100% * 1.25 - 64px) * .75); display: flex; flex-direction: column; text-decoration: none; color: var(--hpr-ivory);
+  transform-origin: 50% 60%; }
+.hpr-bezel { position: relative; display: block; padding: 12px 10px; background: #10171b; border-radius: 14px;
+  box-shadow: 0 0 0 1px rgba(244,241,234,.14), 18px 22px 0 rgba(3,16,20,.45); }
+.hpr-cam { position: absolute; left: 50%; top: 4px; width: 4px; height: 5px; margin-left: -2.5px; border-radius: 50%; background: #2c3a40; }
+.hpr-screen { position: relative; display: block; aspect-ratio: 3 / 4; overflow: hidden; border-radius: 4px; background: var(--hpr-ivory); }
+.hpr-shot { position: absolute; left: 0; top: 0; width: 100%; height: auto; display: block; will-change: transform; }
+.hpr-shot-menu { opacity: 0; }
+.hpr-glare { position: absolute; inset: 0; pointer-events: none; opacity: 0; background: var(--hpr-teal); }
+.hpr-id { display: flex; justify-content: space-between; align-items: baseline; gap: .5rem; margin-top: .5rem; padding-top: .4rem;
+  border-top: 2px solid var(--hpr-coral); font-family: var(--app-font-display); font-weight: 700; font-stretch: 75%; font-variation-settings: 'wdth' 75;
+  text-transform: uppercase; letter-spacing: .14em; font-size: clamp(.62rem, 1.05vw, .78rem); white-space: nowrap; }
+.hpr-id-url { color: #c8d8d6; letter-spacing: .08em; }
+.hpr-id-arr { display: inline-block; transition: transform .5s var(--ease); }
+.hpr-tablet:hover .hpr-id-arr, .hpr-tablet:focus-visible .hpr-id-arr { transform: translate(3px, -3px); }
+.hpr-tablet:focus-visible { outline: 2px solid var(--hpr-ivory); outline-offset: 6px; }
+
+/* Parcel */
+.hpr-pack { position: absolute; z-index: 2; left: 11%; right: 11%; top: 7%; bottom: 8%; pointer-events: none; transform-style: preserve-3d; opacity: 0; }
+.hpr-flap { position: absolute; display: block; backface-visibility: visible;
+  background-color: var(--hpr-coral);
+  background-image: linear-gradient(160deg, rgba(255,240,226,.10), rgba(8,43,54,.10)),
+    var(--hpr-texture, repeating-linear-gradient(135deg, transparent 0 18px, rgba(244,241,234,.22) 18px 20px, transparent 20px 38px));
+  background-size: 100% 100%, 256px 256px; background-repeat: no-repeat, repeat; box-shadow: inset 0 0 0 1px rgba(8,43,54,.18); }
+.hpr-flap i { position: absolute; inset: 0; background: rgba(8,43,54,.0); }
+.hpr-flap-l { left: 0; top: 0; width: 50%; height: 100%; transform-origin: 0 50%; }
+.hpr-flap-r { right: 0; top: 0; width: 50%; height: 100%; transform-origin: 100% 50%; }
+.hpr-flap-t, .hpr-flap-b { left: -2%; width: 104%; height: 34%; background-color: #e47b5e; }
+.hpr-flap-t i, .hpr-flap-b i { background: rgba(8,43,54,.08); }
+.hpr-flap-t { top: -1%; transform-origin: 50% 0; clip-path: polygon(0 0, 100% 0, 100% 62%, 50% 100%, 0 62%); }
+.hpr-flap-b { bottom: -1%; transform-origin: 50% 100%; clip-path: polygon(0 38%, 50% 0, 100% 38%, 100% 100%, 0 100%); }
+.hpr-ribbon { position: absolute; display: block; background: var(--hpr-ivory); box-shadow: 0 0 0 1px rgba(8,43,54,.2); }
+.hpr-ribbon-v { left: 50%; top: -1%; bottom: -1%; width: 7%; margin-left: -3.5%; transform-origin: 50% 0; }
+.hpr-ribbon-h { top: 50%; left: -2%; right: -2%; height: 5.5%; margin-top: -2.75%; transform-origin: 100% 50%; background: var(--hpr-teal); }
+.hpr-tag { position: absolute; left: 54%; top: 55%; padding: .35rem .55rem; background: var(--hpr-ivory); color: var(--hpr-teal);
+  font-family: var(--app-font-display); font-weight: 700; font-stretch: 75%; font-variation-settings: 'wdth' 75; font-size: .62rem; letter-spacing: .18em;
+  text-transform: uppercase; transform-origin: 0 0; transform: rotate(8deg); white-space: nowrap; }
+
+/* ---- Animated sequence (idle = first frame, paused) ---- */
+.hpr[data-reveal='idle'] .hpr-pack, .hpr[data-reveal='playing'] .hpr-pack { animation: hpr-pack 3.7s var(--ease) 0s both; }
+.hpr[data-reveal='idle'] .hpr-ribbon-v, .hpr[data-reveal='playing'] .hpr-ribbon-v { animation: hpr-ribbon-off .8s cubic-bezier(.6,0,.3,1) .9s both; }
+.hpr[data-reveal='idle'] .hpr-ribbon-h, .hpr[data-reveal='playing'] .hpr-ribbon-h { animation: hpr-ribbon-off-x .8s cubic-bezier(.6,0,.3,1) .9s both; }
+.hpr[data-reveal='idle'] .hpr-tag, .hpr[data-reveal='playing'] .hpr-tag { animation: hpr-tag-drop .9s cubic-bezier(.5,0,.8,.4) .95s both; }
+.hpr[data-reveal='idle'] .hpr-flap-t, .hpr[data-reveal='playing'] .hpr-flap-t { animation: hpr-flap-t 1s cubic-bezier(.55,0,.2,1) 1.7s both; }
+.hpr[data-reveal='idle'] .hpr-flap-b, .hpr[data-reveal='playing'] .hpr-flap-b { animation: hpr-flap-b 1s cubic-bezier(.55,0,.2,1) 1.8s both; }
+.hpr[data-reveal='idle'] .hpr-flap-l, .hpr[data-reveal='playing'] .hpr-flap-l { animation: hpr-flap-l 1.1s cubic-bezier(.55,0,.2,1) 2.5s both; }
+.hpr[data-reveal='idle'] .hpr-flap-r, .hpr[data-reveal='playing'] .hpr-flap-r { animation: hpr-flap-r 1.1s cubic-bezier(.55,0,.2,1) 2.5s both; }
+.hpr[data-reveal='idle'] .hpr-tablet, .hpr[data-reveal='playing'] .hpr-tablet { animation: hpr-tablet-in 1.2s var(--ease) 3s both; }
+.hpr[data-reveal='idle'] .hpr-glare, .hpr[data-reveal='playing'] .hpr-glare { animation: hpr-screen-on .7s ease-out 3.6s both; }
+.hpr[data-reveal='idle'] .hpr-shot-home, .hpr[data-reveal='playing'] .hpr-shot-home { animation: hpr-home 30s ease-in-out 4.4s infinite; }
+.hpr[data-reveal='idle'] .hpr-shot-menu, .hpr[data-reveal='playing'] .hpr-shot-menu { animation: hpr-menu 30s ease-in-out 4.4s infinite; }
+.hpr[data-reveal='idle'] * { animation-play-state: paused !important; }
+.hero-paused .hpr * { animation-play-state: paused !important; }
+
+@keyframes hpr-pack { 0% { opacity: 1; transform: translateY(-5%) scale(.96); } 18% { transform: translateY(1%) scale(1.01, .985); }
+  26% { transform: none; } 92% { opacity: 1; } 100% { opacity: 0; transform: none; } }
+@keyframes hpr-ribbon-off { 0% { transform: scaleY(1); } 100% { transform: scaleY(0); } }
+@keyframes hpr-ribbon-off-x { 0% { transform: scaleX(1); } 100% { transform: scaleX(0); } }
+@keyframes hpr-tag-drop { 0% { transform: rotate(8deg); opacity: 1; } 100% { transform: translateY(160%) rotate(38deg); opacity: 0; } }
+@keyframes hpr-flap-t { 0% { transform: rotateX(0); } 100% { transform: rotateX(172deg); opacity: .0; } }
+@keyframes hpr-flap-b { 0% { transform: rotateX(0); } 100% { transform: rotateX(-172deg); opacity: 0; } }
+@keyframes hpr-flap-l { 0% { transform: rotateY(0); } 80% { opacity: 1; } 100% { transform: rotateY(-168deg); opacity: 0; } }
+@keyframes hpr-flap-r { 0% { transform: rotateY(0); } 80% { opacity: 1; } 100% { transform: rotateY(168deg); opacity: 0; } }
+@keyframes hpr-tablet-in { 0% { transform: scale(.82); opacity: .0; } 15% { opacity: 1; } 100% { transform: none; opacity: 1; } }
+@keyframes hpr-screen-on { 0% { opacity: .92; } 100% { opacity: 0; } }
+/* 30s browse. Image is full screen width; -28% of its height reaches its bottom
+   (home View Menu, menu Add to Order card) inside the 3:4 screen. */
+@keyframes hpr-home { 0%, 8% { opacity: 1; transform: translateY(0); } 30%, 40% { opacity: 1; transform: translateY(-28%); }
+  46% { opacity: 0; transform: translateY(-28%); } 92% { opacity: 0; transform: translateY(0); } 100% { opacity: 1; transform: translateY(0); } }
+@keyframes hpr-menu { 0%, 40% { opacity: 0; transform: translateY(0); } 46%, 52% { opacity: 1; transform: translateY(0); }
+  72%, 90% { opacity: 1; transform: translateY(-28%); } 100% { opacity: 0; transform: translateY(-28%); } }
+
+/* Keep drafting linework present but quieter over the screen */
+.hero-plate:has(.hpr) .hl-guide { opacity: .45; }
+
+@media (prefers-reduced-motion: reduce) {
+  .hpr *, .hpr { animation: none !important; }
+  .hpr-pack { display: none; }
+  .hpr-tablet { transform: none; opacity: 1; }
+  .hpr-shot-home { opacity: 1; transform: none; } .hpr-shot-menu { opacity: 0; }
+}
+.hpr-id-short { display: none; }
+@media (max-width: 480px) { .hpr-id-long { display: none; } .hpr-id-short { display: inline; } .hpr-id { font-size: .62rem; letter-spacing: .1em; } }

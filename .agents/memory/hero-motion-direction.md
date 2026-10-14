@@ -20,3 +20,9 @@ The hero artwork should reflect the studio's expanded mix of website design, bra
 **Why:** The owner liked the existing sculpture's aesthetic and motion but asked to change it to something that reflects the website better now.
 
 **How to apply:** Update the subject matter without replacing the drafting treatment or treating studio artwork as a real client interface.
+
+The owner rejected the static, block-like web/app sculpture. The new requested direction is a package that unwraps into a tablet showing one of the studio's real apps or websites clearly.
+
+**Why:** The owner said the replacement image was worse than the previous one and asked for a recognizable, active app screen rather than another abstract image.
+
+**How to apply:** Preserve the established color/material aesthetic, but allow the requested unwrapping motion. Use authentic client screens and a working app link; do not substitute AI-generated interface text or let the device treatment make the app unreadable.
