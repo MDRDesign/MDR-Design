@@ -1,7 +1,8 @@
 import assert from 'node:assert/strict';
 import { before, after, test } from 'node:test';
-import { access, readdir, readFile } from 'node:fs/promises';
+import { access, mkdtemp, readdir, readFile, rm, writeFile } from 'node:fs/promises';
 import { constants } from 'node:fs';
+import { tmpdir } from 'node:os';
 import { resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { execFileSync } from 'node:child_process';
@@ -15,29 +16,46 @@ const expectedAssets = [
   'wizfix-detail.webp', 'wizfix-mobile.webp',
 ];
 const note = "Joey — here's the redesign direction for WizFix, all in one place. Repair, IT and printing, presented as the established tech business you already are. Take a look, share it with anyone whose opinion matters, and let me know when you're ready to move forward. — Danielle";
-let server;
 let browser;
 let origin;
+const deployments = [];
 
-// Build once into ignored output; no running workflow or network services required.
+// Build both artifact bases into ignored output; no running workflow required.
 before(async () => {
-  process.env.PORT = '5173';
-  process.env.BASE_PATH = base;
-  await build({
-    root,
-    configFile: resolve(root, 'vite.config.ts'),
-    mode: 'production',
-    logLevel: 'warn',
-    build: { outDir: resolve(root, '../../generated-artifacts/wizfix-regression') },
-  });
-  server = await preview({
-    root,
-    configFile: resolve(root, 'vite.config.ts'),
-    build: { outDir: resolve(root, '../../generated-artifacts/wizfix-regression') },
-    preview: { host: '127.0.0.1', port: 0, strictPort: false, open: false },
-    logLevel: 'warn',
-  });
-  origin = `http://127.0.0.1:${server.httpServer.address().port}`;
+  const previousEnv = { PORT: process.env.PORT, BASE_PATH: process.env.BASE_PATH };
+  try {
+    process.env.PORT = '5173';
+    for (const artifactBase of [base, '/']) {
+      process.env.BASE_PATH = artifactBase;
+      const outDir = resolve(root, '../../generated-artifacts/wizfix-regression',
+        artifactBase === '/' ? 'root' : 'nested');
+      await build({
+        root,
+        configFile: resolve(root, 'vite.config.ts'),
+        mode: 'production',
+        logLevel: 'warn',
+        build: { outDir },
+      });
+      const instance = await preview({
+        root,
+        configFile: resolve(root, 'vite.config.ts'),
+        build: { outDir },
+        preview: { host: '127.0.0.1', port: 0, strictPort: false, open: false },
+        logLevel: 'warn',
+      });
+      deployments.push({
+        base: artifactBase,
+        server: instance,
+        origin: `http://127.0.0.1:${instance.httpServer.address().port}`,
+      });
+    }
+  } finally {
+    for (const [key, value] of Object.entries(previousEnv)) {
+      if (value === undefined) delete process.env[key];
+      else process.env[key] = value;
+    }
+  }
+  ({ origin } = deployments[0]);
   let executablePath = process.env.CHROMIUM_PATH;
   if (!executablePath) {
     for (const command of ['chromium', 'chromium-browser', 'google-chrome']) {
@@ -56,8 +74,10 @@ before(async () => {
 
 after(async () => {
   await browser?.close();
-  if (server) await new Promise((resolveClose, reject) =>
-    server.httpServer.close((error) => error ? reject(error) : resolveClose()));
+  for (const deployment of deployments) {
+    await new Promise((resolveClose, reject) =>
+      deployment.server.httpServer.close((error) => error ? reject(error) : resolveClose()));
+  }
 });
 
 test('all WizFix WebPs exist, resolve as images, and decode (not SPA fallback HTML)', async () => {
@@ -85,7 +105,7 @@ test('all WizFix WebPs exist, resolve as images, and decode (not SPA fallback HT
   } finally { await page.close(); }
 });
 
-async function checkVisibleCapture(locator) {
+async function checkVisibleCapture(locator, expectedObjectFit = 'contain') {
   await locator.scrollIntoViewIfNeeded();
   // Test real reveal styles, not just a successful request or a class name.
   await locator.page().waitForFunction((element) => {
@@ -119,8 +139,104 @@ async function checkVisibleCapture(locator) {
   assert.ok(metrics.width > 20 && metrics.height > 20, `Capture collapsed: ${JSON.stringify(metrics)}`);
   assert.ok(metrics.frameWidth > 20 && metrics.frameHeight > 20, 'Frame collapsed');
   assert.ok(metrics.onScreen && metrics.inFrame && metrics.loaded, `Hidden/clipped capture: ${JSON.stringify(metrics)}`);
-  if (metrics.image) assert.equal(metrics.objectFit, 'contain', 'Capture should not crop at phone widths');
+  if (metrics.image) assert.equal(metrics.objectFit, expectedObjectFit, 'Capture changed its intended image fit');
 }
+
+const armadaAsset = 'armada-desktop.webp';
+const armadaPath = resolve(root, 'public/media', armadaAsset);
+
+async function readArmadaAsset(path = armadaPath) {
+  const bytes = await readFile(path).catch((error) => {
+    throw new Error(`${armadaAsset}: missing or unreadable proof image`, { cause: error });
+  });
+  assert.equal(bytes.toString('ascii', 0, 4), 'RIFF', `${armadaAsset}: not WebP`);
+  assert.equal(bytes.toString('ascii', 8, 12), 'WEBP', `${armadaAsset}: not WebP`);
+  return bytes;
+}
+
+async function checkArmadaProof(page, deployment) {
+  const bytes = await readArmadaAsset();
+  const expectedUrl = deployment.origin + deployment.base + 'media/' + armadaAsset;
+  await page.goto(deployment.origin + deployment.base + 'work/armada-catering',
+    { waitUntil: 'networkidle' });
+  const capture = page.getByTestId('img-armada-desktop');
+  assert.equal(await capture.count(), 1, `${armadaAsset}: published proof missing`);
+  await capture.scrollIntoViewIfNeeded();
+  const source = await capture.evaluate((image) => image.currentSrc);
+  assert.equal(source, expectedUrl, `${armadaAsset}: asset escaped artifact base`);
+  const response = await page.request.get(source);
+  assert.equal(response.status(), 200, `${armadaAsset}: unsuccessful image response`);
+  assert.match(response.headers()['content-type'] ?? '', /^image\/webp\b/,
+    `${armadaAsset}: served as non-image (possible SPA fallback)`);
+  assert.ok(bytes.equals(await response.body()), `${armadaAsset}: wrong served file`);
+  await capture.evaluate(async (image) => {
+    try { await image.decode(); }
+    catch { throw new Error('armada-desktop.webp: proof image failed to decode'); }
+    if (!image.complete || image.naturalWidth <= 0 || image.naturalHeight <= 0) {
+      throw new Error('armada-desktop.webp: empty decoded proof image');
+    }
+  });
+  // Armada uses its existing 16:9 cover frame; WizFix retains contain checks.
+  await checkVisibleCapture(capture, 'cover');
+}
+
+for (const artifactBase of [base, '/']) {
+  for (const width of [1440, 375, 320]) {
+    test(`Armada proof exists, decodes and stays visible at ${width}px under ${artifactBase}`,
+      { timeout: 45_000 }, async () => {
+        const deployment = deployments.find((entry) => entry.base === artifactBase);
+        const page = await browser.newPage({ viewport: { width, height: 900 } });
+        const errors = [];
+        page.on('pageerror', (error) => errors.push(error.message));
+        try {
+          await checkArmadaProof(page, deployment);
+          assert.deepEqual(errors, [], 'Armada browser runtime errors');
+        } finally { await page.close(); }
+      });
+  }
+}
+
+test('Armada guard rejects missing and corrupt source artwork without changing public files', async () => {
+  const directory = await mkdtemp(resolve(tmpdir(), 'armada-media-'));
+  const fixture = resolve(directory, armadaAsset);
+  try {
+    await assert.rejects(readArmadaAsset(fixture), /armada-desktop\.webp: missing or unreadable/);
+    await writeFile(fixture, 'corrupt artwork');
+    await assert.rejects(readArmadaAsset(fixture), /armada-desktop\.webp: not WebP/);
+  } finally { await rm(directory, { recursive: true, force: true }); }
+});
+
+for (const [failure, options, message] of [
+  ['missing response', { status: 404, contentType: 'text/plain', body: 'Not found' }, /failed to decode/],
+  ['SPA fallback', { status: 200, contentType: 'text/html', body: '<html>Fallback</html>' }, /failed to decode/],
+  // Keep the real API response intact: the rendered image itself must decode.
+  ['corrupt image with WebP header', { status: 200, contentType: 'image/webp', body: 'RIFFxxxxWEBPbroken' }, /failed to decode/],
+]) {
+  test(`Armada guard rejects ${failure} instead of accepting an img element`, { timeout: 45_000 }, async () => {
+    const page = await browser.newPage();
+    try {
+      await page.route(`**/media/${armadaAsset}`, (route) => route.fulfill(options));
+      // APIRequestContext bypasses page routes, so these failures demonstrate
+      // that a healthy direct response cannot mask a broken rendered image.
+      await assert.rejects(checkArmadaProof(page, deployments[0]), message);
+    } finally { await page.close(); }
+  });
+}
+
+test('Armada guard rejects a media URL that escapes the nested artifact base', { timeout: 45_000 }, async () => {
+  const page = await browser.newPage();
+  try {
+    await page.addInitScript(() => {
+      new MutationObserver(() => {
+        const image = document.querySelector('[data-testid="img-armada-desktop"]');
+        if (image && image.getAttribute('src') !== '/media/armada-desktop.webp') {
+          image.setAttribute('src', '/media/armada-desktop.webp');
+        }
+      }).observe(document, { subtree: true, childList: true, attributes: true, attributeFilter: ['src'] });
+    });
+    await assert.rejects(checkArmadaProof(page, deployments[0]), /asset escaped artifact base/);
+  } finally { await page.close(); }
+});
 
 for (const width of [1440, 375, 320]) {
   for (const [route, screenshots, devices] of [
