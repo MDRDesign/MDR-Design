@@ -16,12 +16,12 @@ export function ConceptTag({ text = 'Concept placeholder' }: { text?: string }) 
   );
 }
 
-/** Hero: photographed sculptural model (studio artwork, not a client project). */
+/** Hero: photographed paper folio with a crimson bookmark (studio artwork, not a client project). */
 export function HeroArt() {
   return (
     <img
       src={`${import.meta.env.BASE_URL}media/mdr-structure.webp`}
-      alt="Abstract architectural model: interlocking stone planes and a slender metal frame, lit in a studio"
+      alt="A softly curving ivory paper folio resting on a dark teal surface, marked with a small crimson bookmark"
       className="frame-media"
       loading="eager"
       decoding="async"

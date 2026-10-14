@@ -16,8 +16,10 @@ Danielle Crowder’s web design and branding portfolio for local businesses that
 - Dial back the electric blue to dark blue-teal with subtle color shifts and a restrained heartbeat-like highlight passing across the MDR Design name. This supersedes the Klein Blue direction.
 - Retain ink #0E0E0E, ivory #F4F1EA and crimson #B3261E alongside dark blue-teal. Reduce typography sizes overall while keeping strong weight and thoughtful composition.
 - Pair heavy condensed Archivo caps with Instrument Serif italics; retain Instrument Sans for body text, square corners, strict grids and deliberate motion.
-- Hero imagery should demonstrate robust, three-dimensional design and structure, not the rejected flat storefront line drawing.
-- Portfolio chronology: Armada-Catering is the first website, built and sold in 2025; WizFix Computers is second, in 2026. These years follow the owner's requested ordering.
+- Hero imagery should remain dimensional but less rigid and more recognizable than the architectural model: thoughtful, not whimsical or confusing.
+- Portfolio chronology: Armada-Catering (first, built and sold) and Captain’s Coffee Roasting are 2025 projects; WizFix Computers, Captain’s Galley, Z-Delivery and Prime Your Move are 2026 projects. Show 2025 before 2026.
+- Captain’s Coffee Roasting is a premium coffee roasting subscription; Captain’s Galley is a local food pickup ordering app; Prime Your Move is a workout and health tracking app for people over 40.
+- Captain’s Galley, Z-Delivery and Prime Your Move each list Web Design + Web App + Brand Direction as their services, as specified by the owner.
 - Armada's case study covers Web Design + Brand Direction for a small Southern California catering company seeking a fresh direction for branding and networking. Ground it in the owner's brief and published website; do not invent results, testimonials or historical screenshots. Do not describe WizFix as sold without confirmation.
 - Avoid gradient blobs, glassmorphism, neon/purple gradients, bubbly cards, stock-photo people, emoji, icon grids, generic SaaS heroes and carousels.
 - Never present sample quotes, concept before/after images or placeholder results as verified client testimonials or measured outcomes.

@@ -104,6 +104,7 @@ export default function Home() {
                 <span role="cell" className="col-span-1 label !text-[var(--fg)]">{r.number}</span>
                 <span role="cell" className="col-span-3 md:col-span-4 serif text-xl md:text-2xl">
                   {r.client}
+                  {r.description && <span className="mt-2 block max-w-md font-sans text-sm leading-relaxed muted" data-testid={`text-description-${r.slug}`}>{r.description}</span>}
                   <span className="mt-1 block font-sans text-xs muted md:hidden">{r.disciplines.join(' + ')}</span>
                   {r.milestone && <span className="mt-2 block font-sans text-xs muted">{r.milestone}<span className="md:hidden"> · {r.year}</span></span>}
                   {!r.milestone && r.year && <span className="mt-2 block font-sans text-xs muted md:hidden">{r.year}</span>}
@@ -117,7 +118,7 @@ export default function Home() {
               </div>
             ))}
             <div className="grid12 py-6 border-b border-[var(--rule)] items-baseline muted">
-              <span className="col-span-1 label">03</span>
+              <span className="col-span-1 label">{String(projectReferences.length + 1).padStart(2, '0')}</span>
               <span className="col-span-3 md:col-span-11 serif text-xl md:text-2xl italic">Your business — the next entry.</span>
             </div>
           </div>

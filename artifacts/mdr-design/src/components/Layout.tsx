@@ -26,7 +26,7 @@ function useWorkLink() {
 
 export function Wordmark() {
   return (
-    <Link href="/" className="group inline-flex items-baseline gap-3" data-testid="link-home" aria-label="MDR Design, home">
+    <Link href="/" className="group inline-flex items-baseline gap-1.5" data-testid="link-home" aria-label="MDR Design, home">
       <span className="serif italic text-[1.6rem] leading-none">MDR</span>
       <span className="label hidden sm:inline">Design</span>
     </Link>
