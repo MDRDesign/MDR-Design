@@ -21,8 +21,8 @@ The hero artwork should reflect the studio's expanded mix of website design, bra
 
 **How to apply:** Update the subject matter without replacing the drafting treatment or treating studio artwork as a real client interface.
 
-The owner selected a drafting frame: dimensional architectural panels that slide apart to reveal the tablet and real projects. Preserve the soft, tactile material quality of the former crescent artwork rather than returning to a gift-box metaphor.
+The hero should not repeat the app and website showcases already below it. The owner now wants a 10–15-second city-street film: a man pauses, holds up his phone and smiles at MDR Design; the camera zooms into the website; a bird takes the phone; he jumps, misses and watches it fly away.
 
-**Why:** After reconsidering the gift box, the owner explicitly chose “Drafting frame” over the sculptural-tablet and smaller-package alternatives.
+**Why:** After choosing the drafting frame, the owner reconsidered the tablet itself because the projects are already showcased in multiple places, and explicitly described this new film.
 
-**How to apply:** Treat the drafting frame as the current approved subject and retain the established outer drafting treatment. Use authentic client screens and a working app link; do not substitute AI-generated interface text or let the device treatment make the app unreadable.
+**How to apply:** Treat the city-street film as the requested new subject rather than continuing to refine the client-project tablet. Make the phone close-up recognizably show the actual MDR Design website, not invented interface text. Do not remove the current artwork until a usable replacement has been produced and verified.
