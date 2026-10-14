@@ -1,6 +1,6 @@
 /* Illustrative SVG artwork. Published WizFix captures live in WizFixMedia.
- * Keep the before/after concepts explicitly labelled: no authentic before
- * screenshot has been supplied.
+ * Keep any remaining concept artwork explicitly labelled; the BeforeAfter
+ * comparison uses the owner-supplied former-site capture instead.
  */
 
 const ink = 'var(--fg)';
