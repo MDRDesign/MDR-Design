@@ -21,8 +21,8 @@ The hero artwork should reflect the studio's expanded mix of website design, bra
 
 **How to apply:** Update the subject matter without replacing the drafting treatment or treating studio artwork as a real client interface.
 
-The soft, tactile surface quality of the former crescent artwork and the legible display of real projects remain important. The gift-box metaphor is not fixed; the owner is open to replacing it with a subject that better represents the studio.
+The owner selected a drafting frame: dimensional architectural panels that slide apart to reveal the tablet and real projects. Preserve the soft, tactile material quality of the former crescent artwork rather than returning to a gift-box metaphor.
 
-**Why:** The owner initially liked the package direction and asked for the crescent's material quality, but later said they were unsure the gift box was the correct image and welcomed alternatives.
+**Why:** After reconsidering the gift box, the owner explicitly chose “Drafting frame” over the sculptural-tablet and smaller-package alternatives.
 
-**How to apply:** Do not treat prior gift-box approval as a permanent constraint. Preserve the established material aesthetic and drafting treatment when exploring new subjects. Use authentic client screens and a working app link; do not substitute AI-generated interface text or let the device treatment make the app unreadable.
+**How to apply:** Treat the drafting frame as the current approved subject and retain the established outer drafting treatment. Use authentic client screens and a working app link; do not substitute AI-generated interface text or let the device treatment make the app unreadable.

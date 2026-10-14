@@ -1,4 +1,4 @@
-import { HeroPackageReveal } from './HeroPackageReveal';
+import { HeroDraftingReveal } from './HeroDraftingReveal';
 
 /**
  * Opening plate: studio artwork on a coral offset plate, with quiet drafting
@@ -12,7 +12,7 @@ export function HeroPlate() {
       <div className="hero-plate relative aspect-[4/5]">
         <span className="hero-coral" aria-hidden="true" />
         <div className="frame frame-fill wipe d3">
-          <HeroPackageReveal />
+          <HeroDraftingReveal />
         </div>
         <div className="hero-drafting" aria-hidden="true">
         <svg className="hero-lines" viewBox="0 0 400 500" preserveAspectRatio="none" aria-hidden="true" focusable="false">
