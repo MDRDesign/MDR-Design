@@ -35,6 +35,7 @@ Danielle Crowder’s web design and branding portfolio for local businesses that
 - Inquiry submissions are saved in PostgreSQL. No public read endpoint exposes personal inquiry information.
 - Inquiry email notifications use the connected Resend integration after saving. Failure to send must never change a successful database submission into an error.
 - `node --test artifacts/api-server/tests/inquiry-notifications.test.mjs` — isolated tests for notification success, provider rejection, timeout, and validation.
+- `pnpm --filter @workspace/mdr-design test:wizfix` — self-contained production-build checks for WizFix image assets, desktop/phone visibility and truthful labels; requires Chromium (see `artifacts/mdr-design/tests/README.md`).
 
 ## Media & launch
 
