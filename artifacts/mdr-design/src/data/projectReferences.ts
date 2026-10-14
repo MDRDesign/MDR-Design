@@ -46,6 +46,7 @@ export const projectReferences: ProjectReference[] = [
     disciplines: ['Web Design', 'Web App', 'Brand Direction'],
     year: '2026',
     liveUrl: 'https://captainsgalley.org/',
+    casePath: '/work/captains-galley',
     image: 'media/captains-galley-desktop.webp',
     imageAlt: 'Published Captain’s Galley homepage',
   },

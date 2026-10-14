@@ -36,6 +36,14 @@ from = "/work/armada-catering/"
 to = "/work/armada-catering/index.html"
 
 [[services.production.rewrites]]
+from = "/work/captains-galley"
+to = "/work/captains-galley/index.html"
+
+[[services.production.rewrites]]
+from = "/work/captains-galley/"
+to = "/work/captains-galley/index.html"
+
+[[services.production.rewrites]]
 from = "/preview/wizfix"
 to = "/preview/wizfix/index.html"
 

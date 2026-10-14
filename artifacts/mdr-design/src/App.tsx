@@ -7,6 +7,7 @@ import { ScrollProgress } from '@/components/Chrome';
 import Home from '@/pages/Home';
 import WizFix from '@/pages/WizFix';
 import Armada from '@/pages/Armada';
+import CaptainsGalley from '@/pages/CaptainsGalley';
 import Process from '@/pages/Process';
 import Services from '@/pages/Services';
 import Contact from '@/pages/Contact';
@@ -44,6 +45,7 @@ function Router() {
           <Route path="/" component={Home} />
           <Route path="/work/wizfix" component={WizFix} />
           <Route path="/work/armada-catering" component={Armada} />
+          <Route path="/work/captains-galley" component={CaptainsGalley} />
           <Route path="/process" component={Process} />
           <Route path="/services" component={Services} />
           <Route path="/contact" component={Contact} />

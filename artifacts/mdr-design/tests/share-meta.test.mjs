@@ -9,6 +9,7 @@ const root = fileURLToPath(new URL('../', import.meta.url));
 const cases = {
   '/work/wizfix': '/media/og-wizfix.jpg',
   '/work/armada-catering': '/media/og-armada-catering.jpg',
+  '/work/captains-galley': '/media/og-captains-galley.jpg',
 };
 const attr = (html, key) => html.match(new RegExp(`<meta (?:property|name)="${key}" content="([^"]*)"`))?.[1];
 const title = (html) => html.match(/<title>(.*?)<\/title>/)?.[1];
