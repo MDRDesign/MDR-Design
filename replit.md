@@ -17,6 +17,7 @@ Danielle Crowder’s web design and branding portfolio for local businesses that
 - Retain ink #0E0E0E, ivory #F4F1EA and crimson #B3261E alongside dark blue-teal. Reduce typography sizes overall while keeping strong weight and thoughtful composition.
 - Pair heavy condensed Archivo caps with Instrument Serif italics; retain Instrument Sans for body text, square corners, strict grids and deliberate motion.
 - Hero imagery should remain dimensional but less rigid and more recognizable than the architectural model: thoughtful, not whimsical or confusing.
+- The opening should have a more technical design feel and a focused pop of color. The owner chose Runway-generated still artwork plus lightweight website animation; do not describe it as a Runway-generated video.
 - Portfolio chronology: Armada-Catering (first, built and sold) and Captain’s Coffee Roasting are 2025 projects; WizFix Computers, Captain’s Galley, Z-Delivery and Prime Your Move are 2026 projects. Show 2025 before 2026.
 - Captain’s Coffee Roasting is a premium coffee roasting subscription; Captain’s Galley is a local food pickup ordering app; Prime Your Move is a workout and health tracking app for people over 40.
 - Captain’s Galley, Z-Delivery and Prime Your Move each list Web Design + Web App + Brand Direction as their services, as specified by the owner.

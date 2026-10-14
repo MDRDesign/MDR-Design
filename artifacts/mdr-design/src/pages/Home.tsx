@@ -1,8 +1,8 @@
-import { useEffect, type ReactNode } from 'react';
+import { useEffect, useState, type ReactNode } from 'react';
 import { Link } from 'wouter';
 import { Reveal, Lines, Label } from '@/components/Reveal';
-import { SmartVideo } from '@/components/Media';
-import { HeroArt } from '@/components/Art';
+import { HeroPlate } from '@/components/HeroPresentation';
+import { useReducedMotion } from '@/lib/motion';
 import { WizFixScreenshot } from '@/components/WizFixMedia';
 import { getCase } from '@/data/cases';
 import { projectReferences } from '@/data/projectReferences';
@@ -23,11 +23,13 @@ export default function Home() {
     if (window.location.hash === '#work') setTimeout(() => document.getElementById('work')?.scrollIntoView(), 50);
   }, []);
   const wiz = getCase('wizfix')!;
+  const reduced = useReducedMotion();
+  const [paused, setPaused] = useState(false);
 
   return (
     <>
       {/* HERO */}
-      <Reveal as="section" immediate className="band band-blue pt-28 md:pt-32 pb-14 md:pb-20">
+      <Reveal as="section" immediate className={`band band-blue pt-28 md:pt-32 pb-14 md:pb-20 ${paused ? 'hero-paused' : ''}`}>
         <div className="wrap">
           <div className="grid12 gap-y-12 items-end">
             <div className="col-span-4 md:col-span-7 flex flex-col">
@@ -44,19 +46,16 @@ export default function Home() {
                   <div className="mt-8 flex flex-wrap gap-8 items-center fade d6">
                     <Link href="/contact" className="btn" data-testid="link-hero-contact">Start a conversation <span className="arrow">→</span></Link>
                     <Link href="/work/wizfix" className="ulink label !text-[var(--fg)]" data-testid="link-hero-work">See the work</Link>
+                    {!reduced && (
+                      <button type="button" className="hero-toggle label !text-[var(--muted-text)] hover:!text-[var(--fg)]" data-paused={paused} aria-label={paused ? 'Resume hero animation' : 'Pause hero animation'} onClick={() => setPaused((p) => !p)} data-testid="button-hero-motion">
+                        {paused ? 'Resume motion' : 'Pause motion'}
+                      </button>
+                    )}
                   </div>
                 </div>
               </div>
             </div>
-            <figure className="col-span-4 md:col-span-5 px-3 md:px-0">
-              <div className="relative aspect-[4/5]">
-                <span className="crop tl" aria-hidden="true" /><span className="crop tr" aria-hidden="true" /><span className="crop bl" aria-hidden="true" /><span className="crop br" aria-hidden="true" />
-                <div className="frame frame-fill wipe d3">
-                  <SmartVideo eager src="media/hero-loop.mp4" poster="media/mdr-structure.webp" label="Studio film loop" fallback={<HeroArt />} />
-                </div>
-              </div>
-              <figcaption className="mt-4 flex justify-between label"><span>Pl. 01</span><span>Local brands, seen properly</span></figcaption>
-            </figure>
+            <HeroPlate />
           </div>
         </div>
       </Reveal>

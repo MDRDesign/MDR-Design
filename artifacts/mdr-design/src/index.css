@@ -428,3 +428,30 @@ input:focus-visible + .chip { outline: 1px solid var(--accent-c); outline-offset
 .band.wrap { max-width: none; padding-left: max(var(--gutter), calc((100% - 1360px) / 2 + var(--gutter))); padding-right: max(var(--gutter), calc((100% - 1360px) / 2 + var(--gutter))); }
 .display { font-weight: 800; font-stretch: 80%; font-variation-settings: 'wdth' 80; line-height: 1.02; }
 .nav-cta { padding: .7rem 1.1rem; font-size: .75rem; }
+
+/* ---------- Opening hero plate (coral moment + drafting linework) ---------- */
+/* Coral #f08a6c on teal #082b36 ≈ 6.1:1 — used for lines/fills, never body text. */
+.hero-plate { --coral: #f08a6c; }
+.hero-coral { position: absolute; inset: 0; transform: translate(14px, 14px); background: var(--coral); pointer-events: none; }
+.hero-plate .frame { z-index: 1; }
+.hero-drafting { position: absolute; inset: 0; overflow: hidden; z-index: 2; pointer-events: none; }
+.hero-lines { position: absolute; inset: 0; width: 100%; height: 100%; z-index: 2; pointer-events: none; overflow: visible; }
+.hero-lines * { vector-effect: non-scaling-stroke; fill: none; }
+.hl-ruler line { stroke: rgba(244,241,234,.75); stroke-width: 1; }
+.hl-guide line, .hl-guide circle { stroke: rgba(244,241,234,.38); stroke-width: 1; stroke-dasharray: 3 5; }
+.hl-arc { stroke: var(--coral); stroke-width: 1.5; stroke-dasharray: 1; stroke-dashoffset: 0; animation: heroArc 14s ease-in-out infinite alternate; }
+.hl-mark circle, .hl-mark line { stroke: var(--coral); stroke-width: 1.5; }
+.hero-scan { position: absolute; inset: 0; border-top: 1px solid var(--coral); opacity: .7; z-index: 2; pointer-events: none; animation: heroScan 11s cubic-bezier(.45,0,.25,1) infinite; }
+.hero-dot { display: inline-block; width: 7px; height: 7px; background: #f08a6c; margin-right: .7em; vertical-align: .08em; }
+@keyframes heroArc { 0% { stroke-dashoffset: .82; } 100% { stroke-dashoffset: 0; } }
+@keyframes heroScan { 0% { transform: translateY(0); opacity: 0; } 8% { opacity: .7; } 92% { opacity: .7; } 100% { transform: translateY(100%); opacity: 0; } }
+.hero-paused, .hero-paused .hl-arc, .hero-paused .hero-scan { animation-play-state: paused !important; }
+.hero-toggle { display: inline-flex; align-items: center; gap: .6em; }
+.hero-toggle::before { content: ''; width: 8px; height: 8px; border: 1.5px solid currentColor; }
+.hero-toggle[data-paused='false']::before { background: currentColor; }
+@media (prefers-reduced-motion: reduce) {
+  .hl-arc, .hero-scan { animation: none !important; }
+  .hl-arc { stroke-dashoffset: 0; }
+  .hero-scan { display: none; }
+  .hero-toggle { display: none; }
+}
