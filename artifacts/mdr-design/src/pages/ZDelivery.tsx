@@ -97,7 +97,7 @@ export default function ZDelivery() {
           ))}
         </ol>
         <p className="label mt-12 flex flex-wrap justify-between gap-3" data-testid="text-zdelivery-disclosure">
-          <span>Owner-provided screens; customer identifying details masked. Figures are screen content, not measured business results.</span>
+          <span>Owner-provided screens with fictional customer data. Figures are screen content, not measured business results.</span>
           <span>{host}</span>
         </p>
       </Reveal>

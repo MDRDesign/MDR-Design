@@ -63,8 +63,8 @@ export const projectReferences: ProjectReference[] = [
     year: '2026',
     liveUrl: 'https://the-bookends.lovable.app/',
     image: 'media/the-bookends-desktop.webp',
-    imageAlt: 'The Bookends public homepage, currently branded Shelf Life, with book-sharing, ratings and community browsing',
-    imageCaption: 'Published homepage — currently branded Shelf Life',
+    imageAlt: 'The Bookends public homepage with book-sharing, ratings and community browsing',
+    imageCaption: 'Published homepage — The Bookends',
   },
   {
     slug: 'captains-galley',
@@ -90,8 +90,8 @@ export const projectReferences: ProjectReference[] = [
     liveUrl: 'https://z-delivery.lovable.app/',
     casePath: '/work/z-delivery',
     image: 'media/z-delivery-mobile-overview.webp',
-    imageAlt: 'Owner-provided Z-Delivery mobile web app screenshots showing the quote dashboard and pricing with vehicle-fit checks; customer details masked',
-    imageCaption: 'Mobile app screens — customer details masked',
+    imageAlt: 'Owner-provided Z-Delivery mobile web app screenshots showing the quote dashboard and pricing with vehicle-fit checks and fictional customer details',
+    imageCaption: 'Mobile app screens — fictional customer data',
   },
   fromCase('wizfix', 'media/wizfix-desktop.webp', 'Published WizFix Computers homepage with computer repair services and the Request service button'),
 ];

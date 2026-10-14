@@ -15,8 +15,8 @@ Captain’s Galley and Z-Delivery are owner-approved examples for explaining bus
 
 **How to apply:** Use their verified functionality to explain the need and solution. Approval to feature them does not establish client testimonials, measured outcomes, or permission to expose protected app content.
 
-Use the owner-provided Z-Delivery mobile captures as app evidence rather than the public sign-in page. Keep customer-identifying details masked in portfolio copies.
+Use the owner-provided Z-Delivery mobile captures as app evidence rather than the public sign-in page. The customer details in those original screenshots are fictional and may remain visible, including in quoting and map screens.
 
-**Why:** The owner supplied screens from the protected app specifically for the Z-Delivery example; the original screens included customer details unsuitable for public portfolio copy.
+**Why:** The owner confirmed, “The customer details showing are already fake for this use,” and explicitly authorized revealing the details in the original quote and map photos.
 
-**How to apply:** Preserve the real interface and describe visible capabilities without treating captured quote amounts or status counts as measured project results. Do not assume the app data is a demo.
+**How to apply:** Preserve these original screenshots without redaction and describe their customer data as fictional. Do not treat captured quote amounts or status counts as measured project results, or extend this permission to other data.
