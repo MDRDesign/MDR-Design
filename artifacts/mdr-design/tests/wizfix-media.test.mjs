@@ -240,7 +240,7 @@ test('Armada guard rejects a media URL that escapes the nested artifact base', {
 
 for (const width of [1440, 375, 320]) {
   for (const [route, screenshots, devices] of [
-    ['', 1, 0], ['work/wizfix', 4, 1], ['preview/wizfix', 1, 1],
+    ['', 1, 0], ['work/wizfix', 4, 1], ['preview/wizfix', 2, 1],
   ]) {
     test(`/${route} preserves real WizFix visuals and content at ${width}px`, { timeout: 45_000 }, async () => {
       const page = await browser.newPage({ viewport: { width, height: 900 } });
@@ -248,10 +248,18 @@ for (const width of [1440, 375, 320]) {
       page.on('pageerror', (error) => pageErrors.push(error.message));
       try {
         await page.goto(origin + base + route, { waitUntil: 'networkidle' });
+        if (route === '' || route === 'preview/wizfix') {
+          const prefix = route === '' ? 'home' : 'preview';
+          await page.getByTestId(`button-${prefix}-prev`).click();
+          await page.waitForFunction(() =>
+            document.querySelector('[data-testid="slide-project-wizfix"]')?.getAttribute('data-active') === 'true');
+          assert.match(await page.getByTestId(`text-${prefix}-number`).textContent(), /06 \/ 06/);
+        }
         const captures = page.locator('img[src*="media/wizfix-"]');
         assert.equal(await captures.count(), screenshots, 'Missing screenshot or concept fallback used');
         for (const image of await captures.all()) {
-          await checkVisibleCapture(image);
+          const rotating = await image.evaluate((element) => Boolean(element.closest('.rot-slide')));
+          await checkVisibleCapture(image, rotating ? 'cover' : 'contain');
           const source = await image.evaluate((element) => element.currentSrc);
           assert.ok(source.startsWith(origin + base + 'media/'), `Asset escaped artifact base: ${source}`);
         }

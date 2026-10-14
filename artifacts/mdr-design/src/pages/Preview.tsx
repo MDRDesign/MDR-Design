@@ -3,6 +3,7 @@ import { Reveal, Lines } from '@/components/Reveal';
 import { SmartImage } from '@/components/Media';
 import { ConceptTag, DeviceMockup, WizFixConcept } from '@/components/Art';
 import { WizFixDevices, WizFixScreenshot } from '@/components/WizFixMedia';
+import { PortfolioRotation } from '@/components/PortfolioRotation';
 import { getPreview } from '@/data/previews';
 import { metaForPath } from '@/data/routeMeta';
 import { useSeo } from '@/lib/seo';
@@ -34,6 +35,14 @@ export default function Preview() {
         <div className="hr hr-ink draw d3 mt-12" />
       </Reveal>
       </div>
+
+      {isWizFix && (
+        <section className="band band-ink wrap pad" aria-labelledby="other-work">
+          <p id="other-work" className="label mb-3" data-testid="text-preview-other-work"><span className="n">Studio portfolio</span>Recent MDR Design work</p>
+          <p className="muted text-sm mb-10 max-w-xl">A selection of websites and web apps, shown for context alongside your WizFix redesign.</p>
+          <PortfolioRotation idPrefix="preview" heading="MDR Design studio portfolio" />
+        </section>
+      )}
 
       <section className="band band-ink wrap pad space-y-16">
         {p.images.map((img, i) => (

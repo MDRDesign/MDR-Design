@@ -3,8 +3,7 @@ import { Link } from 'wouter';
 import { Reveal, Lines, Label } from '@/components/Reveal';
 import { HeroPlate } from '@/components/HeroPresentation';
 import { useReducedMotion } from '@/lib/motion';
-import { WizFixScreenshot } from '@/components/WizFixMedia';
-import { getCase } from '@/data/cases';
+import { PortfolioRotation } from '@/components/PortfolioRotation';
 import { projectReferences } from '@/data/projectReferences';
 import { routeMeta } from '@/data/routeMeta';
 import { useSeo } from '@/lib/seo';
@@ -22,7 +21,6 @@ export default function Home() {
   useEffect(() => {
     if (window.location.hash === '#work') setTimeout(() => document.getElementById('work')?.scrollIntoView(), 50);
   }, []);
-  const wiz = getCase('wizfix')!;
   const reduced = useReducedMotion();
   const [paused, setPaused] = useState(false);
 
@@ -45,7 +43,7 @@ export default function Home() {
                   </p>
                   <div className="mt-8 flex flex-wrap gap-8 items-center fade d6">
                     <Link href="/contact" className="btn" data-testid="link-hero-contact">Start a conversation <span className="arrow">→</span></Link>
-                    <Link href="/work/wizfix" className="ulink label !text-[var(--fg)]" data-testid="link-hero-work">See the work</Link>
+                    <a href="#work" className="ulink label !text-[var(--fg)]" data-testid="link-hero-work">See the work</a>
                     {!reduced && (
                       <button type="button" className="hero-toggle label !text-[var(--muted-text)] hover:!text-[var(--fg)]" data-paused={paused} aria-label={paused ? 'Resume hero animation' : 'Pause hero animation'} onClick={() => setPaused((p) => !p)} data-testid="button-hero-motion">
                         {paused ? 'Resume motion' : 'Pause motion'}
@@ -66,28 +64,11 @@ export default function Home() {
           <div className="grid12 items-end gap-y-6">
             <Label n="I." className="col-span-4 md:col-span-3">Selected Work</Label>
             <h2 className="col-span-4 md:col-span-8 md:col-start-5 title">
-              <Lines lines={[<>One shop, <em>seen properly</em></>, 'for the first time.']} />
+              <Lines lines={[<>Local businesses, <em>seen properly</em></>, 'for the first time.']} />
             </h2>
           </div>
           <div className="hr draw mt-12" />
-          <div className="grid12 gap-y-8 mt-12">
-            <Link href="/work/wizfix" className="group col-span-4 md:col-span-8 block" data-testid="link-case-wizfix">
-              <div className="frame frame-zoom wipe aspect-[4/3] md:aspect-[16/10]">
-                <WizFixScreenshot />
-              </div>
-            </Link>
-            <div className="col-span-4 md:col-span-3 md:col-start-10 flex flex-col justify-between gap-8 fade d3">
-              <span className="label"><span className="n">{wiz.number}</span>{wiz.year}</span>
-              <div>
-                <p className="serif text-3xl leading-tight">{wiz.client}</p>
-                <p className="muted mt-3 text-sm">{wiz.disciplines.join(' + ')} — {wiz.location}</p>
-                <div className="mt-8 flex flex-col gap-4 items-start">
-                  <Link href="/work/wizfix" className="btn" data-testid="link-read-case">Read the case <span className="arrow">→</span></Link>
-                  <a href={wiz.liveUrl} target="_blank" rel="noopener noreferrer" className="ulink label !text-[var(--fg)]" data-testid="link-home-wizfix-live">Visit live site <span aria-hidden="true">↗</span><span className="sr-only"> (opens in a new tab)</span></a>
-                </div>
-              </div>
-            </div>
-          </div>
+          <div className="mt-12"><PortfolioRotation idPrefix="home" heading="Selected work" /></div>
 
           {/* Index */}
           <div className="mt-16" role="table" aria-label="Project index">

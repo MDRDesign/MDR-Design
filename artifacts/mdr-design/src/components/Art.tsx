@@ -16,12 +16,12 @@ export function ConceptTag({ text = 'Concept placeholder' }: { text?: string }) 
   );
 }
 
-/** Hero: Runway-generated ivory and coral paper study (studio artwork, not a client project). */
+/** Hero: Runway-generated dimensional sculpture (studio artwork, not a client project). */
 export function HeroArt() {
   return (
     <img
       src={`${import.meta.env.BASE_URL}media/mdr-structure.webp`}
-      alt="Layered ivory and coral paper folio with a gently curved page on a dark teal surface"
+      alt="Dimensional coral crescent sculpture with an ivory inner core and cutaway faces on a dark teal surface"
       className="frame-media"
       loading="eager"
       decoding="async"

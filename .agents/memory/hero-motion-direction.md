@@ -8,3 +8,9 @@ Preserve the animated drafting treatment when replacing or refining the hero art
 **Why:** The owner explicitly said, “I love the animated design at the top right of the page,” while requesting a different image.
 
 **How to apply:** Treat the animation and artwork as separate decisions. An image replacement is not permission to redesign the surrounding motion.
+
+Hero artwork should have striking impact and dimensional depth, rather than look ordinary or one-dimensional.
+
+**Why:** The owner requested “something else that has more striking impact without being ordinary or one dimensional.”
+
+**How to apply:** Apply this direction to new hero artwork, not to authentic project screenshots or other client materials.
