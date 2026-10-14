@@ -41,7 +41,7 @@
 .hpr-tablet:focus-visible { outline: 2px solid var(--hpr-ivory); outline-offset: 6px; }
 
 /* Parcel */
-.hpr-pack { position: absolute; z-index: 2; left: 11%; right: 11%; top: 7%; bottom: 8%; pointer-events: none; transform-style: preserve-3d; opacity: 0; }
+.hpr-pack { position: absolute; z-index: 2; left: 18%; right: 18%; top: 14%; bottom: 16%; pointer-events: none; transform-style: preserve-3d; opacity: 0; }
 .hpr-flap { position: absolute; display: block; backface-visibility: visible;
   background-color: var(--hpr-jade);
   background-image: radial-gradient(120% 90% at 22% 12%, rgba(250,252,246,.42), rgba(250,252,246,0) 55%),
