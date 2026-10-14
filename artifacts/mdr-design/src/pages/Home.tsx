@@ -14,7 +14,7 @@ const approach = [
   { n: '03', t: 'Launch', b: 'A brand, website or business app, built properly and handed over with care. You leave with something that looks right and works for your business.' },
 ];
 
-const heroLines: ReactNode[] = ['Your business,', <><em className="hb hb-word">finally</em> looking</>, 'like it means it.'];
+const heroLines: ReactNode[] = ['Your next chapter.', <><em className="hb hb-word">Designed</em> together.</>];
 
 export default function Home() {
   useSeo(routeMeta['/'], '/');

@@ -21,8 +21,8 @@ The hero artwork should reflect the studio's expanded mix of website design, bra
 
 **How to apply:** Update the subject matter without replacing the drafting treatment or treating studio artwork as a real client interface.
 
-The owner rejected the static, block-like web/app sculpture. The new requested direction is a package that unwraps into a tablet showing one of the studio's real apps or websites clearly.
+The owner approves the package-to-tablet direction. Preserve that concept, with distinctive coloring and the soft, tactile surface quality of the former crescent artwork, while showing the studio's real projects clearly.
 
-**Why:** The owner said the replacement image was worse than the previous one and asked for a recognizable, active app screen rather than another abstract image.
+**Why:** After rejecting a static web/app sculpture, the owner explicitly said they liked the package direction and requested a more unique color and the crescent's surface texture.
 
 **How to apply:** Preserve the established color/material aesthetic, but allow the requested unwrapping motion. Use authentic client screens and a working app link; do not substitute AI-generated interface text or let the device treatment make the app unreadable.
