@@ -20,6 +20,34 @@ serve = "static"
 publicDir = "artifacts/mdr-design/dist/public"
 
 [[services.production.rewrites]]
+from = "/work/wizfix"
+to = "/work/wizfix/index.html"
+
+[[services.production.rewrites]]
+from = "/work/wizfix/"
+to = "/work/wizfix/index.html"
+
+[[services.production.rewrites]]
+from = "/work/armada-catering"
+to = "/work/armada-catering/index.html"
+
+[[services.production.rewrites]]
+from = "/work/armada-catering/"
+to = "/work/armada-catering/index.html"
+
+[[services.production.rewrites]]
+from = "/preview/wizfix"
+to = "/preview/wizfix/index.html"
+
+[[services.production.rewrites]]
+from = "/preview/wizfix/"
+to = "/preview/wizfix/index.html"
+
+[[services.production.rewrites]]
+from = "/preview/*"
+to = "/preview/index.html"
+
+[[services.production.rewrites]]
 from = "/*"
 to = "/index.html"
 

@@ -1,5 +1,20 @@
 # Portfolio media regression checks
 
+For the social-share metadata checks (no browser required), run:
+
+```sh
+pnpm --filter @workspace/mdr-design test:seo
+```
+
+This checks both case routes in development HTML and built static shells at root
+and nested artifact bases, with and without a configured site origin. It checks
+matching Open Graph/Twitter titles, descriptions and images, actual JPEG dimensions,
+image response types and size, and noindex/no-canonical for preview shells.
+The reserved example origin is a test fixture only. Set `VITE_SITE_URL` to a verified
+published origin when one is available; no guessed/development origin is embedded.
+Regenerate the two 1200×630 cards from the genuine captures with
+`bash artifacts/mdr-design/scripts/share-images.sh` (requires ImageMagick).
+
 Run from the workspace root:
 
 ```sh

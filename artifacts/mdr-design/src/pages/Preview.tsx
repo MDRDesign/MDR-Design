@@ -4,7 +4,7 @@ import { SmartImage } from '@/components/Media';
 import { ConceptTag, DeviceMockup, WizFixConcept } from '@/components/Art';
 import { WizFixDevices, WizFixScreenshot } from '@/components/WizFixMedia';
 import { getPreview } from '@/data/previews';
-import { routeMeta } from '@/data/routeMeta';
+import { metaForPath } from '@/data/routeMeta';
 import { useSeo } from '@/lib/seo';
 import NotFound from './not-found';
 
@@ -12,7 +12,7 @@ export default function Preview() {
   const { slug = '' } = useParams<{ slug: string }>();
   const p = getPreview(slug);
   useSeo(
-    p ? { ...routeMeta['/preview/:slug'], title: `Prepared for ${p.clientName} — ${p.businessName} · MDR Design` } : routeMeta['/preview/:slug'],
+    metaForPath(`/preview/${slug}`),
     `/preview/${slug}`,
   );
   if (!p) return <NotFound />;

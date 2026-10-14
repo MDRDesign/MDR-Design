@@ -2,3 +2,4 @@
 - [Media frame CSS cascade](css-cascade.md) — unlayered component styles outrank Tailwind utilities; verify computed positioning when media appears blank.
 - [Armada public address](armada-address.md) — user confirmed the www host; do not normalize it to the bare domain.
 - [WizFix capture provenance](wizfix-capture-provenance.md) — owner confirmed the green-and-gray screenshot shows the former website.
+- [Static share routing](static-share-routing.md) — Vite preview does not simulate production rewrites; verify deep-route shells and production routing separately.

@@ -2,7 +2,9 @@
  * Route metadata — used client-side by useSeo, and exportable for a
  * server-side HTML transform (social previews).
  */
-export type RouteMeta = { title: string; description: string; noindex?: boolean; image?: string };
+import { previews } from './previews';
+
+export type RouteMeta = { title: string; description: string; noindex?: boolean; image?: string; imageAlt?: string };
 
 export const SITE_NAME = 'MDR Design';
 export const DEFAULT_OG_IMAGE = '/media/og-image.png';
@@ -15,10 +17,14 @@ export const routeMeta: Record<string, RouteMeta> = {
   '/work/wizfix': {
     title: 'WizFix Computers — Case Study · MDR Design',
     description: 'Web design and brand direction for a Diamond Bar, CA computer repair, IT and printing shop: clarity, trust and discoverability.',
+    image: '/media/og-wizfix.jpg',
+    imageAlt: 'WizFix Computers case study — published computer repair website, by MDR Design.',
   },
   '/work/armada-catering': {
     title: 'Armada-Catering — Case Study · MDR Design',
     description: 'Web design and brand direction for a small Southern California catering company seeking a fresh identity and a clearer presence for introductions and referrals.',
+    image: '/media/og-armada-catering.jpg',
+    imageAlt: 'Armada-Catering case study — published catering website, by MDR Design.',
   },
   '/process': {
     title: 'Process — Listen, Shape, Launch · MDR Design',
@@ -38,6 +44,19 @@ export const routeMeta: Record<string, RouteMeta> = {
     noindex: true,
   },
 };
+
+for (const preview of previews) {
+  routeMeta[`/preview/${preview.slug}`] = {
+    ...routeMeta['/preview/:slug'],
+    title: `Prepared for ${preview.clientName} — ${preview.businessName} · MDR Design`,
+  };
+}
+
+/** Paths here are artifact-relative; the configured site URL is an origin, not a base path. */
+export function seoUrl(path: string, basePath: string, siteUrl = ''): string {
+  const base = `/${basePath.replace(/^\/|\/$/g, '')}`.replace(/\/$/, '');
+  return `${siteUrl.replace(/\/$/, '')}${base}/${path.replace(/^\//, '')}`;
+}
 
 export function metaForPath(path: string): RouteMeta {
   if (routeMeta[path]) return routeMeta[path];
