@@ -20,3 +20,9 @@ A viewable Replit preview asset is not necessarily a usable Runway reference URL
 **Why:** Runway's fetch of a studio image on the development preview returned HTML instead of an image, despite the asset displaying in the app.
 
 **How to apply:** Verify the provider can fetch image content rather than a proxy page. Prefer Runway-hosted asset references or task IDs when reusing generated media; do not reconstruct signed asset URLs.
+
+Do not rely solely on the embedded Runway upgrade card being visible. Provide verified plan links and a short text summary when presenting upgrade choices.
+
+**Why:** The owner could not see the upgrade options after the plans tool was called.
+
+**How to apply:** Retrieve current prices and links from Runway's plans tool and include them directly in the reply. Do not invent prices, assume the card rendered, or initiate a subscription for the owner.
