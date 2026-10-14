@@ -70,7 +70,7 @@ export function Header() {
             {NAV.map((n) => (
               <li key={n.href} className="flex items-center">
                 <Link href={n.href} onClick={(e: MouseEvent) => go(e, n.href)} className={n.href === '/contact' ? 'btn nav-cta' : 'ulink'} aria-current={loc === n.href ? 'page' : undefined} data-testid={`link-nav-${n.label.toLowerCase()}`}>
-                  {n.href === '/contact' ? <>Start a project <span className="arrow">→</span></> : n.label}
+                  {n.href === '/contact' ? <><span className="hb hb-word">Contact</span> <span className="arrow">→</span></> : n.label}
                 </Link>
               </li>
             ))}
@@ -89,7 +89,7 @@ export function Header() {
         <nav aria-label="Mobile" className="wrap flex-1 flex flex-col justify-center">
           {NAV.map((n, i) => (
             <Link key={n.href} href={n.href} onClick={(e: MouseEvent) => go(e, n.href, () => setOpen(false))} className="display text-[2rem] py-4 border-b border-[var(--rule)] flex items-baseline justify-between" data-testid={`link-mobile-${n.label.toLowerCase()}`}>
-              <span>{i === 3 ? <em>{n.label}</em> : n.label}</span>
+              <span>{i === 3 ? <em className="hb hb-word">{n.label}</em> : n.label}</span>
               <span className="label">0{i + 1}</span>
             </Link>
           ))}

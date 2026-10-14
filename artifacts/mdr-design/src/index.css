@@ -316,6 +316,20 @@ input:focus-visible + .chip { outline: 1px solid var(--accent-c); outline-offset
   16% { opacity: 0; transform: translateX(var(--hb-w, 9rem)); }
   20% { opacity: .55; } 22% { opacity: 0; } 25% { opacity: .4; } 28%,100% { opacity: 0; transform: translateX(var(--hb-w, 9rem)); }
 }
+/* Footer-red word accents, with the same slow sweep and double-pulse cadence.
+   Percentage positioning fits each word without changing its typography. */
+.hb-word { color: var(--crimson-lift); vertical-align: baseline; }
+.hb-word::after { animation-name: heartbeat-word; transform: none; }
+@keyframes heartbeat-word {
+  0% { opacity: 0; left: -2px; }
+  2% { opacity: .9; }
+  14% { opacity: .9; left: 100%; }
+  16% { opacity: 0; left: 100%; }
+  20% { opacity: .55; } 22% { opacity: 0; } 25% { opacity: .4; }
+  28%,100% { opacity: 0; left: 100%; }
+}
+.chrome-ink .nav-cta { background: #0e0e0e; color: var(--crimson-lift); }
+.hero-paused .hb-word::after { animation-play-state: paused !important; }
 .band-blue .frame, .band-crimson .frame { --fg: #0e0e0e; --rule: #cfc9bc; --stone: #6f6a62; --accent-c: #b3261e; --surface: #f4f1ea; --bg: #f4f1ea; }
 .chrome-ink { background: transparent; color: var(--fg); }
 .pad { padding-top: clamp(3.5rem, 7vw, 6.5rem); padding-bottom: clamp(3.5rem, 7vw, 6.5rem); }
