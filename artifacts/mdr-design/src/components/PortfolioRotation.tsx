@@ -19,7 +19,7 @@ function Slide({ r, active }: { r: ProjectReference; active: boolean }) {
           </a>
         </div>
       ) : (
-        <img src={mediaUrl(r.image)} alt={r.imageAlt} width={1440} height={900} className="frame-media" style={{ objectFit: 'cover', objectPosition: 'top' }}
+        <img src={mediaUrl(r.image)} alt={r.imageAlt} width={1440} height={900} className="frame-media" style={{ objectFit: r.imageFit ?? 'cover', objectPosition: r.imageFit === 'contain' ? 'center' : 'top' }}
           loading="lazy" decoding="async" onError={() => setBroken(true)} />
       )}
     </div>

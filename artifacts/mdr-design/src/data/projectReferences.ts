@@ -12,6 +12,8 @@ export type ProjectReference = {
   casePath?: string;
   /** Real public capture or owner-provided screen composition, relative to public/ (resolve with mediaUrl). */
   image: string;
+  /** Keep multi-screen compositions uncropped in narrower preview frames. */
+  imageFit?: 'cover' | 'contain';
   imageAlt: string;
   imageCaption?: string;
 };
@@ -47,8 +49,10 @@ export const projectReferences: ProjectReference[] = [
     disciplines: ['Web Design'],
     year: '2025',
     liveUrl: 'https://captainscoffeeroasting.com/',
-    image: 'media/captains-coffee-roasting-desktop.webp',
-    imageAlt: 'Published Captain’s Coffee Roasting homepage',
+    image: 'media/captains-coffee-mobile-overview.webp',
+    imageFit: 'contain',
+    imageAlt: 'Owner-provided Captain’s Coffee Roasting mobile screenshots showing the homepage, subscription plans and coffee shop',
+    imageCaption: 'Owner-provided mobile screens — home, subscriptions and coffee shop',
   },
   {
     slug: 'the-bookends',
