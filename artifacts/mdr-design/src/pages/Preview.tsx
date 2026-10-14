@@ -2,6 +2,7 @@ import { Link, useParams } from 'wouter';
 import { Reveal, Lines } from '@/components/Reveal';
 import { SmartImage } from '@/components/Media';
 import { ConceptTag, DeviceMockup, WizFixConcept } from '@/components/Art';
+import { WizFixDevices, WizFixScreenshot } from '@/components/WizFixMedia';
 import { getPreview } from '@/data/previews';
 import { routeMeta } from '@/data/routeMeta';
 import { useSeo } from '@/lib/seo';
@@ -15,6 +16,7 @@ export default function Preview() {
     `/preview/${slug}`,
   );
   if (!p) return <NotFound />;
+  const isWizFix = p.slug === 'wizfix';
   const contactHref = `/contact?source=${encodeURIComponent(`preview-${p.slug}`)}&client=${encodeURIComponent(p.clientName)}&business=${encodeURIComponent(p.businessName)}`;
 
   return (
@@ -22,7 +24,7 @@ export default function Preview() {
       <div className="band band-blue wrap pb-20">
       <Reveal as="header" immediate className="pt-8 flex justify-between items-baseline fade">
         <span className="serif italic text-[1.6rem]">MDR</span>
-        <span className="label">Unlisted concept preview</span>
+        <span className="label">{isWizFix ? 'Unlisted project preview' : 'Unlisted concept preview'}</span>
       </Reveal>
       <Reveal as="section" immediate className="pt-20 md:pt-32">
         <p className="label fade d1"><span className="n">Prepared for {p.clientName}</span>{p.businessName}</p>
@@ -37,15 +39,21 @@ export default function Preview() {
         {p.images.map((img, i) => (
           <Reveal key={img.src} as="figure">
             <div className="frame wipe aspect-[4/3] md:aspect-[16/9] border border-[var(--rule)]" data-cursor="view">
-              <SmartImage src={img.src} alt={img.caption} fallback={i % 2 ? <DeviceMockup /> : <WizFixConcept />} />
-              <ConceptTag text="Concept" />
+              {isWizFix ? <WizFixScreenshot /> : (
+                <>
+                  <SmartImage src={img.src} alt={img.caption} fallback={i % 2 ? <DeviceMockup /> : <WizFixConcept />} />
+                  <ConceptTag text="Concept" />
+                </>
+              )}
             </div>
             <figcaption className="label mt-3">Fig. {String(i + 1).padStart(2, '0')} — {img.caption}</figcaption>
           </Reveal>
         ))}
         <Reveal as="figure">
-          <div className="frame wipe aspect-[16/10] border border-[var(--rule)]"><DeviceMockup /><ConceptTag text="Concept" /></div>
-          <figcaption className="label mt-3">Across devices — concept</figcaption>
+          <div className="frame wipe aspect-[16/10] border border-[var(--rule)]">
+            {isWizFix ? <WizFixDevices /> : <><DeviceMockup /><ConceptTag text="Concept" /></>}
+          </div>
+          <figcaption className="label mt-3">Across devices — {isWizFix ? 'published site' : 'concept'}</figcaption>
         </Reveal>
       </section>
 

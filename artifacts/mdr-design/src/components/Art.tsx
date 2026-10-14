@@ -1,4 +1,7 @@
-/* Original SVG placeholder artwork. All WizFix visuals are labeled CONCEPT. */
+/* Illustrative SVG artwork. Published WizFix captures live in WizFixMedia.
+ * Keep the before/after concepts explicitly labelled: no authentic before
+ * screenshot has been supplied.
+ */
 
 const ink = 'var(--fg)';
 const rule = 'var(--rule)';

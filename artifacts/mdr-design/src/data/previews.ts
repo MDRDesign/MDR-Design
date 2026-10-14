@@ -23,7 +23,7 @@ export const previews: Preview[] = [
     note:
       "Joey — here's the redesign direction for WizFix, all in one place. Repair, IT and printing, presented as the established tech business you already are. Take a look, share it with anyone whose opinion matters, and let me know when you're ready to move forward. — Danielle",
     images: [
-      { src: 'media/wizfix-mockup.jpg', caption: 'Homepage direction — concept' },
+      { src: 'media/wizfix-desktop.webp', caption: 'Published homepage' },
     ],
     liveUrl: 'https://wiz-fix-computers-website.replit.app/',
   },

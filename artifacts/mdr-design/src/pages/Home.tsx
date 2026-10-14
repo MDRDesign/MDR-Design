@@ -2,7 +2,8 @@ import { useEffect, type ReactNode } from 'react';
 import { Link } from 'wouter';
 import { Reveal, Lines, Label } from '@/components/Reveal';
 import { SmartVideo } from '@/components/Media';
-import { HeroArt, WizFixConcept, ConceptTag } from '@/components/Art';
+import { HeroArt } from '@/components/Art';
+import { WizFixScreenshot } from '@/components/WizFixMedia';
 import { cases } from '@/data/cases';
 import { projectReferences } from '@/data/projectReferences';
 import { routeMeta } from '@/data/routeMeta';
@@ -73,8 +74,7 @@ export default function Home() {
           <div className="grid12 gap-y-8 mt-12">
             <Link href="/work/wizfix" className="group col-span-4 md:col-span-8 block" data-testid="link-case-wizfix">
               <div className="frame frame-zoom wipe aspect-[4/3] md:aspect-[16/10]">
-                <WizFixConcept />
-                <ConceptTag text="Concept visual" />
+                <WizFixScreenshot />
               </div>
             </Link>
             <div className="col-span-4 md:col-span-3 md:col-start-10 flex flex-col justify-between gap-8 fade d3">

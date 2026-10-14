@@ -1,7 +1,6 @@
 import { Link } from 'wouter';
 import { Reveal, Lines, Label } from '@/components/Reveal';
-import { SmartImage, SmartVideo } from '@/components/Media';
-import { ConceptTag, DeviceMockup, FilmPlaceholder, WizFixConcept } from '@/components/Art';
+import { WizFixDevices, WizFixScreenshot } from '@/components/WizFixMedia';
 import { BeforeAfter } from '@/components/BeforeAfter';
 import { getCase } from '@/data/cases';
 import { routeMeta } from '@/data/routeMeta';
@@ -50,10 +49,9 @@ export default function WizFix() {
 
       <Reveal as="section" className="band band-ink wrap pad">
         <div className="frame wipe aspect-[4/3] md:aspect-[16/8] border border-[var(--rule)]" data-cursor="view">
-          <SmartImage src="media/wizfix-mockup.jpg" alt="WizFix Computers website mockup" fallback={<WizFixConcept />} />
-          <ConceptTag text="Concept visual" />
+          <WizFixScreenshot />
         </div>
-        <p className="label mt-3">Fig. 01 — Homepage direction</p>
+        <p className="label mt-3">Fig. 01 — Published homepage</p>
       </Reveal>
 
       {/* What Joey needed — approved testimonials are optional */}
@@ -118,12 +116,12 @@ export default function WizFix() {
         </div>
       </Reveal>
 
-      {/* Film */}
+      {/* Published homepage detail — no walkthrough film has been supplied. */}
       <Reveal as="section" className="band band-ink wrap pad">
         <div className="frame wipe aspect-[16/10] md:aspect-[16/7] bg-[#0e0e0e]" data-cursor="view">
-          <SmartVideo src="media/wizfix-film.mp4" label="WizFix walkthrough film" fallback={<FilmPlaceholder />} />
+          <WizFixScreenshot detail />
         </div>
-        <p className="label mt-3">Fig. 03 — Walkthrough film</p>
+        <p className="label mt-3">Fig. 03 — Published homepage detail</p>
       </Reveal>
 
       {/* Device */}
@@ -131,10 +129,9 @@ export default function WizFix() {
         <div className="grid12 gap-y-6 items-end">
           <div className="col-span-4 md:col-span-8">
             <div className="frame wipe aspect-[16/10] border border-[var(--rule)]" data-cursor="view">
-              <DeviceMockup />
-              <ConceptTag />
+              <WizFixDevices />
             </div>
-            <p className="label mt-3">Fig. 04 — Across devices</p>
+            <p className="label mt-3">Fig. 04 — Published site across devices</p>
           </div>
           <p className="col-span-4 md:col-span-3 md:col-start-10 serif text-xl leading-snug fade d3">
             Most customers meet the shop on a phone, in a hurry, with something broken. <em>It had to work there first.</em>
