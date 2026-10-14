@@ -53,7 +53,7 @@ export default function Home() {
                 </div>
               </div>
             </div>
-            <HeroPlate />
+            <HeroPlate paused={paused} />
           </div>
         </div>
       </Reveal>

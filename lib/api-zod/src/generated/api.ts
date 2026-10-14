@@ -9,6 +9,23 @@ import * as zod from 'zod';
 
 
 /**
+ * @summary Serve public studio film assets with byte-range support
+ */
+export const getStudioMediaPathFilenameRegExp = new RegExp('^mdr-street-film-[a-f0-9]{12}\\.(mp4|webm|webp)$');
+
+
+export const GetStudioMediaParams = zod.object({
+  "filename": zod.coerce.string().regex(getStudioMediaPathFilenameRegExp)
+})
+
+export const GetStudioMediaHeader = zod.object({
+  "Range": zod.string().optional()
+})
+
+export const GetStudioMediaResponse = zod.unknown()
+
+
+/**
  * @summary Submit a studio inquiry
  */
 export const createInquiryBodyNameMax = 120;

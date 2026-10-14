@@ -1,0 +1,16 @@
+uploads = []
+generated = []
+
+[[outputs]]
+id = "YmpqmomJbul05xQRkpQQe"
+uri = "file://generated-artifacts/street-film/mdr-street-film.mp4"
+type = "video"
+title = "MDR Design — Street Film"
+description = "15-second portrait film at 720p. Runway-generated street footage with the real MDR Design homepage composited onto the phone, followed by the bird stealing it and the missed jump. Silent MP4 download."
+logical_id = "3c3a2246-2559-4441-991e-8fa5dba723a7"
+content_hash = "sha256:891bf80b3671ba453f078c4d686b403e22c5b6d8aac0c7728688b1e2ee0461e4"
+size = 3787342
+mtime_ms = 1791969471466
+storage_uri = "gcs://replit-rams-assets-kirk/rams/assets/repl:a343bcdd-c4ba-4b81-bcae-49d3ef1594a6/3c3a2246-2559-4441-991e-8fa5dba723a7/dc623cd3-cf44-4233-b875-10a83983c536"
+storage_version_token = "1791970220580307"
+content_type = "video/mp4"

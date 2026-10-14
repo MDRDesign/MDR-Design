@@ -11,6 +11,48 @@ tags:
   - name: health
     description: Health operations
 paths:
+  /studio-media/{filename}:
+    get:
+      operationId: getStudioMedia
+      tags: [media]
+      summary: Serve public studio film assets with byte-range support
+      parameters:
+        - name: filename
+          in: path
+          required: true
+          schema:
+            type: string
+            pattern: '^mdr-street-film-[a-f0-9]{12}\.(mp4|webm|webp)$'
+        - name: Range
+          in: header
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Complete public media asset
+          content:
+            video/mp4:
+              schema: { type: string, format: binary }
+            video/webm:
+              schema: { type: string, format: binary }
+            image/webp:
+              schema: { type: string, format: binary }
+        "206":
+          description: Requested byte range
+          headers:
+            Content-Range:
+              schema: { type: string }
+          content:
+            video/mp4:
+              schema: { type: string, format: binary }
+            video/webm:
+              schema: { type: string, format: binary }
+        "404":
+          description: Asset not found
+        "416":
+          description: Invalid or unsatisfiable byte range
+        "503":
+          description: Asset storage unavailable
   /inquiries:
     post:
       operationId: createInquiry

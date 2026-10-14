@@ -52,6 +52,83 @@ const withQueryKey = <T extends object, K>(query: T, queryKey: K): T & { queryKe
   return result;
 };
 
+export const getGetStudioMediaUrl = (filename: string,) => {
+
+
+
+
+  return `/api/studio-media/${filename}`
+}
+
+/**
+ * @summary Serve public studio film assets with byte-range support
+ */
+export const getStudioMedia = async (filename: string, options?: Parameters<typeof customFetch>[1]): Promise<Blob> => {
+
+  return customFetch<Blob>(getGetStudioMediaUrl(filename),
+  {
+    ...options,
+    method: 'GET'
+
+
+  }
+);}
+
+
+
+
+
+export const getGetStudioMediaQueryKey = (filename: string,) => {
+    return [
+    `/api/studio-media/${filename}`
+    ] as const;
+    }
+
+
+export const getGetStudioMediaQueryOptions = <TData = Awaited<ReturnType<typeof getStudioMedia>>, TError = ErrorType<void>>(filename: string, options?: { query?:UseQueryOptions<Awaited<ReturnType<typeof getStudioMedia>>, TError, TData>, request?: SecondParameter<typeof customFetch>}
+) => {
+
+const {query: queryOptions, request: requestOptions} = options ?? {};
+
+  const queryKey =  queryOptions?.queryKey ?? getGetStudioMediaQueryKey(filename);
+
+
+
+    const queryFn: QueryFunction<Awaited<ReturnType<typeof getStudioMedia>>> = ({ signal }) => getStudioMedia(filename, { signal, ...requestOptions });
+
+
+
+
+
+   return  { queryKey, queryFn, enabled: filename !== null && filename !== undefined, ...queryOptions} as UseQueryOptions<Awaited<ReturnType<typeof getStudioMedia>>, TError, TData> & { queryKey: QueryKey }
+}
+
+export type GetStudioMediaQueryResult = NonNullable<Awaited<ReturnType<typeof getStudioMedia>>>
+export type GetStudioMediaQueryError = ErrorType<void>
+
+
+/**
+ * @summary Serve public studio film assets with byte-range support
+ */
+
+export function useGetStudioMedia<TData = Awaited<ReturnType<typeof getStudioMedia>>, TError = ErrorType<void>>(
+ filename: string, options?: { query?:UseQueryOptions<Awaited<ReturnType<typeof getStudioMedia>>, TError, TData>, request?: SecondParameter<typeof customFetch>}
+
+ ):  UseQueryResult<TData, TError> & { queryKey: QueryKey } {
+
+  const queryOptions = getGetStudioMediaQueryOptions(filename,options)
+
+  const query = useQuery(queryOptions) as  UseQueryResult<TData, TError> & { queryKey: QueryKey };
+
+  return withQueryKey(query, queryOptions.queryKey);
+}
+
+
+
+
+
+
+
 export const getCreateInquiryUrl = () => {
 
 

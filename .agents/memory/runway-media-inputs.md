@@ -26,3 +26,9 @@ Do not rely solely on the embedded Runway upgrade card being visible. Provide ve
 **Why:** The owner could not see the upgrade options after the plans tool was called.
 
 **How to apply:** Retrieve current prices and links from Runway's plans tool and include them directly in the reply. Do not invent prices, assume the card rendered, or initiate a subscription for the owner.
+
+Treat generated phone screens as footage to composite, not as reliable reproductions of a real website.
+
+**Why:** A multi-shot prompt explicitly requesting a uniform chroma-green display instead produced a generic calling interface with invented lettering. A genuine homepage capture was needed to make the requested MDR Design close-up accurate.
+
+**How to apply:** Plan for real-screen compositing and visual inspection. Also check that physical story beats actually happen: the first generated ending did not clearly transfer the phone or show the requested jump, while a shorter, focused replacement did.
