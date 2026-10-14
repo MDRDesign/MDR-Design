@@ -58,9 +58,10 @@ export const projectReferences: ProjectReference[] = [
     disciplines: ['Web Design', 'Web App', 'Brand Direction'],
     year: '2026',
     liveUrl: 'https://z-delivery.lovable.app/',
-    image: 'media/z-delivery-desktop.webp',
-    imageAlt: 'Z-Delivery staff sign-in screen for its protected delivery web app',
-    imageCaption: 'Staff sign-in — protected web app',
+    casePath: '/work/z-delivery',
+    image: 'media/z-delivery-mobile-overview.webp',
+    imageAlt: 'Owner-provided Z-Delivery mobile web app screenshots showing the quote dashboard and pricing with vehicle-fit checks; customer details masked',
+    imageCaption: 'Mobile app screens — customer details masked',
   },
   {
     slug: 'prime-your-move',

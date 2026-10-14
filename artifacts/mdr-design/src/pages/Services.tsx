@@ -48,6 +48,9 @@ export default function Services() {
                       {project.slug === 'captains-galley'
                         ? ' — customers order local food ahead for pickup.'
                         : ' — staff quote and schedule deliveries in a protected web app.'}
+                      {project.casePath && (
+                        <> <Link href={project.casePath} className="ulink label !text-[var(--fg)] ml-1 whitespace-nowrap" data-testid={`link-app-case-${project.slug}`}>Case study <span className="arrow">→</span></Link></>
+                      )}
                     </p>
                   ))}
                 </div>

@@ -14,3 +14,9 @@ Captain’s Galley and Z-Delivery are owner-approved examples for explaining bus
 **Why:** The owner explicitly authorized either project as an example of developing an app to solve a business problem or need.
 
 **How to apply:** Use their verified functionality to explain the need and solution. Approval to feature them does not establish client testimonials, measured outcomes, or permission to expose protected app content.
+
+Use the owner-provided Z-Delivery mobile captures as app evidence rather than the public sign-in page. Keep customer-identifying details masked in portfolio copies.
+
+**Why:** The owner supplied screens from the protected app specifically for the Z-Delivery example; the original screens included customer details unsuitable for public portfolio copy.
+
+**How to apply:** Preserve the real interface and describe visible capabilities without treating captured quote amounts or status counts as measured project results. Do not assume the app data is a demo.

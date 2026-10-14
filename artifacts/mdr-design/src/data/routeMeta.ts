@@ -32,6 +32,12 @@ export const routeMeta: Record<string, RouteMeta> = {
     image: '/media/og-captains-galley.jpg',
     imageAlt: 'Captain’s Galley web app case study — published homepage and menu entry point, by MDR Design.',
   },
+  '/work/z-delivery': {
+    title: 'Z-Delivery — Business Web App Case Study · MDR Design',
+    description: 'A mobile-friendly delivery web app for staff: quote statuses, price ranges with vehicle-fit and risk checks, access and item photos, and live route tools. By MDR Design.',
+    image: '/media/og-z-delivery.jpg',
+    imageAlt: 'Z-Delivery web app case study — mobile quote and route screens, by MDR Design.',
+  },
   '/process': {
     title: 'Process — Listen, Shape, Launch · MDR Design',
     description: 'From first conversation to launch day: how MDR Design turns what you say into a brand, website or business app that works.',
