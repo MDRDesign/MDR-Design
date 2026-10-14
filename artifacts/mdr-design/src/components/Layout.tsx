@@ -24,11 +24,11 @@ function useWorkLink() {
   };
 }
 
-export function Wordmark() {
+export function Wordmark({ testId = 'link-home' }: { testId?: string }) {
   return (
-    <Link href="/" className="group inline-flex items-baseline gap-1.5" data-testid="link-home" aria-label="MDR Design, home">
+    <Link href="/" className="group inline-flex items-baseline gap-1.5" data-testid={testId} aria-label="MDR Design, home">
       <span className="serif italic text-[1.6rem] leading-none">MDR</span>
-      <span className="label hidden sm:inline">Design</span>
+      <span className="label">Design</span>
     </Link>
   );
 }
@@ -82,7 +82,7 @@ export function Header() {
       </div>
       <div id="mobile-menu" ref={panelRef} role="dialog" aria-modal="true" aria-label="Menu" data-open={open} className="menu-panel fixed inset-0 z-50 bg-[var(--bg)] md:hidden flex flex-col">
         <div className="wrap flex items-center justify-between py-6">
-          <span className="serif text-[1.65rem]">MDR</span>
+          <Wordmark testId="link-mobile-home" />
           <button className="label !text-[var(--fg)] py-2" onClick={() => { setOpen(false); btnRef.current?.focus(); }} data-testid="button-menu-close">Close</button>
         </div>
         <div className="hr" />

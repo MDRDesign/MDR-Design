@@ -297,14 +297,22 @@ input:focus-visible + .chip { outline: 1px solid var(--accent-c); outline-offset
 .band-ivory { --bg: #f4f1ea; --fg: #0e0e0e; --muted-text: #57534c; --rule: #cfc9bc; --accent-c: #b3261e; --surface: #ebe7dd; --stone: #6f6a62; --focus: #b3261e; --btn-hover: #b3261e; --btn-hover-fg: #f4f1ea; }
 .dark .band-ivory { --bg: #1a1917; --fg: #f4f1ea; --muted-text: #b3ada2; --rule: #3a3833; --accent-c: #e0645a; --surface: #23221f; --stone: #9a948a; --focus: #f4f1ea; --btn-hover: #0b3c41; --btn-hover-fg: #f4f1ea; }
 .band-ink, .chrome-ink { --bg: #0e0e0e; --fg: #f4f1ea; --muted-text: #b3ada2; --rule: #3a3833; --accent-c: #e0645a; --surface: #1c1b19; --stone: #9a948a; --focus: #f4f1ea; --btn-hover: #0b3c41; --btn-hover-fg: #f4f1ea; }
-/* ivory on blue 9.48:1; muted #c9d2ec 7.1:1 */
+/* Deep, shifting backgrounds keep ivory, muted text and coral accents readable. */
 .band-blue { --bg: #082b36; --fg: #f4f1ea; --muted-text: #c8d8d6; --rule: rgba(244,241,234,.38); --accent-c: #f4f1ea; --surface: #f4f1ea; --stone: #c8d8d6; --focus: #f4f1ea; --btn-hover: #0e0e0e; --btn-hover-fg: #f4f1ea; }
 /* ivory on crimson 5.79:1; muted #f2d6d2 4.8:1. ink only for non-text geometry */
 .band-crimson { --bg: #b3261e; --fg: #f4f1ea; --muted-text: #f2d6d2; --rule: rgba(244,241,234,.42); --accent-c: #f4f1ea; --surface: #f4f1ea; --stone: #f2d6d2; --focus: #f4f1ea; --btn-hover: #0e0e0e; --btn-hover-fg: #f4f1ea; }
 .band-blue, .band-crimson, .band-ink { font-weight: 400; }
-/* Deep teal: slow 18s solid-colour drift. Ivory AA: 13.2 / 10.7 / 12.7 */
-.band-blue { animation: tealShift 18s ease-in-out infinite; }
-@keyframes tealShift { 0%,100% { background-color: #082b36; } 33% { background-color: #0b3c41; } 66% { background-color: #102c46; } }
+/* A slow solid-colour cycle: teal, petrol, navy, forest, plum and wine.
+   No gradients; reduced motion and the existing hero pause remain supported. */
+.band-blue { animation: tealShift 30s ease-in-out infinite; }
+@keyframes tealShift {
+  0%,100% { background-color: #05242d; }
+  17% { background-color: #092426; }
+  34% { background-color: #0e2336; }
+  51% { background-color: #13241d; }
+  68% { background-color: #261e29; }
+  85% { background-color: #2e1b20; }
+}
 /* Heartbeat line across the wordmark: one thin pass, then a soft double pulse, long pause */
 .hb { position: relative; display: inline-block; overflow: hidden; }
 .hb::after { content: ''; position: absolute; top: 8%; bottom: 8%; left: 0; width: 2px; background: #cfe3df; pointer-events: none;
@@ -427,7 +435,7 @@ input:focus-visible + .chip { outline: 1px solid var(--accent-c); outline-offset
 
 @media (prefers-reduced-motion: reduce) {
   .kinetic-track { animation: none !important; transform: none !important; }
-  .band-blue { animation: none !important; background-color: #082b36 !important; }
+  .band-blue { animation: none !important; background-color: #05242d !important; }
   .hb::after { display: none !important; }
   .intro, .route-wipe { display: none !important; }
   .feat { clip-path: none !important; }
