@@ -8,6 +8,7 @@ import { fileURLToPath } from 'node:url';
 import { execFileSync } from 'node:child_process';
 import { chromium } from 'playwright-core';
 import { build, preview } from 'vite';
+import { registerComparisonTests } from './helpers/wizfix-comparison.mjs';
 
 const root = fileURLToPath(new URL('../', import.meta.url));
 const base = '/portfolio-regression/';
@@ -79,6 +80,8 @@ after(async () => {
       deployment.server.httpServer.close((error) => error ? reject(error) : resolveClose()));
   }
 });
+
+registerComparisonTests({ getBrowser: () => browser, deployments, checkVisibleCapture });
 
 test('all WizFix WebPs exist, resolve as images, and decode (not SPA fallback HTML)', async () => {
   const files = (await readdir(resolve(root, 'public/media'))).filter((name) => /^wizfix-.*\.webp$/.test(name));
