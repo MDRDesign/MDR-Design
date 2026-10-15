@@ -142,6 +142,66 @@ async function checkVisibleCapture(locator, expectedObjectFit = 'contain') {
   if (metrics.image) assert.equal(metrics.objectFit, expectedObjectFit, 'Capture changed its intended image fit');
 }
 
+async function checkWizfixDeviceImage(capture, deployment) {
+  const source = await capture.evaluate((element) => new URL(element.href.baseVal, document.baseURI).href);
+  assert.ok(source.startsWith(deployment.origin + deployment.base + 'media/'), `SVG asset escaped artifact base: ${source}`);
+  await checkVisibleCapture(capture);
+  // SVG images lack naturalWidth: decode the exact href separately.
+  await capture.evaluate(async (element) => {
+    const image = new Image();
+    image.src = element.href.baseVal;
+    await image.decode();
+  });
+}
+
+for (const artifactBase of [base, '/']) {
+  for (const [failure, options] of [
+    ['missing response', { status: 404, contentType: 'text/plain', body: 'Not found' }],
+    ['SPA fallback', { status: 200, contentType: 'text/html', body: '<html>Fallback</html>' }],
+    // A plausible signature and MIME type must not substitute for decoding.
+    ['corrupt WebP bytes', { status: 200, contentType: 'image/webp', body: 'RIFFxxxxWEBPbroken' }],
+  ]) {
+    for (const [kind, asset] of [
+      ['screenshot', 'wizfix-before.webp'],
+      ['device image', 'wizfix-mobile.webp'],
+    ]) {
+      test(`WizFix ${kind} guard rejects ${failure} under ${artifactBase}`,
+        { timeout: 45_000 }, async () => {
+          const deployment = deployments.find((entry) => entry.base === artifactBase);
+          const page = await browser.newPage({ viewport: { width: 1440, height: 900 } });
+          const imageUrl = deployment.origin + artifactBase + 'media/' + asset;
+          let intercepted = 0;
+          try {
+            await page.route(imageUrl, async (route) => {
+              intercepted++;
+              await route.fulfill(options);
+            });
+            await page.goto(deployment.origin + artifactBase + 'work/wizfix',
+              { waitUntil: 'networkidle' });
+            const capture = kind === 'screenshot'
+              ? page.locator(`img[src$="${asset}"]`)
+              : page.locator(`svg image[href$="${asset}"]`);
+            assert.equal(await capture.count(), 1, `${asset}: negative control target missing`);
+            // APIRequestContext bypasses interception. A healthy public file
+            // must not mask the broken image actually rendered by the browser.
+            const response = await page.request.get(imageUrl);
+            assert.equal(response.status(), 200, `${asset}: control source unavailable`);
+            assert.match(response.headers()['content-type'] ?? '', /^image\/webp\b/);
+            assert.ok((await response.body()).equals(await readFile(resolve(root, 'public/media', asset))));
+            await assert.rejects(
+              kind === 'screenshot'
+                ? checkVisibleCapture(capture)
+                : checkWizfixDeviceImage(capture, deployment),
+              /EncodingError.*source image cannot be decoded/,
+              `${asset}: ${failure} must fail image decoding, not an unrelated assertion`,
+            );
+            assert.ok(intercepted > 0, `${asset}: failure response was never requested`);
+          } finally { await page.close(); }
+        });
+    }
+  }
+}
+
 const armadaAsset = 'armada-desktop.webp';
 const armadaPath = resolve(root, 'public/media', armadaAsset);
 
@@ -278,15 +338,7 @@ for (const [artifactBase, width] of [base, '/'].flatMap((artifactBase) =>
           for (const name of ['wizfix-desktop.webp', 'wizfix-mobile.webp']) {
             const capture = frame.locator(`image[href$="${name}"]`);
             assert.equal(await capture.count(), 1, name);
-            const source = await capture.evaluate((element) => new URL(element.href.baseVal, document.baseURI).href);
-            assert.ok(source.startsWith(origin + artifactBase + 'media/'), `SVG asset escaped artifact base: ${source}`);
-            await checkVisibleCapture(capture);
-            // SVG images lack naturalWidth: decode the exact href separately.
-            await capture.evaluate(async (element) => {
-              const image = new Image();
-              image.src = element.href.baseVal;
-              await image.decode();
-            });
+            await checkWizfixDeviceImage(capture, deployment);
           }
         }
         // Authentic screenshots must never be labelled as concepts.
