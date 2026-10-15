@@ -15,15 +15,27 @@ const steps: { title: string; body: string }[] = [
 const screens = [
   {
     file: 'media/captains-galley-mobile-home.webp',
+    width: 565,
     height: 1048,
+    wide: false,
     caption: 'Fig. 01 — Homepage, the ordering entry point',
     alt: 'Captain’s Galley mobile homepage introducing local meals for pickup with a View Menu button',
   },
   {
     file: 'media/captains-galley-mobile-menu.webp',
+    width: 565,
     height: 1050,
+    wide: false,
     caption: 'Fig. 02 — Menu, from browsing to Add to Order',
     alt: 'Captain’s Galley mobile menu showing a breakfast burrito, its description and price, and an Add to Order button',
+  },
+  {
+    file: 'api/studio-media/captains-galley-order-options-47463ee5cf32.webp',
+    width: 1145,
+    height: 845,
+    wide: true,
+    caption: 'Fig. 03 — Order customization, choices made clear',
+    alt: 'Captain’s Galley Lunch Torta customization screen with protein choices, an optional side, and ingredient selections',
   },
 ];
 
@@ -68,13 +80,13 @@ export default function CaptainsGalley() {
       <Reveal as="section" className="band band-ink wrap pad">
         <div className="grid sm:grid-cols-2 gap-10 md:gap-16 max-w-5xl mx-auto">
           {screens.map((screen, i) => (
-            <figure key={screen.file} className={`fade d${i + 1}`}>
-              <a href={p.liveUrl} target="_blank" rel="noopener noreferrer" className="block max-w-[420px] mx-auto border border-[var(--rule)] wipe overflow-hidden frame-zoom" data-testid={`link-galley-screenshot-${i}`}>
+            <figure key={screen.file} className={`${screen.wide ? 'sm:col-span-2' : ''} fade d${i + 1}`}>
+              <a href={p.liveUrl} target="_blank" rel="noopener noreferrer" className={`block ${screen.wide ? 'max-w-5xl' : 'max-w-[420px]'} mx-auto border border-[var(--rule)] wipe overflow-hidden frame-zoom`} data-testid={`link-galley-screenshot-${i}`}>
                 <img
                   src={mediaUrl(screen.file)}
                   alt={screen.alt}
                   className="block w-full h-auto"
-                  width={565}
+                  width={screen.width}
                   height={screen.height}
                   loading="lazy"
                   decoding="async"
@@ -87,7 +99,7 @@ export default function CaptainsGalley() {
           ))}
         </div>
         <p className="mt-10 flex flex-wrap justify-between gap-3 label">
-          <span>Owner-provided mobile screenshots</span>
+          <span>Owner-provided app screenshots</span>
           <span>{host}</span>
         </p>
       </Reveal>

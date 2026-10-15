@@ -9,9 +9,9 @@ import * as zod from 'zod';
 
 
 /**
- * @summary Serve public studio film assets with byte-range support
+ * @summary Serve public studio media assets with byte-range support
  */
-export const getStudioMediaPathFilenameRegExp = new RegExp('^mdr-street-film-[a-f0-9]{12}\\.(mp4|webm|webp)$');
+export const getStudioMediaPathFilenameRegExp = new RegExp('^(mdr-street-film-[a-f0-9]{12}\\.(mp4|webm|webp)|captains-galley-order-options-[a-f0-9]{12}\\.webp)$');
 
 
 export const GetStudioMediaParams = zod.object({

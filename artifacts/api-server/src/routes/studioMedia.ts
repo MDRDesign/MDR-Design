@@ -2,7 +2,7 @@ import { Router, type IRouter } from "express";
 import { findStudioAsset } from "../lib/studioStorage";
 
 const router: IRouter = Router();
-const assetName = /^mdr-street-film-[a-f0-9]{12}\.(mp4|webm|webp)$/;
+const assetName = /^(mdr-street-film-[a-f0-9]{12}\.(mp4|webm|webp)|captains-galley-order-options-[a-f0-9]{12}\.webp)$/;
 
 router.get("/studio-media/:filename", async (req, res) => {
   const filename = String(req.params.filename);

@@ -61,7 +61,7 @@ export const getGetStudioMediaUrl = (filename: string,) => {
 }
 
 /**
- * @summary Serve public studio film assets with byte-range support
+ * @summary Serve public studio media assets with byte-range support
  */
 export const getStudioMedia = async (filename: string, options?: Parameters<typeof customFetch>[1]): Promise<Blob> => {
 
@@ -108,7 +108,7 @@ export type GetStudioMediaQueryError = ErrorType<void>
 
 
 /**
- * @summary Serve public studio film assets with byte-range support
+ * @summary Serve public studio media assets with byte-range support
  */
 
 export function useGetStudioMedia<TData = Awaited<ReturnType<typeof getStudioMedia>>, TError = ErrorType<void>>(
