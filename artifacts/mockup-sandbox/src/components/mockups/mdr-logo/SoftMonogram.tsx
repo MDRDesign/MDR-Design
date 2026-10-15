@@ -4,9 +4,9 @@ import './_group.css';
 function MovingMark({ small = false }: { small?: boolean }) {
   return (
     <div className={`mm-lockup ${small ? 'mm-small' : ''}`}>
-      <div className="mm-mark" role="img" aria-label="Softened interlocking MDR initials with a gently changing color and fine moving line pattern">
+      <div className="mm-mark" role="img" aria-label="Clean sans-serif interlocking MDR initials with a gently changing color and fine moving line pattern">
         <div className="mm-color" />
-        <svg className="mm-pattern" viewBox="0 0 900 520" aria-hidden="true">
+        <svg className="mm-pattern" viewBox="0 0 900 750" aria-hidden="true">
           <g>
             {Array.from({ length: 32 }, (_, i) => (
               <path key={i} d={`M ${i * 80 - 900} -600 L ${i * 80 - 420} 1200`} />
@@ -44,11 +44,11 @@ export function SoftMonogram() {
 
   return (
     <main ref={root} className="mdr-monogram-preview" data-running={!paused && !reduced && visible && near}>
-      <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600&family=Instrument+Serif&display=swap" />
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&display=swap" />
       <header className="mm-header">
         <p className="mm-label">MDR Design <span>Identity study / Refined monogram</span></p>
-        <h1>A softer signature.</h1>
-        <p className="mm-intro">Rounded terminals. Flowing joins. A little color in motion.</p>
+        <h1>Clean. Distinct. MDR.</h1>
+        <p className="mm-intro">Sans-serif initials. Clearer forms. The same restrained motion.</p>
       </header>
 
       <section className="mm-stage" aria-label="Animated logo preview">

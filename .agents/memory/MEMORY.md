@@ -4,7 +4,7 @@
 - [WizFix capture provenance](wizfix-capture-provenance.md) — owner confirmed the green-and-gray screenshot shows the former website.
 - [Static share routing](static-share-routing.md) — Vite preview does not simulate production rewrites; verify deep-route shells and production routing separately.
 - [Runway media inputs](runway-media-inputs.md) — model availability does not guarantee text-only support; preview asset URLs may fetch as HTML.
-- [Hero direction](hero-motion-direction.md) — selected a softer interlocking MDR monogram with color/pattern motion, replacing the AI-looking film direction.
+- [Hero direction](hero-motion-direction.md) — interlocking MDR monogram with color/pattern motion; clean, impactful lettering, not Times-like or whimsical.
 - [Hero video compatibility](hero-video-compatibility.md) — local playback can pass while preview captures reject MP4; use WebM with an MP4 fallback.
 - [Editorial italics](editorial-italic-treatment.md) — include Approach and red-band italics; sweeps must visibly affect the lettering, not just exist in CSS.
 - [Public attribution](public-attribution.md) — the owner wants initials only on the site, including notes and metadata.
