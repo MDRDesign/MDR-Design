@@ -1,5 +1,32 @@
 # Portfolio media regression checks
 
+## Homepage motion
+
+```sh
+pnpm --filter @workspace/mdr-design test:motion
+```
+
+Uses the same Chromium setup described below, builds the actual production app
+at `/`, and serves it on an ephemeral local port. No API, secrets or external
+client websites are needed. Build output stays in the ignored
+`generated-artifacts/hero-motion/` directory; the browser and server are closed
+even after failures.
+
+At desktop and phone sizes, checks exercise keyboard pause/resume, actual
+IntersectionObserver scrolling, both CSS animation timelines and changing
+color/line styles, visibility changes, and initial/live reduced-motion settings.
+Headless background-tab behavior is simulated only at the `document.hidden` /
+`visibilitychange` boundary; the application hooks and animations are real.
+Returning to a tab/viewport or switching motion preferences must not override
+an explicit user pause. Reduced motion must remove both animations, hide the
+pattern and remove the unnecessary motion button.
+
+At 1440px, 375px and 320px the suite requires the exact approved D-in-front
+Layered Monoline SVG masters (including the compact variant), not the old raster
+identity. It checks decoding, visibility, size and the matching motion mask.
+Pixel comparisons at three animation phases and against the unoverlaid master
+keep the outlined MDR Design name static and unobscured.
+
 For the social-share metadata checks (no browser required), run:
 
 ```sh

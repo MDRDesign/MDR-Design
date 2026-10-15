@@ -9,6 +9,7 @@
     "serve": "vite preview --config vite.config.ts --host 0.0.0.0",
     "typecheck": "tsc -p tsconfig.json --noEmit",
     "test:wizfix": "node --test tests/wizfix-media.test.mjs",
+    "test:motion": "node --test tests/hero-motion.test.mjs",
     "test:seo": "node --test tests/share-meta.test.mjs"
   },
   "devDependencies": {
