@@ -28,7 +28,11 @@ const fromCase = (slug: string, image: string, imageAlt: string): ProjectReferen
 
 /** Public portfolio references, in display order. A reference does not imply a published case study. */
 export const projectReferences: ProjectReference[] = [
-  fromCase('armada-catering', 'media/armada-desktop.webp', 'Published Armada-Catering homepage'),
+  {
+    ...fromCase('armada-catering', 'media/armada-desktop.webp', 'Published Armada-Catering homepage'),
+    description: 'Catering website.',
+    milestone: undefined,
+  },
   {
     slug: 'prime-your-move',
     number: '02',
@@ -58,7 +62,7 @@ export const projectReferences: ProjectReference[] = [
     slug: 'the-bookends',
     number: '04',
     client: 'The Bookends',
-    description: 'A community app for book clubs, schools and literary groups to share books and build together.',
+    description: 'Book-sharing app for clubs and schools.',
     disciplines: ['Web App'],
     year: '2026',
     liveUrl: 'https://the-bookends.lovable.app/',
