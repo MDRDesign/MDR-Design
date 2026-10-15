@@ -37,4 +37,22 @@ The owner subsequently approved the refined Layered Monoline for production file
 
 **Why:** They explicitly selected “Approve—prepare the production files” after seeing the revised letterforms and light/dark, small-size and before/after samples.
 
-**How to apply:** Use the approved refinement as the logo production reference, not the earlier balanced raster or the unrefined three-option study. Asset preparation does not authorize replacing the provisional homepage artwork.
+**How to apply:** Use the approved refinement as the logo production reference, not the earlier balanced raster or the unrefined three-option study. Asset preparation alone did not authorize replacing the provisional homepage artwork.
+
+The owner subsequently authorized homepage integration: “Yes, update the homepage.”
+
+**Why:** They explicitly approved replacing the provisional logo with the approved Layered Monoline.
+
+**How to apply:** Use the refined Layered Monoline on the homepage, preserving restrained color/pattern motion and reduced-motion behavior. This approval does not extend to browser icons or sharing previews.
+
+The owner expressed concern that the R sits in front of the D and selected “Put the D in front of the R” for a revision preview.
+
+**Why:** They said they did not like the R being in front of the D.
+
+**How to apply:** Preserve the other letterforms when changing the crossing order.
+
+After seeing the comparison, the owner approved homepage use: “Yes, use the D-in-front revision.”
+
+**Why:** The owner explicitly approved the reviewed D-over-R treatment for the homepage.
+
+**How to apply:** Use D-over-R crossings on the homepage, with the other letterforms and motion unchanged. The original stored production kit is historical; this does not authorize changing browser icons or sharing previews.

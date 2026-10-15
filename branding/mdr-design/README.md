@@ -5,7 +5,15 @@
 The owner approved the refined Layered Monoline direction for production files on
 October 15, 2026. The M and D share a vertical; the R overlaps the D with transparent
 crossing gaps. Preserve those letterforms and the exact name “MDR Design”.
-The website has NOT been changed by this asset-preparation work.
+The original asset-preparation work left the website unchanged. The owner has
+since separately authorized homepage integration of these approved masters.
+
+After reviewing a side-by-side comparison, the owner approved putting the D in
+front of the R on the homepage. The homepage-specific standard and compact
+on-dark masters are in `homepage/d-foreground/`. Only the crossing order changes;
+letterforms, dimensions, palette and name lettering match the original kit.
+Regenerate them with `python3 scripts/logo-assets/build-homepage-d-foreground.py`.
+The original `svg/` masters and stored production kit remain unchanged.
 
 ## Which files to use
 
@@ -93,7 +101,7 @@ The logo kit is also uploaded to App Storage under a content-addressed prefix.
 storage-manifest.json records the relative public object names and checksums.
 It contains no credentials or signed URLs.
 
-Uploading the kit does not wire it into the existing website. The current media
-route has a strict filename allowlist; adding a future logo route or website
-integration requires a separate change. Do not overwrite the provisional homepage
-asset while preparing or uploading this kit.
+Uploading the kit does not wire it into the website. The homepage imports the
+tracked homepage standard and compact on-dark SVG masters through Vite, which provides
+base-path-aware, content-hashed asset URLs without changing the strict studio-media
+allowlist. The stored kit and old provisional media remain immutable.

@@ -3,14 +3,35 @@
   margin: 0 auto;
   padding: 36px 0;
   text-align: center;
+  container-type: inline-size;
 }
 .hero-identity-mark {
   position: relative;
   width: 100%;
-  aspect-ratio: 613 / 290;
+  aspect-ratio: 4 / 3;
+}
+.hero-identity-mark img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+.hero-identity-mark .hero-identity-compact { display: none; }
+.hero-identity-motion {
+  position: absolute;
+  inset: 0;
   overflow: hidden;
-  -webkit-mask: var(--identity-mask) center / contain no-repeat;
-  mask: var(--identity-mask) center / contain no-repeat;
+  /* Both masters leave a clear gap here, above the outlined studio name. */
+  clip-path: inset(0 0 22% 0);
+  -webkit-mask: var(--identity-standard) center / contain no-repeat;
+  mask: var(--identity-standard) center / contain no-repeat;
+}
+@container (max-width: 255px) {
+  .hero-identity-mark .hero-identity-standard { display: none; }
+  .hero-identity-mark .hero-identity-compact { display: block; }
+  .hero-identity-motion {
+    -webkit-mask-image: var(--identity-compact);
+    mask-image: var(--identity-compact);
+  }
 }
 .hero-identity-color {
   position: absolute;
@@ -27,15 +48,6 @@
 }
 .hero-identity-pattern path { fill: none; stroke: #082b36; stroke-width: 3.2; }
 .hero-identity-pattern g { animation: identityLines 12s linear infinite; }
-.hero-identity .hero-identity-name {
-  margin: 12px 0 0;
-  color: #f4f1ea;
-  font-family: var(--app-font-sans);
-  font-size: 26px;
-  font-weight: 500;
-  line-height: 1.2;
-  letter-spacing: 1px;
-}
 .hero-identity-error { color: #f4f1ea; font-size: 14px; }
 .hero-identity[data-running='false'] .hero-identity-color,
 .hero-identity[data-running='false'] .hero-identity-pattern g { animation-play-state: paused; }

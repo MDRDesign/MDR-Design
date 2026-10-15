@@ -98,3 +98,17 @@ mtime_ms = 1792084231831
 storage_uri = "gcs://replit-rams-assets-kirk/rams/assets/repl:a343bcdd-c4ba-4b81-bcae-49d3ef1594a6/28e9ced2-e30a-4a23-8317-31bf0f3fdb68/0f6946d7-74fe-49de-88de-70b52caf4776"
 storage_version_token = "1792084318611508"
 content_type = "text/html"
+
+[[outputs]]
+id = "wtXzPhJsCNfN7sYXEmcNs"
+uri = "file://generated-artifacts/mdr-logos/d-foreground-review/MDR-Design-D-in-front-comparison.png"
+type = "image"
+title = "Logo comparison — D in front"
+description = "Current logo on the left; proposed D-over-R crossings on the right, with standard and compact examples. Review only; homepage unchanged."
+logical_id = "3f78c9f4-ceba-4e47-b575-c649357ed553"
+content_hash = "sha256:0aef8c789603a1dba8ab513be51abfd77d2a4d28c00767307be6a2d712d79510"
+size = 107470
+mtime_ms = 1792085139541
+storage_uri = "gcs://replit-rams-assets-kirk/rams/assets/repl:a343bcdd-c4ba-4b81-bcae-49d3ef1594a6/3f78c9f4-ceba-4e47-b575-c649357ed553/6cf46eba-4391-4107-b8f8-80eebd1b2578"
+storage_version_token = "1792085171432184"
+content_type = "image/png"
