@@ -1,0 +1,64 @@
+.mdr-monogram-preview {
+  width: 100%; min-height: 100vh; padding: 32px;
+  background: #f4f1ea; color: #141414;
+  font-family: 'Instrument Sans', sans-serif;
+  box-sizing: border-box;
+}
+.mdr-monogram-preview * { box-sizing: border-box; }
+.mdr-monogram-preview p, .mdr-monogram-preview h1 { margin: 0; }
+.mm-label { font-size: 10px; font-weight: 600; letter-spacing: 1.6px; text-transform: uppercase; }
+.mm-header .mm-label { display: flex; flex-wrap: wrap; gap: 8px 24px; justify-content: space-between; }
+.mm-header .mm-label span { color: #615d55; }
+.mm-header h1 { font-family: 'Instrument Serif', serif; font-size: 42px; font-weight: 400; line-height: 1.1; margin-top: 18px; }
+.mm-header .mm-intro { margin-top: 9px; color: #615d55; font-size: 14px; line-height: 1.5; }
+.mm-stage { margin-top: 24px; min-height: 304px; padding: 42px 18px 18px; display: flex; flex-direction: column; align-items: center; justify-content: center; background: #082b36; color: #f4f1ea; }
+.mm-lockup { display: flex; flex-direction: column; align-items: center; width: min(280px, 100%); }
+.mm-mark {
+  width: 100%; aspect-ratio: 652 / 375; position: relative;
+  -webkit-mask: url('/__mockup/images/mdr-soft-monogram-mask.png') center / contain no-repeat;
+  mask: url('/__mockup/images/mdr-soft-monogram-mask.png') center / contain no-repeat;
+  overflow: hidden;
+}
+.mm-color { position: absolute; inset: 0; background-color: #f4f1ea; animation: mm-color-cycle 20s ease-in-out infinite; }
+.mm-pattern { position: absolute; inset: 0; width: 100%; height: 100%; opacity: .28; }
+.mm-pattern path { fill: none; stroke: #082b36; stroke-width: 3.2; }
+.mm-pattern g { animation: mm-line-flow 12s linear infinite; }
+.mm-lockup .mm-name { color: #f4f1ea; font-size: 26px; font-weight: 500; letter-spacing: 1.3px; margin-top: 12px; }
+.mm-stage .mm-stage-note { margin-top: 29px; font-size: 11px; line-height: 1.5; color: #c3d0d0; text-align: center; }
+.mm-controls { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 14px; padding: 14px 0 20px; border-bottom: 1px solid #c9c4ba; }
+.mm-status { font-size: 12px; line-height: 1.5; color: #615d55; }
+.mm-button { background: none; color: #141414; border: 1px solid #8a857c; padding: 10px 16px; min-height: 44px; font: 500 12px 'Instrument Sans', sans-serif; border-radius: 0; cursor: pointer; }
+.mm-button:hover:not(:disabled) { background: #141414; color: #f4f1ea; }
+.mm-button:focus-visible { outline: 2px solid #7a2e2a; outline-offset: 4px; }
+.mm-button:disabled { cursor: default; color: #615d55; }
+.mm-scale-study { display: grid; grid-template-columns: 1fr 220px; align-items: center; gap: 20px; padding: 22px 0; border-bottom: 1px solid #c9c4ba; }
+.mm-scale-study .mm-scale-copy { font-size: 13px; line-height: 1.5; color: #615d55; margin-top: 10px; max-width: 220px; }
+.mm-mini-stage { background: #082b36; padding: 22px; display: flex; justify-content: center; }
+.mm-small { width: 146px; }
+.mm-small .mm-name { font-size: 17px; margin-top: 8px; letter-spacing: .5px; }
+.mm-footer { padding-top: 14px; color: #615d55; font-size: 10px; letter-spacing: .7px; text-transform: uppercase; }
+.mdr-monogram-preview[data-running="false"] .mm-color,
+.mdr-monogram-preview[data-running="false"] .mm-pattern g { animation-play-state: paused; }
+@keyframes mm-color-cycle {
+  0%, 100% { background-color: #f4f1ea; }
+  34% { background-color: #e9a48e; }
+  68% { background-color: #dbc59c; }
+}
+@keyframes mm-line-flow {
+  from { transform: translateX(0); }
+  to { transform: translateX(80px); }
+}
+@media (max-width: 480px) {
+  .mdr-monogram-preview { padding: 24px; }
+  .mm-header h1 { font-size: 36px; }
+  .mm-stage { min-height: 286px; }
+  .mm-lockup { width: min(254px, 100%); }
+  .mm-small { width: 132px; }
+  .mm-scale-study { grid-template-columns: 1fr; gap: 16px; }
+  .mm-scale-study .mm-scale-copy { max-width: none; }
+  .mm-mini-stage { min-height: 130px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .mdr-monogram-preview .mm-color, .mdr-monogram-preview .mm-pattern g { animation: none; }
+  .mdr-monogram-preview .mm-pattern { display: none; }
+}

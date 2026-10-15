@@ -1,6 +1,6 @@
 ---
 name: Hero identity direction
-description: Owner wants to replace the AI-looking film direction with smaller logo-led artwork, after comparing options.
+description: Owner selected an interlocking MDR monogram; soften lettering and explore gentle color/pattern motion instead of the AI-looking film.
 ---
 
 Start over with the hero artwork direction rather than refining the city-street film, tablet, package, or sculpture.
@@ -9,8 +9,8 @@ Start over with the hero artwork direction rather than refining the city-street 
 
 **How to apply:** Lead with the studio's design identity rather than generated narrative imagery. Do not assume the old film or drafting motion remains the approved direction.
 
-The owner is considering a good-looking logo that occupies less space than the current hero image and wants several Runway-assisted logo variations to review before choosing.
+The owner selected the Interlocking Monogram direction from the Runway-assisted logo studies and asked to “soften up the lettering and make the lettering change pattern or color or both somehow.” The logo should occupy less space than the former hero image.
 
-**Why:** The owner explicitly asked to compare different logo versions before selecting one.
+**Why:** This was the owner's explicit selection and refinement request after reviewing the three logo concepts.
 
-**How to apply:** Explore options before changing the live hero. Treat the smaller logo as a proposed direction, not an already-selected final mark.
+**How to apply:** Refine the interlocking initials rather than restarting wordmark or abstract-symbol exploration. Keep the studio name readable and the motion restrained. The direction is selected, but the refined artwork is not yet approved as a final logo.
