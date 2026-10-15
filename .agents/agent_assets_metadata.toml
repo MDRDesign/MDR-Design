@@ -28,3 +28,17 @@ mtime_ms = 1791970619298
 storage_uri = "gcs://replit-rams-assets-kirk/rams/assets/repl:a343bcdd-c4ba-4b81-bcae-49d3ef1594a6/debc8530-b474-4058-bc61-57aff573c4f1/ee1caadc-0749-4351-af8e-ab50a7cc0b74"
 storage_version_token = "1791970852670149"
 content_type = "video/mp4"
+
+[[outputs]]
+id = "qWarea6LDV-czFFZLKGil"
+uri = "file://generated-artifacts/mdr-logos/comparison.png"
+type = "image"
+title = "MDR Design — Three Logo Directions"
+description = "Side-by-side Runway-assisted concepts: Editorial Wordmark, Interlocking Monogram and Graphic Studio Mark. Includes reduced-size studies. These are review concepts, not final vector logo masters."
+logical_id = "146e4632-8581-4d0b-bf58-a16486a9dc0e"
+content_hash = "sha256:8f3f806e8e86838c533b886142f5ef866083ebc54bf32562cbedd1636a36bc36"
+size = 789970
+mtime_ms = 1792046171627
+storage_uri = "gcs://replit-rams-assets-kirk/rams/assets/repl:a343bcdd-c4ba-4b81-bcae-49d3ef1594a6/146e4632-8581-4d0b-bf58-a16486a9dc0e/b7779462-1599-400d-8bfc-907ce7e7fce8"
+storage_version_token = "1792046303074460"
+content_type = "image/png"
