@@ -42,3 +42,59 @@ mtime_ms = 1792046171627
 storage_uri = "gcs://replit-rams-assets-kirk/rams/assets/repl:a343bcdd-c4ba-4b81-bcae-49d3ef1594a6/146e4632-8581-4d0b-bf58-a16486a9dc0e/b7779462-1599-400d-8bfc-907ce7e7fce8"
 storage_version_token = "1792046303074460"
 content_type = "image/png"
+
+[[outputs]]
+id = "I8JlpFt863d8n6z5PAJDD"
+uri = "file://generated-artifacts/mdr-logos/overlap-review/mdr-overlap-3-options-board.png"
+type = "image"
+title = "MDR logo — three overlap options"
+description = "Compare Shared Stem, Compact Weave and Layered Monoline on light and dark backgrounds, including small-size samples. Review concepts only; the website is unchanged."
+logical_id = "f780b905-1cd8-499b-968f-b635e7bf7389"
+content_hash = "sha256:f2a0001f60795ad43ff78c44b3bcf12a11a12262cb3cd46befcaa2d85b517387"
+size = 190858
+mtime_ms = 1792079932546
+storage_uri = "gcs://replit-rams-assets-kirk/rams/assets/repl:a343bcdd-c4ba-4b81-bcae-49d3ef1594a6/f780b905-1cd8-499b-968f-b635e7bf7389/11bd50a5-a214-448b-9a4f-a098b7479515"
+storage_version_token = "1792079967690012"
+content_type = "image/png"
+
+[[outputs]]
+id = "Da_x5grwNwRTaaB9yf-m6"
+uri = "file://generated-artifacts/mdr-logos/overlap-review/selected-monoline/mdr-layered-monoline-refinement-board.png"
+type = "image"
+title = "Layered Monoline — refined for approval"
+description = "Your selected direction, refined to remove the extra inner vertical. Includes light/dark views, small-size samples, and before/after comparison. Website unchanged."
+logical_id = "2d9f7f8d-6b1c-4d78-86c7-34489bff9db4"
+content_hash = "sha256:f2652879f4945d83db09350fa19f1a7c3d1e0892dd03a66e8cb75d2918b44cbf"
+size = 144031
+mtime_ms = 1792081921669
+storage_uri = "gcs://replit-rams-assets-kirk/rams/assets/repl:a343bcdd-c4ba-4b81-bcae-49d3ef1594a6/2d9f7f8d-6b1c-4d78-86c7-34489bff9db4/ad89345a-8f7c-472f-a443-a664af88663b"
+storage_version_token = "1792081950125938"
+content_type = "image/png"
+
+[[outputs]]
+id = "fFhJbUU51MIpmPWKq_Pv3"
+uri = "file://generated-artifacts/mdr-logos/production/MDR-Design-Layered-Monoline-Logo-Kit.zip"
+type = "unspecified"
+title = "MDR Design — Production logo kit"
+description = "Approved Layered Monoline: 16 outlined SVG masters, 56 transparent PNGs, light/dark and small-size variants, palette, usage guide and font license."
+logical_id = "43d59e4f-059a-4ace-b076-493ab7cf5ca5"
+content_hash = "sha256:73c498ca0f1cedea0fcfb26d2dccc048e28decfd5fedc3776e58137796ce7920"
+size = 1517701
+mtime_ms = 1792084231943
+storage_uri = "gcs://replit-rams-assets-kirk/rams/assets/repl:a343bcdd-c4ba-4b81-bcae-49d3ef1594a6/43d59e4f-059a-4ace-b076-493ab7cf5ca5/4f51f099-f92f-4de7-9220-ade908561524"
+storage_version_token = "1792084317964028"
+content_type = "application/octet-stream"
+
+[[outputs]]
+id = "bxEQfM1q7Uc-N3bq8Nam-"
+uri = "file://generated-artifacts/mdr-logos/production/MDR-Design-logo-guide.html"
+type = "html"
+title = "MDR Design — Logo preview and usage guide"
+description = "Self-contained preview of the approved logo, sizing recommendations and palette. Website unchanged."
+logical_id = "28e9ced2-e30a-4a23-8317-31bf0f3fdb68"
+content_hash = "sha256:9a4b7c2935b1b12ce2785ef9c9a6e242b4755572b8252f3555768c2f9707109c"
+size = 245793
+mtime_ms = 1792084231831
+storage_uri = "gcs://replit-rams-assets-kirk/rams/assets/repl:a343bcdd-c4ba-4b81-bcae-49d3ef1594a6/28e9ced2-e30a-4a23-8317-31bf0f3fdb68/0f6946d7-74fe-49de-88de-70b52caf4776"
+storage_version_token = "1792084318611508"
+content_type = "text/html"

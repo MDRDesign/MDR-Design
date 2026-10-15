@@ -4,6 +4,8 @@ version = "0.1.0"
 description = "Offline studio film processing and website screen compositing tools"
 requires-python = ">=3.13"
 dependencies = [
+    "fonttools>=4.67.0",
     "numpy>=2.5.4",
     "opencv-python-headless>=5.0.0.93",
+    "skia-pathops>=0.9.2",
 ]

@@ -1,0 +1,639 @@
+{
+  "identity": "MDR Design Layered Monoline",
+  "prefix": "media/mdr-design-logo/layered-monoline-cbab9e9aacb5ab5f",
+  "note": "Relative public object names, not signed URLs. Website routes unchanged.",
+  "files": [
+    {
+      "path": "FONT-LICENSE.txt",
+      "publicObjectName": "media/mdr-design-logo/layered-monoline-cbab9e9aacb5ab5f/FONT-LICENSE.txt",
+      "contentType": "text/plain",
+      "bytes": 2425,
+      "sha256": "718e55f89764eeb4870f0ba38aaf97459101bfe15bc010c7e771c4196500d525",
+      "verified": true
+    },
+    {
+      "path": "manifest.json",
+      "publicObjectName": "media/mdr-design-logo/layered-monoline-cbab9e9aacb5ab5f/manifest.json",
+      "contentType": "application/json",
+      "bytes": 28787,
+      "sha256": "cbab9e9aacb5ab5fd4d232cfca36ead48f81f8aca3ebeff3d07bc0f01c0e5c08",
+      "verified": true
+    },
+    {
+      "path": "MDR-Design-Layered-Monoline-Logo-Kit.zip",
+      "publicObjectName": "media/mdr-design-logo/layered-monoline-cbab9e9aacb5ab5f/MDR-Design-Layered-Monoline-Logo-Kit.zip",
+      "contentType": "application/zip",
+      "bytes": 1517701,
+      "sha256": "73c498ca0f1cedea0fcfb26d2dccc048e28decfd5fedc3776e58137796ce7920",
+      "verified": true
+    },
+    {
+      "path": "MDR-Design-logo-guide.html",
+      "publicObjectName": "media/mdr-design-logo/layered-monoline-cbab9e9aacb5ab5f/MDR-Design-logo-guide.html",
+      "contentType": "text/html",
+      "bytes": 245793,
+      "sha256": "9a4b7c2935b1b12ce2785ef9c9a6e242b4755572b8252f3555768c2f9707109c",
+      "verified": true
+    },
+    {
+      "path": "MDR-Design-production-proof.png",
+      "publicObjectName": "media/mdr-design-logo/layered-monoline-cbab9e9aacb5ab5f/MDR-Design-production-proof.png",
+      "contentType": "image/png",
+      "bytes": 180210,
+      "sha256": "86ad63565b29f986addd328990e3b99c2e5b0f7d7002961cff04460daad9489b",
+      "verified": true
+    },
+    {
+      "path": "png/mdr-design-lockup-ink-1024w.png",
+      "publicObjectName": "media/mdr-design-logo/layered-monoline-cbab9e9aacb5ab5f/png/mdr-design-lockup-ink-1024w.png",
+      "contentType": "image/png",
+      "bytes": 43265,
+      "sha256": "aa52305e614466cf8588cfb6c19f436dac9a350f03849239405392082a4f07e8",
+      "verified": true
+    },
+    {
+      "path": "png/mdr-design-lockup-ink-2048w.png",
+      "publicObjectName": "media/mdr-design-logo/layered-monoline-cbab9e9aacb5ab5f/png/mdr-design-lockup-ink-2048w.png",
+      "contentType": "image/png",
+      "bytes": 96729,
+      "sha256": "77424844fbd4190dfb8f0b66a266873f79172787aa03e04cf990acea72831489",
+      "verified": true
+    },
+    {
+      "path": "png/mdr-design-lockup-ink-256w.png",
+      "publicObjectName": "media/mdr-design-logo/layered-monoline-cbab9e9aacb5ab5f/png/mdr-design-lockup-ink-256w.png",
+      "contentType": "image/png",
+      "bytes": 9249,
+      "sha256": "ebec6635734ae1ea628e0da6f36e9f6a04e940045be17e163e633f8b7d554183",
+      "verified": true
+    },
+    {
+      "path": "png/mdr-design-lockup-ink-512w.png",
+      "publicObjectName": "media/mdr-design-logo/layered-monoline-cbab9e9aacb5ab5f/png/mdr-design-lockup-ink-512w.png",
+      "contentType": "image/png",
+      "bytes": 20529,
+      "sha256": "c84beef2fdd237c1a2331776f922462deeaf056148b454bc6d0c5984e355a6ae",
+      "verified": true
+    },
+    {
+      "path": "png/mdr-design-lockup-on-dark-1024w.png",
+      "publicObjectName": "media/mdr-design-logo/layered-monoline-cbab9e9aacb5ab5f/png/mdr-design-lockup-on-dark-1024w.png",
+      "contentType": "image/png",
+      "bytes": 45744,
+      "sha256": "ec2200115d03734b6fa6b856e1e22c3ec5a6b1c6e1dc24015190cb5e3d05e6c0",
+      "verified": true
+    },
+    {
+      "path": "png/mdr-design-lockup-on-dark-2048w.png",
+      "publicObjectName": "media/mdr-design-logo/layered-monoline-cbab9e9aacb5ab5f/png/mdr-design-lockup-on-dark-2048w.png",
+      "contentType": "image/png",
+      "bytes": 101683,
+      "sha256": "12a4681078e778c9f258e6742c8b13116d5a0343c04261048a0a8e23c5f00f17",
+      "verified": true
+    },
+    {
+      "path": "png/mdr-design-lockup-on-dark-256w.png",
+      "publicObjectName": "media/mdr-design-logo/layered-monoline-cbab9e9aacb5ab5f/png/mdr-design-lockup-on-dark-256w.png",
+      "contentType": "image/png",
+      "bytes": 9915,
+      "sha256": "414470d273ed94779e3e41d3054a60c38a98d5e7a37d0f4d0049e3f2e5fe6a0b",
+      "verified": true
+    },
+    {
+      "path": "png/mdr-design-lockup-on-dark-512w.png",
+      "publicObjectName": "media/mdr-design-logo/layered-monoline-cbab9e9aacb5ab5f/png/mdr-design-lockup-on-dark-512w.png",
+      "contentType": "image/png",
+      "bytes": 21892,
+      "sha256": "7eae121c7a064a458891f8a311288886e55908fcf7f5a11b430e048bc16d29ff",
+      "verified": true
+    },
+    {
+      "path": "png/mdr-design-lockup-on-light-1024w.png",
+      "publicObjectName": "media/mdr-design-logo/layered-monoline-cbab9e9aacb5ab5f/png/mdr-design-lockup-on-light-1024w.png",
+      "contentType": "image/png",
+      "bytes": 44964,
+      "sha256": "9a7c4fc8d6ec8711056b63bb484ab3e433b6facaf580d6fe15cc2f8af14650b7",
+      "verified": true
+    },
+    {
+      "path": "png/mdr-design-lockup-on-light-2048w.png",
+      "publicObjectName": "media/mdr-design-logo/layered-monoline-cbab9e9aacb5ab5f/png/mdr-design-lockup-on-light-2048w.png",
+      "contentType": "image/png",
+      "bytes": 99853,
+      "sha256": "bb88d86e1135e3aedbf3331bfa68a3adca882a6dea41e976620d5fe3ba7016e1",
+      "verified": true
+    },
+    {
+      "path": "png/mdr-design-lockup-on-light-256w.png",
+      "publicObjectName": "media/mdr-design-logo/layered-monoline-cbab9e9aacb5ab5f/png/mdr-design-lockup-on-light-256w.png",
+      "contentType": "image/png",
+      "bytes": 9672,
+      "sha256": "589e1eb5c794855d2f7101dd9d4e38a6d4967e9e47a5c297de711b67778c225f",
+      "verified": true
+    },
+    {
+      "path": "png/mdr-design-lockup-on-light-512w.png",
+      "publicObjectName": "media/mdr-design-logo/layered-monoline-cbab9e9aacb5ab5f/png/mdr-design-lockup-on-light-512w.png",
+      "contentType": "image/png",
+      "bytes": 21328,
+      "sha256": "1ba33b6f0b4446f636dc73c1fc193791c308ffa29f2eef6c56a10cecfd62b424",
+      "verified": true
+    },
+    {
+      "path": "png/mdr-design-lockup-reversed-1024w.png",
+      "publicObjectName": "media/mdr-design-logo/layered-monoline-cbab9e9aacb5ab5f/png/mdr-design-lockup-reversed-1024w.png",
+      "contentType": "image/png",
+      "bytes": 44760,
+      "sha256": "de6df2a1a337f1e171b0c48b11289b7fd2e1beb9a3615b3d01279c6f9147d807",
+      "verified": true
+    },
+    {
+      "path": "png/mdr-design-lockup-reversed-2048w.png",
+      "publicObjectName": "media/mdr-design-logo/layered-monoline-cbab9e9aacb5ab5f/png/mdr-design-lockup-reversed-2048w.png",
+      "contentType": "image/png",
+      "bytes": 99717,
+      "sha256": "1e27952fd85b41d6a31e244ed16a0b805e04b06d76d7502234379518df44f663",
+      "verified": true
+    },
+    {
+      "path": "png/mdr-design-lockup-reversed-256w.png",
+      "publicObjectName": "media/mdr-design-logo/layered-monoline-cbab9e9aacb5ab5f/png/mdr-design-lockup-reversed-256w.png",
+      "contentType": "image/png",
+      "bytes": 9662,
+      "sha256": "892a5d9253e284809a21e3bd2cbc2458bc875d9051b5a3ccd941b0331478f3e0",
+      "verified": true
+    },
+    {
+      "path": "png/mdr-design-lockup-reversed-512w.png",
+      "publicObjectName": "media/mdr-design-logo/layered-monoline-cbab9e9aacb5ab5f/png/mdr-design-lockup-reversed-512w.png",
+      "contentType": "image/png",
+      "bytes": 21392,
+      "sha256": "05a9e9e8a0410561a18f5db87fdf483f8865918c03115ac12b462a8c21fbdf69",
+      "verified": true
+    },
+    {
+      "path": "png/mdr-design-lockup-small-ink-128w.png",
+      "publicObjectName": "media/mdr-design-logo/layered-monoline-cbab9e9aacb5ab5f/png/mdr-design-lockup-small-ink-128w.png",
+      "contentType": "image/png",
+      "bytes": 4589,
+      "sha256": "e2f9aa6318d81e44db3326877dcae0dbfb615353e4b509e90f5bbcd641951af2",
+      "verified": true
+    },
+    {
+      "path": "png/mdr-design-lockup-small-ink-176w.png",
+      "publicObjectName": "media/mdr-design-logo/layered-monoline-cbab9e9aacb5ab5f/png/mdr-design-lockup-small-ink-176w.png",
+      "contentType": "image/png",
+      "bytes": 6166,
+      "sha256": "66ed8b4ad2978dd670ac770f39ceabda37ced8a1cf847041c79590dd4e4007d3",
+      "verified": true
+    },
+    {
+      "path": "png/mdr-design-lockup-small-ink-256w.png",
+      "publicObjectName": "media/mdr-design-logo/layered-monoline-cbab9e9aacb5ab5f/png/mdr-design-lockup-small-ink-256w.png",
+      "contentType": "image/png",
+      "bytes": 9467,
+      "sha256": "5121bf40b93ab846bbcf3abad22a9998d4ab2812063dc28b2754392838357bb5",
+      "verified": true
+    },
+    {
+      "path": "png/mdr-design-lockup-small-on-dark-128w.png",
+      "publicObjectName": "media/mdr-design-logo/layered-monoline-cbab9e9aacb5ab5f/png/mdr-design-lockup-small-on-dark-128w.png",
+      "contentType": "image/png",
+      "bytes": 4885,
+      "sha256": "febb59d31537033f2fefa23d2dbacd4371394f81c10223ba2fe5e3b97490fb76",
+      "verified": true
+    },
+    {
+      "path": "png/mdr-design-lockup-small-on-dark-176w.png",
+      "publicObjectName": "media/mdr-design-logo/layered-monoline-cbab9e9aacb5ab5f/png/mdr-design-lockup-small-on-dark-176w.png",
+      "contentType": "image/png",
+      "bytes": 6586,
+      "sha256": "7a3d113dc5135e9e1e8cb8ea7371e9825f85a364b9a2238378f50b7d43b4015a",
+      "verified": true
+    },
+    {
+      "path": "png/mdr-design-lockup-small-on-dark-256w.png",
+      "publicObjectName": "media/mdr-design-logo/layered-monoline-cbab9e9aacb5ab5f/png/mdr-design-lockup-small-on-dark-256w.png",
+      "contentType": "image/png",
+      "bytes": 10040,
+      "sha256": "9cc0ca2703a13b9e719c265e412817935b8ae4c21d66b856e9d1fa9c18cb5996",
+      "verified": true
+    },
+    {
+      "path": "png/mdr-design-lockup-small-on-light-128w.png",
+      "publicObjectName": "media/mdr-design-logo/layered-monoline-cbab9e9aacb5ab5f/png/mdr-design-lockup-small-on-light-128w.png",
+      "contentType": "image/png",
+      "bytes": 4784,
+      "sha256": "61080fcbc3f65769b290e8eadbb42cb9f6a7192ef513cdeab17a5909796b3c96",
+      "verified": true
+    },
+    {
+      "path": "png/mdr-design-lockup-small-on-light-176w.png",
+      "publicObjectName": "media/mdr-design-logo/layered-monoline-cbab9e9aacb5ab5f/png/mdr-design-lockup-small-on-light-176w.png",
+      "contentType": "image/png",
+      "bytes": 6367,
+      "sha256": "c4519b3b08711b499645c9ab21b942bd8c24953b34952e0799f9976b57fdfbd5",
+      "verified": true
+    },
+    {
+      "path": "png/mdr-design-lockup-small-on-light-256w.png",
+      "publicObjectName": "media/mdr-design-logo/layered-monoline-cbab9e9aacb5ab5f/png/mdr-design-lockup-small-on-light-256w.png",
+      "contentType": "image/png",
+      "bytes": 9822,
+      "sha256": "6cce0ee45ab41a0c7cc68af29faf3625f8697c89cf34cf52f65592e214825d90",
+      "verified": true
+    },
+    {
+      "path": "png/mdr-design-lockup-small-reversed-128w.png",
+      "publicObjectName": "media/mdr-design-logo/layered-monoline-cbab9e9aacb5ab5f/png/mdr-design-lockup-small-reversed-128w.png",
+      "contentType": "image/png",
+      "bytes": 4716,
+      "sha256": "0f3fb51a61adc8415c476a4712d878682cad6465f39b09a074fd49d007a0b65f",
+      "verified": true
+    },
+    {
+      "path": "png/mdr-design-lockup-small-reversed-176w.png",
+      "publicObjectName": "media/mdr-design-logo/layered-monoline-cbab9e9aacb5ab5f/png/mdr-design-lockup-small-reversed-176w.png",
+      "contentType": "image/png",
+      "bytes": 6452,
+      "sha256": "bf6775067573b9490b1d42dd706667304b05d85281bf94924ac21e6deee7888b",
+      "verified": true
+    },
+    {
+      "path": "png/mdr-design-lockup-small-reversed-256w.png",
+      "publicObjectName": "media/mdr-design-logo/layered-monoline-cbab9e9aacb5ab5f/png/mdr-design-lockup-small-reversed-256w.png",
+      "contentType": "image/png",
+      "bytes": 9772,
+      "sha256": "130105e00dabdb965c6bcdf5dacc1fa130724836ca80e3041ef7146a94d8e226",
+      "verified": true
+    },
+    {
+      "path": "png/mdr-design-mark-ink-1024w.png",
+      "publicObjectName": "media/mdr-design-logo/layered-monoline-cbab9e9aacb5ab5f/png/mdr-design-mark-ink-1024w.png",
+      "contentType": "image/png",
+      "bytes": 34023,
+      "sha256": "d497aa2cb970aa89e952b23075416f04069dd8e3c3017ecff2cb67330c4f6b60",
+      "verified": true
+    },
+    {
+      "path": "png/mdr-design-mark-ink-128w.png",
+      "publicObjectName": "media/mdr-design-logo/layered-monoline-cbab9e9aacb5ab5f/png/mdr-design-mark-ink-128w.png",
+      "contentType": "image/png",
+      "bytes": 3763,
+      "sha256": "8063c4f2e4c7d86bcccd434860eac34dbb369c99f96b7c7400e2e9b4d53eb0a7",
+      "verified": true
+    },
+    {
+      "path": "png/mdr-design-mark-ink-256w.png",
+      "publicObjectName": "media/mdr-design-logo/layered-monoline-cbab9e9aacb5ab5f/png/mdr-design-mark-ink-256w.png",
+      "contentType": "image/png",
+      "bytes": 7211,
+      "sha256": "1bfcc182f98cb924d5f727e1f280f12186ccf9aba1b06462e769d4fa15411bac",
+      "verified": true
+    },
+    {
+      "path": "png/mdr-design-mark-ink-512w.png",
+      "publicObjectName": "media/mdr-design-logo/layered-monoline-cbab9e9aacb5ab5f/png/mdr-design-mark-ink-512w.png",
+      "contentType": "image/png",
+      "bytes": 15649,
+      "sha256": "1f32dc5dea087b976f95ceb7ef55de406c5634cbebdb41c680fdfa3d133f9782",
+      "verified": true
+    },
+    {
+      "path": "png/mdr-design-mark-on-dark-1024w.png",
+      "publicObjectName": "media/mdr-design-logo/layered-monoline-cbab9e9aacb5ab5f/png/mdr-design-mark-on-dark-1024w.png",
+      "contentType": "image/png",
+      "bytes": 36318,
+      "sha256": "6c4464517b46b1237c4369ed16518ca52936fe3d1a8ea184b57db1f4cce41983",
+      "verified": true
+    },
+    {
+      "path": "png/mdr-design-mark-on-dark-128w.png",
+      "publicObjectName": "media/mdr-design-logo/layered-monoline-cbab9e9aacb5ab5f/png/mdr-design-mark-on-dark-128w.png",
+      "contentType": "image/png",
+      "bytes": 4050,
+      "sha256": "e1d3614b98f6e96b1a3afc6b0a63a87306ce25e15d481293dbf8c8b9913383ca",
+      "verified": true
+    },
+    {
+      "path": "png/mdr-design-mark-on-dark-256w.png",
+      "publicObjectName": "media/mdr-design-logo/layered-monoline-cbab9e9aacb5ab5f/png/mdr-design-mark-on-dark-256w.png",
+      "contentType": "image/png",
+      "bytes": 7676,
+      "sha256": "e6ff8be2ac8287f062a3b976e0e99ae8c722c0b897eabb71f6ea02e825a49217",
+      "verified": true
+    },
+    {
+      "path": "png/mdr-design-mark-on-dark-512w.png",
+      "publicObjectName": "media/mdr-design-logo/layered-monoline-cbab9e9aacb5ab5f/png/mdr-design-mark-on-dark-512w.png",
+      "contentType": "image/png",
+      "bytes": 16756,
+      "sha256": "80a8eaf2048a13ae2e57b5f2a61ef7981062895c08cac3257f973b05aa65930b",
+      "verified": true
+    },
+    {
+      "path": "png/mdr-design-mark-on-light-1024w.png",
+      "publicObjectName": "media/mdr-design-logo/layered-monoline-cbab9e9aacb5ab5f/png/mdr-design-mark-on-light-1024w.png",
+      "contentType": "image/png",
+      "bytes": 35250,
+      "sha256": "ee537edd32205ae1d73ed77f0fe121d317e419b64deba243df0d147f104b4b8d",
+      "verified": true
+    },
+    {
+      "path": "png/mdr-design-mark-on-light-128w.png",
+      "publicObjectName": "media/mdr-design-logo/layered-monoline-cbab9e9aacb5ab5f/png/mdr-design-mark-on-light-128w.png",
+      "contentType": "image/png",
+      "bytes": 3943,
+      "sha256": "e5d7a79bcd29de28e5d67b470030ce755870a6861a0e92592cb023fe2eccab92",
+      "verified": true
+    },
+    {
+      "path": "png/mdr-design-mark-on-light-256w.png",
+      "publicObjectName": "media/mdr-design-logo/layered-monoline-cbab9e9aacb5ab5f/png/mdr-design-mark-on-light-256w.png",
+      "contentType": "image/png",
+      "bytes": 7492,
+      "sha256": "15d488a61f7a0e3e3f06ec657699025c2ee02cbaa9e99563841479c40d07382f",
+      "verified": true
+    },
+    {
+      "path": "png/mdr-design-mark-on-light-512w.png",
+      "publicObjectName": "media/mdr-design-logo/layered-monoline-cbab9e9aacb5ab5f/png/mdr-design-mark-on-light-512w.png",
+      "contentType": "image/png",
+      "bytes": 16342,
+      "sha256": "eb0c65a479abc1ae5ae7a5cbb24e169a9d427f303775e884db1bb203b0cb5fa5",
+      "verified": true
+    },
+    {
+      "path": "png/mdr-design-mark-reversed-1024w.png",
+      "publicObjectName": "media/mdr-design-logo/layered-monoline-cbab9e9aacb5ab5f/png/mdr-design-mark-reversed-1024w.png",
+      "contentType": "image/png",
+      "bytes": 35221,
+      "sha256": "341e47fe651075736a9e1ce1eb5c06127a3049e44a8e4f31c650c15ff4a06780",
+      "verified": true
+    },
+    {
+      "path": "png/mdr-design-mark-reversed-128w.png",
+      "publicObjectName": "media/mdr-design-logo/layered-monoline-cbab9e9aacb5ab5f/png/mdr-design-mark-reversed-128w.png",
+      "contentType": "image/png",
+      "bytes": 3878,
+      "sha256": "e864f0d47d1a887f6bc9291ac8ca61bc8d97cb4904c08bc8d3f86ccbeb06754f",
+      "verified": true
+    },
+    {
+      "path": "png/mdr-design-mark-reversed-256w.png",
+      "publicObjectName": "media/mdr-design-logo/layered-monoline-cbab9e9aacb5ab5f/png/mdr-design-mark-reversed-256w.png",
+      "contentType": "image/png",
+      "bytes": 7436,
+      "sha256": "1bfb70ae8ab70121353dece9de52ff223cdb08e6e35b427e778ec185fd306d5a",
+      "verified": true
+    },
+    {
+      "path": "png/mdr-design-mark-reversed-512w.png",
+      "publicObjectName": "media/mdr-design-logo/layered-monoline-cbab9e9aacb5ab5f/png/mdr-design-mark-reversed-512w.png",
+      "contentType": "image/png",
+      "bytes": 16361,
+      "sha256": "ba727dff6118b4d01f23e8eac9661134a96ba5342a2b9562e4d23c4b2ea46fe1",
+      "verified": true
+    },
+    {
+      "path": "png/mdr-design-mark-small-ink-32w.png",
+      "publicObjectName": "media/mdr-design-logo/layered-monoline-cbab9e9aacb5ab5f/png/mdr-design-mark-small-ink-32w.png",
+      "contentType": "image/png",
+      "bytes": 1185,
+      "sha256": "016e11f9bf5da02d47ad53243d75baf668649a3fdab86588ff28aab56a244356",
+      "verified": true
+    },
+    {
+      "path": "png/mdr-design-mark-small-ink-48w.png",
+      "publicObjectName": "media/mdr-design-logo/layered-monoline-cbab9e9aacb5ab5f/png/mdr-design-mark-small-ink-48w.png",
+      "contentType": "image/png",
+      "bytes": 1314,
+      "sha256": "bb9e2df963f2f8a2a8851582b158057510f43450bcbeff2bc8a8b1199c203321",
+      "verified": true
+    },
+    {
+      "path": "png/mdr-design-mark-small-ink-64w.png",
+      "publicObjectName": "media/mdr-design-logo/layered-monoline-cbab9e9aacb5ab5f/png/mdr-design-mark-small-ink-64w.png",
+      "contentType": "image/png",
+      "bytes": 1741,
+      "sha256": "eed3105e58216581edbf0e3dbf26f8a9c682000d0bb4e5e29366a4e8334bc21d",
+      "verified": true
+    },
+    {
+      "path": "png/mdr-design-mark-small-on-dark-32w.png",
+      "publicObjectName": "media/mdr-design-logo/layered-monoline-cbab9e9aacb5ab5f/png/mdr-design-mark-small-on-dark-32w.png",
+      "contentType": "image/png",
+      "bytes": 1272,
+      "sha256": "c0bd5cb0c23e138f9931549ee613d8a8048c0b7461780763fcb4ff5feec1d838",
+      "verified": true
+    },
+    {
+      "path": "png/mdr-design-mark-small-on-dark-48w.png",
+      "publicObjectName": "media/mdr-design-logo/layered-monoline-cbab9e9aacb5ab5f/png/mdr-design-mark-small-on-dark-48w.png",
+      "contentType": "image/png",
+      "bytes": 1412,
+      "sha256": "5fa964ac02cf3cfad3408f44ba798a89dd086cd7f1cf2de9c66b0b22df837006",
+      "verified": true
+    },
+    {
+      "path": "png/mdr-design-mark-small-on-dark-64w.png",
+      "publicObjectName": "media/mdr-design-logo/layered-monoline-cbab9e9aacb5ab5f/png/mdr-design-mark-small-on-dark-64w.png",
+      "contentType": "image/png",
+      "bytes": 1878,
+      "sha256": "ce3ce81683b9ade87232c645f2ba74113a2f066ac74245b66d28612de1b4eac0",
+      "verified": true
+    },
+    {
+      "path": "png/mdr-design-mark-small-on-light-32w.png",
+      "publicObjectName": "media/mdr-design-logo/layered-monoline-cbab9e9aacb5ab5f/png/mdr-design-mark-small-on-light-32w.png",
+      "contentType": "image/png",
+      "bytes": 1203,
+      "sha256": "7940271410ecd66a221ff3941e878f8079158e26915333aff43bba18e916aa6f",
+      "verified": true
+    },
+    {
+      "path": "png/mdr-design-mark-small-on-light-48w.png",
+      "publicObjectName": "media/mdr-design-logo/layered-monoline-cbab9e9aacb5ab5f/png/mdr-design-mark-small-on-light-48w.png",
+      "contentType": "image/png",
+      "bytes": 1359,
+      "sha256": "690bca0dc780b4194d75f63548a847bbe989d935d864ccf1ba25c435bb6a03e4",
+      "verified": true
+    },
+    {
+      "path": "png/mdr-design-mark-small-on-light-64w.png",
+      "publicObjectName": "media/mdr-design-logo/layered-monoline-cbab9e9aacb5ab5f/png/mdr-design-mark-small-on-light-64w.png",
+      "contentType": "image/png",
+      "bytes": 1829,
+      "sha256": "31c3bb7579aae8c42619fdc2b85c2a480ee2b8b9c241cdd1a144069cae20b5e2",
+      "verified": true
+    },
+    {
+      "path": "png/mdr-design-mark-small-reversed-32w.png",
+      "publicObjectName": "media/mdr-design-logo/layered-monoline-cbab9e9aacb5ab5f/png/mdr-design-mark-small-reversed-32w.png",
+      "contentType": "image/png",
+      "bytes": 1226,
+      "sha256": "4b44e7e47a1b3061f2b2b7f058e55f804846f65afe389742262159d648e00222",
+      "verified": true
+    },
+    {
+      "path": "png/mdr-design-mark-small-reversed-48w.png",
+      "publicObjectName": "media/mdr-design-logo/layered-monoline-cbab9e9aacb5ab5f/png/mdr-design-mark-small-reversed-48w.png",
+      "contentType": "image/png",
+      "bytes": 1384,
+      "sha256": "7bde8bcb107dde7ce73656f9be7ea46d05e2fcf4e7a1c2c82dcf7376d1df3ee8",
+      "verified": true
+    },
+    {
+      "path": "png/mdr-design-mark-small-reversed-64w.png",
+      "publicObjectName": "media/mdr-design-logo/layered-monoline-cbab9e9aacb5ab5f/png/mdr-design-mark-small-reversed-64w.png",
+      "contentType": "image/png",
+      "bytes": 1794,
+      "sha256": "bd48b7edcdfc95e91392dfb78f06fe64fdecec1487c964d983fb853715dc6d9d",
+      "verified": true
+    },
+    {
+      "path": "README.md",
+      "publicObjectName": "media/mdr-design-logo/layered-monoline-cbab9e9aacb5ab5f/README.md",
+      "contentType": "text/plain",
+      "bytes": 4912,
+      "sha256": "617af33b78b84395a1cf6424cae51b197ae5d0f6b5f5f4d4cdbb5cd063f30030",
+      "verified": true
+    },
+    {
+      "path": "svg/mdr-design-lockup-ink.svg",
+      "publicObjectName": "media/mdr-design-logo/layered-monoline-cbab9e9aacb5ab5f/svg/mdr-design-lockup-ink.svg",
+      "contentType": "image/svg+xml",
+      "bytes": 23258,
+      "sha256": "34735e3bd08bb879221a36458aaf203b8b40f8de22da9b05c8ed02120f383e7a",
+      "verified": true
+    },
+    {
+      "path": "svg/mdr-design-lockup-on-dark.svg",
+      "publicObjectName": "media/mdr-design-logo/layered-monoline-cbab9e9aacb5ab5f/svg/mdr-design-lockup-on-dark.svg",
+      "contentType": "image/svg+xml",
+      "bytes": 23262,
+      "sha256": "1d04e785edd29d600975111597e5d5d2aca7b90d67d7802bb3993ec50696ec76",
+      "verified": true
+    },
+    {
+      "path": "svg/mdr-design-lockup-on-light.svg",
+      "publicObjectName": "media/mdr-design-logo/layered-monoline-cbab9e9aacb5ab5f/svg/mdr-design-lockup-on-light.svg",
+      "contentType": "image/svg+xml",
+      "bytes": 23263,
+      "sha256": "ab4b6535d5598a81dc51d2a38bdc8aca8ec4bc16b02d5c83f748feba22cfb780",
+      "verified": true
+    },
+    {
+      "path": "svg/mdr-design-lockup-reversed.svg",
+      "publicObjectName": "media/mdr-design-logo/layered-monoline-cbab9e9aacb5ab5f/svg/mdr-design-lockup-reversed.svg",
+      "contentType": "image/svg+xml",
+      "bytes": 23263,
+      "sha256": "d33dccd7a3de81027a8ea5ecf8abe027ce6522e6d154872291e40efe1b230e05",
+      "verified": true
+    },
+    {
+      "path": "svg/mdr-design-lockup-small-ink.svg",
+      "publicObjectName": "media/mdr-design-logo/layered-monoline-cbab9e9aacb5ab5f/svg/mdr-design-lockup-small-ink.svg",
+      "contentType": "image/svg+xml",
+      "bytes": 23803,
+      "sha256": "4d68c0cc314c2d27889d03bc1d339ee9067dd9c95866211ebe915eb5169ffa04",
+      "verified": true
+    },
+    {
+      "path": "svg/mdr-design-lockup-small-on-dark.svg",
+      "publicObjectName": "media/mdr-design-logo/layered-monoline-cbab9e9aacb5ab5f/svg/mdr-design-lockup-small-on-dark.svg",
+      "contentType": "image/svg+xml",
+      "bytes": 23807,
+      "sha256": "d4004abd331aa41c3f098d607678738b8f539690f0945eb64d01d69da17e64d6",
+      "verified": true
+    },
+    {
+      "path": "svg/mdr-design-lockup-small-on-light.svg",
+      "publicObjectName": "media/mdr-design-logo/layered-monoline-cbab9e9aacb5ab5f/svg/mdr-design-lockup-small-on-light.svg",
+      "contentType": "image/svg+xml",
+      "bytes": 23808,
+      "sha256": "7c7c921b9dff53787f20cb1d28267490317b533832929454b5e6f248b69b006c",
+      "verified": true
+    },
+    {
+      "path": "svg/mdr-design-lockup-small-reversed.svg",
+      "publicObjectName": "media/mdr-design-logo/layered-monoline-cbab9e9aacb5ab5f/svg/mdr-design-lockup-small-reversed.svg",
+      "contentType": "image/svg+xml",
+      "bytes": 23808,
+      "sha256": "58c18ed326b05ef91af43fb488c95a54ce09cec0fa6057e06e86740722e288fb",
+      "verified": true
+    },
+    {
+      "path": "svg/mdr-design-mark-ink.svg",
+      "publicObjectName": "media/mdr-design-logo/layered-monoline-cbab9e9aacb5ab5f/svg/mdr-design-mark-ink.svg",
+      "contentType": "image/svg+xml",
+      "bytes": 16313,
+      "sha256": "3438f22e35e24d866dece567e3905dd8d1707a78524506f28b7b0a95ae50fb00",
+      "verified": true
+    },
+    {
+      "path": "svg/mdr-design-mark-on-dark.svg",
+      "publicObjectName": "media/mdr-design-logo/layered-monoline-cbab9e9aacb5ab5f/svg/mdr-design-mark-on-dark.svg",
+      "contentType": "image/svg+xml",
+      "bytes": 16317,
+      "sha256": "fe842f91a59b4cea661b4d2f483545f1e829229466b6d6294644b854aa813c28",
+      "verified": true
+    },
+    {
+      "path": "svg/mdr-design-mark-on-light.svg",
+      "publicObjectName": "media/mdr-design-logo/layered-monoline-cbab9e9aacb5ab5f/svg/mdr-design-mark-on-light.svg",
+      "contentType": "image/svg+xml",
+      "bytes": 16318,
+      "sha256": "f72c32edcf79a20072e83c7dba66e24dcebbe53cb0085508a2c56f24800256e3",
+      "verified": true
+    },
+    {
+      "path": "svg/mdr-design-mark-reversed.svg",
+      "publicObjectName": "media/mdr-design-logo/layered-monoline-cbab9e9aacb5ab5f/svg/mdr-design-mark-reversed.svg",
+      "contentType": "image/svg+xml",
+      "bytes": 16318,
+      "sha256": "ab6094798626ba39f3a251d7155bd3dccdbdd99853e11f7a5df0033dd4db5dad",
+      "verified": true
+    },
+    {
+      "path": "svg/mdr-design-mark-small-ink.svg",
+      "publicObjectName": "media/mdr-design-logo/layered-monoline-cbab9e9aacb5ab5f/svg/mdr-design-mark-small-ink.svg",
+      "contentType": "image/svg+xml",
+      "bytes": 16250,
+      "sha256": "f487001a2774fbbedb4797b2bce87acda891566df21af723c5a859e9ae2e41d4",
+      "verified": true
+    },
+    {
+      "path": "svg/mdr-design-mark-small-on-dark.svg",
+      "publicObjectName": "media/mdr-design-logo/layered-monoline-cbab9e9aacb5ab5f/svg/mdr-design-mark-small-on-dark.svg",
+      "contentType": "image/svg+xml",
+      "bytes": 16254,
+      "sha256": "69fa10c51d8f9f34f53e53a4cc9aa4622e3d01d919b8c9936ee1001f1a31264c",
+      "verified": true
+    },
+    {
+      "path": "svg/mdr-design-mark-small-on-light.svg",
+      "publicObjectName": "media/mdr-design-logo/layered-monoline-cbab9e9aacb5ab5f/svg/mdr-design-mark-small-on-light.svg",
+      "contentType": "image/svg+xml",
+      "bytes": 16255,
+      "sha256": "5f4b4ce8dead04b9531110640ff600b65b16b753b8cf39b53d83c06f8a63b7f1",
+      "verified": true
+    },
+    {
+      "path": "svg/mdr-design-mark-small-reversed.svg",
+      "publicObjectName": "media/mdr-design-logo/layered-monoline-cbab9e9aacb5ab5f/svg/mdr-design-mark-small-reversed.svg",
+      "contentType": "image/svg+xml",
+      "bytes": 16255,
+      "sha256": "e2d83a2922c721c2f8fbf97b162da16e055943f2b1875890c3e35ec0bc1a26d2",
+      "verified": true
+    },
+    {
+      "path": "verification.json",
+      "publicObjectName": "media/mdr-design-logo/layered-monoline-cbab9e9aacb5ab5f/verification.json",
+      "contentType": "application/json",
+      "bytes": 134,
+      "sha256": "ce433263cb1e25d30c3b5afc9688b54dcff815ff3ea36a1c57c4ca5fcd5ad87d",
+      "verified": true
+    }
+  ]
+}

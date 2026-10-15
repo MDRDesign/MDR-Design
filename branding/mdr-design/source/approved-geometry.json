@@ -1,0 +1,23 @@
+{
+  "name": "MDR Design",
+  "direction": "Layered Monoline — approved refinement",
+  "approval": "Owner approved the refined Layered Monoline board for production files on 2026-10-15. Website integration is excluded.",
+  "paths": [
+    "M20,300 V12 L130,222 L240,12 V300",
+    "M240,12 V288 H290 C380,288 425,225 425,150 C425,75 380,12 290,12 H240",
+    "M345,300 V12 H455 C503,12 530,44 530,84 C530,124 503,156 455,156 H345 M440,156 L545,300"
+  ],
+  "standard": { "strokeWidth": 16, "crossingWidth": 40 },
+  "small": { "strokeWidth": 20, "crossingWidth": 44 },
+  "font": {
+    "family": "DejaVu Sans",
+    "style": "Book",
+    "filename": "DejaVuSans.ttf"
+  },
+  "palette": {
+    "teal": "#082b36",
+    "coral": "#e9a48e",
+    "ivory": "#f4f1ea",
+    "ink": "#141414"
+  }
+}
