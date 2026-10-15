@@ -509,6 +509,9 @@ input:focus-visible + .chip { outline: 1px solid var(--accent-c); outline-offset
   *, *::before, *::after { transition-duration: 0.01ms !important; animation-duration: 0.01ms !important; transition-delay: 0s !important; }
   .line > span, .fade, .draw, .draw-y { transform: none !important; opacity: 1 !important; }
   .wipe, .wipe-x { clip-path: none !important; }
+  /* Match the stagger classes' specificity: their !important delays otherwise
+     out-rank the universal reset when reduced motion is enabled live. */
+  .line > span, .fade, .draw, .draw-y, .wipe, .wipe-x { transition: none !important; }
   .ink-cursor { display: none; }
 }
 .band.wrap { max-width: none; padding-left: max(var(--gutter), calc((100% - 1360px) / 2 + var(--gutter))); padding-right: max(var(--gutter), calc((100% - 1360px) / 2 + var(--gutter))); }

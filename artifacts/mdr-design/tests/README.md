@@ -1,5 +1,27 @@
 # Portfolio media regression checks
 
+## Content reveal visibility
+
+```sh
+pnpm --filter @workspace/mdr-design test:reveals
+```
+
+Builds the production app at `/` into the ignored
+`generated-artifacts/content-reveals/` directory and serves it on an ephemeral
+port. Uses the Chromium setup below; no API, credentials or external websites
+are needed. Browser pages, browser and server are closed after failures too.
+
+At 1440×1000 and 375×812, checks homepage Approach, Belief and CTA plus Armada's
+What I heard, What I built and next-step sections. Real scrolling and
+IntersectionObserver exercise `Reveal` / `useInView` and production CSS.
+Checks require headings and body text (including text inside faded parents)
+to have visible opacity, nonzero bounds, no reveal translation or clipping.
+One-time reveals must stay readable offscreen and immediately on return.
+Initial reduced motion and live preference changes expose even unvisited
+content; restoring normal motion must not hide visited sections. Controlled
+opacity, translation and clipping failures verify the readability guard itself.
+This suite deliberately does not check hero logos or image/video decoding.
+
 ## Homepage motion
 
 ```sh
