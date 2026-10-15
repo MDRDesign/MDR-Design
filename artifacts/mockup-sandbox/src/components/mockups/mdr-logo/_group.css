@@ -9,21 +9,21 @@
 .mm-label { font-size: 10px; font-weight: 600; letter-spacing: 1.6px; text-transform: uppercase; }
 .mm-header .mm-label { display: flex; flex-wrap: wrap; gap: 8px 24px; justify-content: space-between; }
 .mm-header .mm-label span { color: #615d55; }
-.mm-header h1 { font-family: 'Instrument Sans', sans-serif; font-size: 38px; font-weight: 600; letter-spacing: -1.4px; line-height: 1.1; margin-top: 18px; }
+.mm-header h1 { font-family: 'Instrument Sans', sans-serif; font-size: 38px; font-weight: 500; letter-spacing: -1px; line-height: 1.1; margin-top: 18px; }
 .mm-header .mm-intro { margin-top: 9px; color: #615d55; font-size: 14px; line-height: 1.5; }
 .mm-stage { margin-top: 24px; min-height: 304px; padding: 42px 18px 18px; display: flex; flex-direction: column; align-items: center; justify-content: center; background: #082b36; color: #f4f1ea; }
-.mm-lockup { display: flex; flex-direction: column; align-items: center; width: min(240px, 100%); }
+.mm-lockup { display: flex; flex-direction: column; align-items: center; width: min(280px, 100%); }
 .mm-mark {
-  width: 100%; aspect-ratio: 507 / 422; position: relative;
-  -webkit-mask: url('/__mockup/images/mdr-clean-monogram-mask.png') center / contain no-repeat;
-  mask: url('/__mockup/images/mdr-clean-monogram-mask.png') center / contain no-repeat;
+  width: 100%; aspect-ratio: 613 / 290; position: relative;
+  -webkit-mask: url('/__mockup/images/mdr-balanced-monogram-mask.png') center / contain no-repeat;
+  mask: url('/__mockup/images/mdr-balanced-monogram-mask.png') center / contain no-repeat;
   overflow: hidden;
 }
 .mm-color { position: absolute; inset: 0; background-color: #f4f1ea; animation: mm-color-cycle 20s ease-in-out infinite; }
 .mm-pattern { position: absolute; inset: 0; width: 100%; height: 100%; opacity: .28; }
 .mm-pattern path { fill: none; stroke: #082b36; stroke-width: 3.2; }
 .mm-pattern g { animation: mm-line-flow 12s linear infinite; }
-.mm-lockup .mm-name { color: #f4f1ea; font-size: 26px; font-weight: 600; letter-spacing: 1px; margin-top: 12px; }
+.mm-lockup .mm-name { color: #f4f1ea; font-size: 26px; font-weight: 500; letter-spacing: 1px; margin-top: 12px; }
 .mm-stage .mm-stage-note { margin-top: 29px; font-size: 11px; line-height: 1.5; color: #c3d0d0; text-align: center; }
 .mm-controls { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 14px; padding: 14px 0 20px; border-bottom: 1px solid #c9c4ba; }
 .mm-status { font-size: 12px; line-height: 1.5; color: #615d55; }
@@ -52,7 +52,7 @@
   .mdr-monogram-preview { padding: 24px; }
   .mm-header h1 { font-size: 36px; }
   .mm-stage { min-height: 286px; }
-  .mm-lockup { width: min(230px, 100%); }
+  .mm-lockup { width: min(254px, 100%); }
   .mm-small { width: 116px; }
   .mm-scale-study { grid-template-columns: 1fr; gap: 16px; }
   .mm-scale-study .mm-scale-copy { max-width: none; }
