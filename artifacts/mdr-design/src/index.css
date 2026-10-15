@@ -304,16 +304,18 @@ input:focus-visible + .chip { outline: 1px solid var(--accent-c); outline-offset
 /* ivory on crimson 5.79:1; muted #f2d6d2 4.8:1. ink only for non-text geometry */
 .band-crimson { --bg: #b3261e; --fg: #f4f1ea; --muted-text: #f2d6d2; --rule: rgba(244,241,234,.42); --accent-c: #f4f1ea; --surface: #f4f1ea; --stone: #f2d6d2; --focus: #f4f1ea; --btn-hover: #0e0e0e; --btn-hover-fg: #f4f1ea; }
 .band-blue, .band-crimson, .band-ink { font-weight: 400; }
-/* A slow solid-colour cycle: teal, petrol, navy, forest, plum and wine.
-   No gradients; reduced motion and the existing hero pause remain supported. */
-.band-blue { animation: tealShift 30s ease-in-out infinite; }
+/* Rich, distinct jewel tones rather than near-black variations.
+   Solid colours only; existing pause and reduced-motion rules still apply. */
+.band-blue { animation: tealShift 48s ease-in-out infinite; }
 @keyframes tealShift {
-  0%,100% { background-color: #05242d; }
-  17% { background-color: #092426; }
-  34% { background-color: #0e2336; }
-  51% { background-color: #13241d; }
-  68% { background-color: #261e29; }
-  85% { background-color: #2e1b20; }
+  0%,100% { background-color: #073d49; }
+  12.5% { background-color: #10433e; }
+  25% { background-color: #203e57; }
+  37.5% { background-color: #253454; }
+  50% { background-color: #403047; }
+  62.5% { background-color: #502e3d; }
+  75% { background-color: #52372c; }
+  87.5% { background-color: #383b20; }
 }
 /* Heartbeat line across the wordmark: one thin pass, then a soft double pulse, long pause */
 .hb { position: relative; display: inline-block; overflow: hidden; }
@@ -497,7 +499,7 @@ input:focus-visible + .chip { outline: 1px solid var(--accent-c); outline-offset
 
 @media (prefers-reduced-motion: reduce) {
   .kinetic-track { animation: none !important; transform: none !important; }
-  .band-blue { animation: none !important; background-color: #05242d !important; }
+  .band-blue { animation: none !important; background-color: #073d49 !important; }
   .hb::after { display: none !important; }
   .intro, .route-wipe { display: none !important; }
   .feat { clip-path: none !important; }

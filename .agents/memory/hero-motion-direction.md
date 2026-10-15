@@ -56,3 +56,9 @@ After seeing the comparison, the owner approved homepage use: “Yes, use the D-
 **Why:** The owner explicitly approved the reviewed D-over-R treatment for the homepage.
 
 **How to apply:** Use D-over-R crossings on the homepage, with the other letterforms and motion unchanged. The original stored production kit is historical; this does not authorize changing browser icons or sharing previews.
+
+The owner wants the shifting backgrounds to cover more colors with visibly richer depth, not just near-black variations.
+
+**Why:** They repeated the request to expand the background color effect and make its color depth more robust.
+
+**How to apply:** Retain smooth, saturated dark color transitions and readable foregrounds; do not reduce the effect back to barely distinguishable slate hues or change the logo to achieve it.
