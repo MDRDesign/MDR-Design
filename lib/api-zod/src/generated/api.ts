@@ -11,7 +11,7 @@ import * as zod from 'zod';
 /**
  * @summary Serve public studio media assets with byte-range support
  */
-export const getStudioMediaPathFilenameRegExp = new RegExp('^(mdr-street-film-[a-f0-9]{12}\\.(mp4|webm|webp)|captains-galley-order-options-[a-f0-9]{12}\\.webp)$');
+export const getStudioMediaPathFilenameRegExp = new RegExp('^(mdr-street-film-[a-f0-9]{12}\\.(mp4|webm|webp)|(?:captains-galley-order-options|mdr-monogram)-[a-f0-9]{12}\\.webp)$');
 
 
 export const GetStudioMediaParams = zod.object({

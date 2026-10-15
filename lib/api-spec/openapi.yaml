@@ -22,7 +22,7 @@ paths:
           required: true
           schema:
             type: string
-            pattern: '^(mdr-street-film-[a-f0-9]{12}\.(mp4|webm|webp)|captains-galley-order-options-[a-f0-9]{12}\.webp)$'
+            pattern: '^(mdr-street-film-[a-f0-9]{12}\.(mp4|webm|webp)|(?:captains-galley-order-options|mdr-monogram)-[a-f0-9]{12}\.webp)$'
         - name: Range
           in: header
           schema:

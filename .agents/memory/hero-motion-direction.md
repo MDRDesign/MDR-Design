@@ -13,4 +13,10 @@ The owner selected the Interlocking Monogram direction from the Runway-assisted 
 
 **Why:** This was the owner's explicit selection and refinement request after reviewing the three logo concepts.
 
-**How to apply:** Keep the interlocking initials and balance the earlier elegance with the latest clarity: consider open curves, modest stroke variation and subtle flaring rather than either pronounced traditional serifs or heavy geometric construction. Do not treat pure sans-serif as an approved requirement. Keep the studio name readable and the motion restrained. The direction is selected, but the refined artwork is not yet approved as a final logo.
+**How to apply:** Keep the interlocking initials and balance the earlier elegance with the latest clarity: consider open curves, modest stroke variation and subtle flaring rather than either pronounced traditional serifs or heavy geometric construction. Do not treat pure sans-serif as an approved requirement. Keep the studio name readable and the motion restrained.
+
+The owner approved using the latest balanced monogram on the actual homepage for now and wants to review it later.
+
+**Why:** They said “Use the most recent for now, I'll want to review it later” and then “go aheaed and change the homepage.”
+
+**How to apply:** Treat the balanced mark as the provisional homepage identity, not a final, permanent logo approval. Preserve the review concepts rather than deleting them.
