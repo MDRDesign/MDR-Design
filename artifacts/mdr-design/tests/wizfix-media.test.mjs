@@ -238,16 +238,20 @@ test('Armada guard rejects a media URL that escapes the nested artifact base', {
   } finally { await page.close(); }
 });
 
-for (const width of [1440, 375, 320]) {
+for (const [artifactBase, width] of [base, '/'].flatMap((artifactBase) =>
+  [1440, 375, 320].map((width) => [artifactBase, width]))) {
   for (const [route, screenshots, devices] of [
     ['', 1, 0], ['work/wizfix', 4, 1], ['preview/wizfix', 2, 1],
   ]) {
-    test(`/${route} preserves real WizFix visuals and content at ${width}px`, { timeout: 45_000 }, async () => {
+    test(`${artifactBase}${route} preserves real WizFix visuals and content at ${width}px`, { timeout: 45_000 }, async () => {
+      const deployment = deployments.find((item) => item.base === artifactBase);
+      assert.ok(deployment, `Missing deployment for ${artifactBase}`);
+      const { origin } = deployment;
       const page = await browser.newPage({ viewport: { width, height: 900 } });
       const pageErrors = [];
       page.on('pageerror', (error) => pageErrors.push(error.message));
       try {
-        await page.goto(origin + base + route, { waitUntil: 'networkidle' });
+        await page.goto(origin + artifactBase + route, { waitUntil: 'networkidle' });
         if (route === '' || route === 'preview/wizfix') {
           const prefix = route === '' ? 'home' : 'preview';
           await page.getByTestId(`button-${prefix}-prev`).click();
@@ -263,7 +267,7 @@ for (const width of [1440, 375, 320]) {
           const rotating = await image.evaluate((element) => Boolean(element.closest('.rot-slide')));
           await checkVisibleCapture(image, rotating ? 'cover' : 'contain');
           const source = await image.evaluate((element) => element.currentSrc);
-          assert.ok(source.startsWith(origin + base + 'media/'), `Asset escaped artifact base: ${source}`);
+          assert.ok(source.startsWith(origin + artifactBase + 'media/'), `Asset escaped artifact base: ${source}`);
         }
         const deviceFrames = page.locator('svg[aria-label="Published WizFix Computers website at desktop and phone screen sizes"]');
         assert.equal(await deviceFrames.count(), devices, 'Device captures missing');
@@ -274,6 +278,8 @@ for (const width of [1440, 375, 320]) {
           for (const name of ['wizfix-desktop.webp', 'wizfix-mobile.webp']) {
             const capture = frame.locator(`image[href$="${name}"]`);
             assert.equal(await capture.count(), 1, name);
+            const source = await capture.evaluate((element) => new URL(element.href.baseVal, document.baseURI).href);
+            assert.ok(source.startsWith(origin + artifactBase + 'media/'), `SVG asset escaped artifact base: ${source}`);
             await checkVisibleCapture(capture);
             // SVG images lack naturalWidth: decode the exact href separately.
             await capture.evaluate(async (element) => {
