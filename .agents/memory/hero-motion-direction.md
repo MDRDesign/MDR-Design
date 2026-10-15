@@ -1,34 +1,16 @@
 ---
-name: Approved hero motion
-description: Owner-approved direction for the animated top-right hero presentation.
+name: Hero identity direction
+description: Owner wants to replace the AI-looking film direction with smaller logo-led artwork, after comparing options.
 ---
 
-Preserve the animated drafting treatment when replacing or refining the hero artwork unless the owner requests a new motion direction.
+Start over with the hero artwork direction rather than refining the city-street film, tablet, package, or sculpture.
 
-**Why:** The owner explicitly said, “I love the animated design at the top right of the page,” while requesting a different image.
+**Why:** The owner said the top image should not immediately suggest “AI,” which takes attention away from the studio's design work and can put prospective clients off.
 
-**How to apply:** Treat the animation and artwork as separate decisions. An image replacement is not permission to redesign the surrounding motion.
+**How to apply:** Lead with the studio's design identity rather than generated narrative imagery. Do not assume the old film or drafting motion remains the approved direction.
 
-Hero artwork should have striking impact and dimensional depth, rather than look ordinary or one-dimensional.
+The owner is considering a good-looking logo that occupies less space than the current hero image and wants several Runway-assisted logo variations to review before choosing.
 
-**Why:** The owner requested “something else that has more striking impact without being ordinary or one dimensional.”
+**Why:** The owner explicitly asked to compare different logo versions before selecting one.
 
-**How to apply:** Apply this direction to new hero artwork, not to authentic project screenshots or other client materials.
-
-The hero artwork should reflect the studio's expanded mix of website design, branding and business apps while retaining its approved aesthetic and motion.
-
-**Why:** The owner liked the existing sculpture's aesthetic and motion but asked to change it to something that reflects the website better now.
-
-**How to apply:** Update the subject matter without replacing the drafting treatment or treating studio artwork as a real client interface.
-
-The hero should not repeat the app and website showcases already below it. The owner now wants a 10–15-second city-street film: a man pauses, holds up his phone and smiles at MDR Design; the camera zooms into the website; a bird takes the phone; he jumps, misses and watches it fly away.
-
-**Why:** After choosing the drafting frame, the owner reconsidered the tablet itself because the projects are already showcased in multiple places, and explicitly described this new film.
-
-**How to apply:** Treat the city-street film as the requested new subject rather than continuing to refine the client-project tablet. Do not remove the current artwork until a usable replacement has been produced and verified.
-
-The phone close-up should show a clean, stable graphic saying “MDR Design,” not the actual homepage.
-
-**Why:** After seeing the homepage composite, the owner explicitly asked to remove it and replace it with a graphic without shaking or glitching.
-
-**How to apply:** Keep the branding still and readable. A locked-off close-up is preferable to unstable per-frame screen tracking; preserve the rest of the street film.
+**How to apply:** Explore options before changing the live hero. Treat the smaller logo as a proposed direction, not an already-selected final mark.
