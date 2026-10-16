@@ -6,7 +6,7 @@ import { tmpdir } from 'node:os';
 import { resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { execFileSync } from 'node:child_process';
-import { chromium } from 'playwright-core';
+import { chromium, firefox, webkit } from 'playwright-core';
 import { build, preview } from 'vite';
 import { registerComparisonTests } from './helpers/wizfix-comparison.mjs';
 
@@ -18,6 +18,7 @@ const expectedAssets = [
 ];
 const note = "Joey — here's the redesign direction for WizFix, all in one place. Repair, IT and printing, presented as the established tech business you already are. Take a look, share it with anyone whose opinion matters, and let me know when you're ready to move forward. — D.C.";
 let browser;
+const comparisonBrowsers = new Map();
 let origin;
 const deployments = [];
 
@@ -71,17 +72,58 @@ before(async () => {
     throw new Error('Chromium is required. Set CHROMIUM_PATH or run pnpm exec playwright-core install chromium.');
   });
   browser = await chromium.launch({ executablePath, args: ['--no-sandbox'] });
+  comparisonBrowsers.set('chromium', { browser });
+  for (const engine of [firefox, webkit]) {
+    const name = engine.name();
+    const override = `${name.toUpperCase()}_PATH`;
+    const path = process.env[override] || engine.executablePath();
+    let unavailable;
+    try {
+      await access(path, constants.X_OK);
+    } catch {
+      unavailable = `${name} runtime unavailable: no executable at ${path}. ` +
+        `Set ${override} or run pnpm exec playwright-core install ${name}.`;
+    }
+    if (!unavailable) {
+      try {
+        comparisonBrowsers.set(name, { browser: await engine.launch({ executablePath: path }) });
+      } catch (error) {
+        // Missing host libraries are an unavailable runtime, not a passing test.
+        // Unexpected launch failures must still fail the suite.
+        if (!/Host system is missing dependencies|error while loading shared libraries|cannot open shared object file|ENOENT/.test(error.message)) {
+          throw error;
+        }
+        unavailable = `${name} runtime unavailable: ${error.message}`;
+      }
+    }
+    if (unavailable) {
+      console.warn(unavailable);
+      comparisonBrowsers.set(name, { unavailable });
+    }
+  }
 }, { timeout: 120_000 });
 
 after(async () => {
-  await browser?.close();
+  await Promise.all([...comparisonBrowsers.values()].map((entry) => entry.browser?.close()));
   for (const deployment of deployments) {
     await new Promise((resolveClose, reject) =>
       deployment.server.httpServer.close((error) => error ? reject(error) : resolveClose()));
   }
 });
 
-registerComparisonTests({ getBrowser: () => browser, deployments, checkVisibleCapture });
+for (const profile of [
+  { engine: 'chromium' },
+  { engine: 'firefox' },
+  { engine: 'webkit' },
+  { engine: 'webkit', mobile: true },
+]) {
+  registerComparisonTests({
+    profile,
+    getRuntime: () => comparisonBrowsers.get(profile.engine),
+    deployments,
+    checkVisibleCapture,
+  });
+}
 
 test('all WizFix WebPs exist, resolve as images, and decode (not SPA fallback HTML)', async () => {
   const files = (await readdir(resolve(root, 'public/media'))).filter((name) => /^wizfix-.*\.webp$/.test(name));

@@ -75,6 +75,35 @@ Requires Chromium on `PATH`, a Playwright-installed Chromium, or an explicit
 `pnpm --filter @workspace/mdr-design exec playwright-core install chromium`.
 Missing browser setup fails the checks rather than silently skipping them.
 
+### Cross-browser comparison
+
+The comparison helper runs keyboard navigation (arrows, Home and End), visible
+focus, native range dragging, image hit-testing on both sides of the moving
+clip boundary, and deliberately frozen-image/divider guards in Chromium,
+Firefox and WebKit. Desktop profiles use 1440px, 375px and 320px viewports;
+an additional mobile-emulated WebKit profile uses 375px and 320px with
+`isMobile` and `hasTouch`. Every profile checks both artifact bases.
+
+Firefox and WebKit use Playwright-managed runtimes by default. Install them with:
+
+```sh
+pnpm --filter @workspace/mdr-design exec playwright-core install firefox webkit
+```
+
+Alternatively set `FIREFOX_PATH` or `WEBKIT_PATH` to compatible Playwright
+executables (an ordinary system Firefox/Safari executable is not a substitute).
+Missing executables or host libraries produce explicit, engine-labelled skipped
+tests with the setup reason; they are **not** successful cross-browser checks.
+Unexpected launch errors and interaction failures fail the suite. All launched
+browsers are closed during teardown, including after setup/test failures.
+
+Pointer drags hold the native range thumb while moving in both directions.
+Chromium also retains held-touch dragging via CDP at phone sizes. Playwright's
+public touch API only supports taps outside Chromium, so the mobile WebKit
+profile uses native mouse dragging in a touch-capable mobile context, not
+synthetic DOM touch events. This is WebKit engine/mobile emulation coverage,
+not verification on a physical iPhone or the shipping Safari app.
+
 The suite builds the actual app at root and nested artifact bases, serves each
 temporarily on local ephemeral ports, and closes the servers and browser
 afterward. Required `PORT` and `BASE_PATH` build values are set temporarily and

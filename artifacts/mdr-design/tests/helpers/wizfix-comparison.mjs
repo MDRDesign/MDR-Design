@@ -1,5 +1,5 @@
 import assert from 'node:assert/strict';
-import { test } from 'node:test';
+import { test as nodeTest } from 'node:test';
 
 const label = 'Compare the former and published WizFix websites';
 
@@ -7,6 +7,9 @@ async function openComparison(page, deployment, checkVisibleCapture) {
   await page.goto(deployment.origin + deployment.base + 'work/wizfix', { waitUntil: 'networkidle' });
   const slider = page.getByRole('slider', { name: label, exact: true });
   assert.equal(await slider.count(), 1, 'Comparison needs a unique accessible slider name');
+  assert.ok(await slider.evaluate((element) =>
+    element instanceof HTMLInputElement && element.type === 'range'),
+  'Comparison must use a native range input');
   const frame = page.locator('.ba');
   for (const image of await frame.locator('img').all()) await checkVisibleCapture(image);
   assert.equal(await frame.locator('img').count(), 2, 'Both comparison images must be present');
@@ -35,6 +38,8 @@ async function checkReveal(frame, expected) {
       divider: (divider.left - bounds.left + 1) / bounds.width * 100,
       leftImage: visibleImageAt(0.1),
       rightImage: visibleImageAt(0.9),
+      beforeDivider: visibleImageAt(Math.max(0.02, Number(slider.value) / 100 - 0.05)),
+      afterDivider: visibleImageAt(Math.min(0.98, Number(slider.value) / 100 + 0.05)),
       loadedAndVisible: images.every((image) => {
         for (let node = image; node && node !== element.parentElement; node = node.parentElement) {
           const style = getComputedStyle(node);
@@ -51,6 +56,10 @@ async function checkReveal(frame, expected) {
   assert.ok(Math.abs(state.divider - expected) < 1, `Divider detached from reveal: ${JSON.stringify(state)}`);
   assert.equal(state.leftImage, expected <= 10 ? 1 : 0, 'Wrong image exposed on the left');
   assert.equal(state.rightImage, expected >= 90 ? 0 : 1, 'Wrong image exposed on the right');
+  if (expected > 5 && expected < 95) {
+    assert.equal(state.beforeDivider, 0, 'Before image must extend to the moving divider');
+    assert.equal(state.afterDivider, 1, 'After image must begin at the moving divider');
+  }
 }
 
 async function tabToSlider(page, slider) {
@@ -61,13 +70,31 @@ async function tabToSlider(page, slider) {
   assert.fail('Comparison slider is not reachable through keyboard navigation');
 }
 
-export function registerComparisonTests({ getBrowser, deployments, checkVisibleCapture }) {
+export function registerComparisonTests({ profile, getRuntime, deployments, checkVisibleCapture }) {
+  const { engine, mobile = false } = profile;
+  const getBrowser = () => getRuntime().browser;
+  const pageOptions = (width, touch = false) => ({
+    viewport: { width, height: 900 },
+    // Firefox does not support Playwright's isMobile option.
+    ...(engine !== 'firefox' ? { isMobile: mobile || touch } : {}),
+    hasTouch: mobile || touch,
+  });
+  const test = (name, options, run) => nodeTest(
+    `${engine}${mobile ? ' mobile emulation' : ''}: ${name}`, options, async (context) => {
+      const runtime = getRuntime();
+      assert.ok(runtime, `Missing runtime setup for ${engine}`);
+      if (runtime.unavailable) {
+        context.skip(runtime.unavailable);
+        return;
+      }
+      await run();
+    });
   // Reuse the suite's root and nested production builds.
   for (const base of ['/portfolio-regression/', '/']) {
-    for (const width of [1440, 375, 320]) {
+    for (const width of mobile ? [375, 320] : [1440, 375, 320]) {
       test(`WizFix comparison keyboard, focus and reveal at ${width}px under ${base}`,
         { timeout: 45_000 }, async () => {
-          const page = await getBrowser().newPage({ viewport: { width, height: 900 } });
+          const page = await getBrowser().newPage(pageOptions(width));
           try {
             const { slider, frame } = await openComparison(page,
               deployments.find((deployment) => deployment.base === base), checkVisibleCapture);
@@ -103,20 +130,21 @@ export function registerComparisonTests({ getBrowser, deployments, checkVisibleC
         });
     }
 
-    for (const width of [375, 320]) {
-      for (const mode of ['pointer', 'touch']) {
+    for (const width of mobile ? [375, 320] : [1440, 375, 320]) {
+      // CDP touch injection is Chromium-only. Other engines exercise native
+      // range dragging through Playwright mouse input, not synthetic DOM events,
+      // fill(), or a tap falsely described as a held touch gesture.
+      for (const mode of engine === 'chromium' && width < 1440 ? ['pointer', 'touch'] : ['pointer']) {
         test(`WizFix comparison ${mode} drag reveals both images at ${width}px under ${base}`,
           { timeout: 45_000 }, async () => {
-            const page = await getBrowser().newPage({
-              viewport: { width, height: 900 }, isMobile: true, hasTouch: true,
-            });
+            const page = await getBrowser().newPage(pageOptions(width, engine === 'chromium' && width < 1440));
             let session;
             try {
               const { slider, frame } = await openComparison(page,
                 deployments.find((deployment) => deployment.base === base), checkVisibleCapture);
               await checkReveal(frame, 50);
               const box = await slider.boundingBox();
-              assert.ok(box && box.width > 200 && box.height > 100, 'Mobile drag target collapsed');
+              assert.ok(box && box.width > 200 && box.height > 100, 'Native range drag target collapsed');
               const y = box.y + box.height / 2;
               const x = (fraction) => box.x + box.width * fraction;
               if (mode === 'pointer') {
@@ -160,7 +188,7 @@ export function registerComparisonTests({ getBrowser, deployments, checkVisibleC
 
   test('WizFix reveal guard rejects a moving slider with frozen artwork or divider',
     { timeout: 45_000 }, async () => {
-      const page = await getBrowser().newPage({ viewport: { width: 375, height: 900 } });
+      const page = await getBrowser().newPage(pageOptions(375));
       try {
         const { slider, frame } = await openComparison(page, deployments[0], checkVisibleCapture);
         await slider.focus();
