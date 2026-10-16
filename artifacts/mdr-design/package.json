@@ -11,6 +11,7 @@
     "test:wizfix": "node --test tests/wizfix-media.test.mjs",
     "test:motion": "node --test tests/hero-motion.test.mjs",
     "test:reveals": "node --test tests/content-reveals.test.mjs",
+    "test:journeys": "node --test tests/site-journeys.test.mjs",
     "test:seo": "node --test tests/share-meta.test.mjs"
   },
   "devDependencies": {

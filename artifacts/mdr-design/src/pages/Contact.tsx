@@ -1,4 +1,4 @@
-import { useState, type FormEvent } from 'react';
+import { useEffect, useRef, useState, type FormEvent } from 'react';
 import { useSearch } from 'wouter';
 import { useCreateInquiry, type InquiryInput } from '@workspace/api-client-react';
 import { Reveal, Lines } from '@/components/Reveal';
@@ -43,7 +43,13 @@ export default function Contact() {
   });
   const [errors, setErrors] = useState<Errors>({});
   const [success, setSuccess] = useState<string | null>(null);
+  const successHeading = useRef<HTMLHeadingElement>(null);
   const mutation = useCreateInquiry();
+  useEffect(() => {
+    if (!success) return;
+    successHeading.current?.focus({ preventScroll: true });
+    window.scrollTo({ top: 0, behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'instant' : 'smooth' });
+  }, [success]);
 
   const set = (k: keyof Form) => (e: { target: { value: string } }) => {
     setForm((f) => ({ ...f, [k]: e.target.value }));
@@ -67,20 +73,20 @@ export default function Contact() {
           source: source ?? 'website', honeypot: form.honeypot,
         },
       },
-      { onSuccess: (res) => { setSuccess(res.message); window.scrollTo({ top: 0, behavior: 'smooth' }); } },
+      { onSuccess: (res) => { setSuccess(res.message); } },
     );
   };
 
   const err = (k: keyof Form) => errors[k] && (
     <p id={`e-${k}`} className="mt-2 text-sm accent" role="alert">{errors[k]}</p>
   );
-  const aria = (k: keyof Form) => ({ id: `f-${k}`, 'aria-invalid': !!errors[k], 'aria-describedby': errors[k] ? `e-${k}` : undefined });
+  const aria = (k: keyof Form) => ({ id: `f-${k}`, 'aria-required': k !== 'website', 'aria-invalid': !!errors[k], 'aria-describedby': errors[k] ? `e-${k}` : undefined });
 
   if (success) {
     return (
       <Reveal as="section" immediate className="band band-blue wrap min-h-[70dvh] pt-32 pb-16">
         <p className="label fade d1"><span className="n">Received</span>Thank you</p>
-        <h1 className="mega mt-8"><Lines lines={['Noted —', <em key="w">with care.</em>]} start={0.1} /></h1>
+        <h1 ref={successHeading} tabIndex={-1} className="mega mt-8"><Lines lines={['Noted —', <em key="w">with care.</em>]} start={0.1} /></h1>
         <p className="mt-10 max-w-xl serif text-xl leading-snug whitespace-pre-line fade d4" data-testid="text-success" role="status">{success}</p>
       </Reveal>
     );
@@ -124,7 +130,7 @@ export default function Contact() {
             <div className="flex flex-wrap gap-3">
               {NEEDS.map((n, i) => (
                 <label key={n} className="inline-flex">
-                  <input type="radio" name="need" value={n} checked={form.need === n} onChange={set('need')} className="sr-only" id={i === 0 ? 'f-need' : undefined} data-testid={`radio-need-${i}`} />
+                  <input type="radio" name="need" value={n} checked={form.need === n} onChange={set('need')} className="sr-only" id={i === 0 ? 'f-need' : undefined} aria-required="true" aria-invalid={!!errors.need} aria-describedby={errors.need ? 'e-need' : undefined} data-testid={`radio-need-${i}`} />
                   <span className="chip">{n}</span>
                 </label>
               ))}

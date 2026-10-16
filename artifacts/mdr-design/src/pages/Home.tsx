@@ -35,8 +35,8 @@ export default function Home() {
               <h1 className="mega mt-8 md:mt-10">
                 <Lines lines={heroLines} start={0.2} delayStep={0.14} />
               </h1>
-              <div className="mt-10 grid grid-cols-7 gap-6">
-                <div className="col-span-7 md:col-span-5">
+              <div className="mt-10 grid grid-cols-1 md:grid-cols-7 gap-6">
+                <div className="col-span-1 md:col-span-5">
                   <div className="hr hr-ink draw d4 mb-6" />
                   <p className="text-lg leading-relaxed fade d5" data-testid="text-hero-promise">
                     Websites, business apps and brands for local businesses that deserve to look established.
@@ -91,7 +91,7 @@ export default function Home() {
                 </span>
                 <span role="cell" className="hidden md:block md:col-span-3 muted text-sm">{r.disciplines.join(' + ')}</span>
                 <span role="cell" className="hidden md:block md:col-span-1 text-sm tabular-nums">{r.year ?? <span aria-label="Year not listed">—</span>}</span>
-                <span role="cell" className="col-span-3 col-start-2 md:col-span-3 flex gap-6 md:justify-end label !text-[var(--fg)]">
+                <span role="cell" className="col-span-3 col-start-2 md:col-span-3 flex flex-wrap gap-6 md:justify-end label !text-[var(--fg)]">
                   {r.casePath && <Link href={r.casePath} className="ulink" data-testid={`link-index-case-${r.slug}`}>Case study <span className="arrow">→</span></Link>}
                   <a href={r.liveUrl} target="_blank" rel="noopener noreferrer" className="ulink" data-testid={`link-index-live-${r.slug}`}>Website <span aria-hidden="true">↗</span><span className="sr-only"> for {r.client} (opens in a new tab)</span></a>
                 </span>

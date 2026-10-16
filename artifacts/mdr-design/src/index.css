@@ -183,7 +183,31 @@ body::after {
 
 .wrap { padding-left: var(--gutter); padding-right: var(--gutter); max-width: 1360px; margin: 0 auto; }
 .grid12 { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); column-gap: 1rem; }
+.service-grid { grid-template-columns: repeat(auto-fit, minmax(min(100%, 14rem), 1fr)); }
 @media (min-width: 768px) { .grid12 { grid-template-columns: repeat(12, minmax(0, 1fr)); column-gap: 1.5rem; } }
+
+/* Container-query rem units follow enlarged text, unlike viewport breakpoints.
+   Reuse the existing four-column phone layout when text outgrows desktop columns.
+   WizFix content deliberately does not opt in to this review's reflow rules. */
+.public-reflow, .site-footer { container-type: inline-size; }
+.public-reflow :is(p, dd, h2, h3), .site-footer p { overflow-wrap: anywhere; }
+.public-reflow .btn { flex-wrap: wrap; }
+.site-footer time { font-size: min(1em, 13cqi); }
+@container (width < 48rem) {
+  :is(.public-reflow, .site-footer) .grid12 {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+  :is(.public-reflow, .site-footer) .grid12 > [class*="md:col-"] {
+    grid-column: auto;
+  }
+  :is(.public-reflow, .site-footer) .grid12 > [class~="col-span-1"] { grid-column: span 1; }
+  :is(.public-reflow, .site-footer) .grid12 > [class~="col-span-2"] { grid-column: span 2; }
+  :is(.public-reflow, .site-footer) .grid12 > [class~="col-span-3"] { grid-column: span 3; }
+  :is(.public-reflow, .site-footer) .grid12 > [class~="col-span-4"] { grid-column: span 4; }
+  :is(.public-reflow, .site-footer) .grid12 > [class~="col-start-2"] { grid-column-start: 2; }
+  .public-reflow [class~="hidden"][class~="md:block"] { display: none; }
+  .public-reflow [class~="md:hidden"] { display: revert; }
+}
 
 .hr { height: 1px; background: var(--rule); border: 0; width: 100%; }
 .hr-ink { height: 2px; background: var(--fg); }
@@ -199,6 +223,7 @@ body::after {
 
 .btn {
   display: inline-flex; align-items: center; gap: 1rem;
+  max-width: 100%; min-width: 0; overflow-wrap: anywhere;
   border: 1px solid var(--fg); padding: 1.05rem 1.6rem;
   font-size: 0.8125rem; letter-spacing: 0.16em; text-transform: uppercase; font-weight: 500;
   position: relative; overflow: hidden; isolation: isolate;
@@ -213,7 +238,7 @@ body::after {
 .btn-solid { background: var(--fg); color: var(--bg); }
 .btn-solid::before { background: var(--accent-c); }
 .btn[disabled] { opacity: .55; cursor: progress; }
-.arrow { display: inline-block; transition: transform .5s var(--ease); }
+.arrow { display: inline-block; flex-shrink: 0; transition: transform .5s var(--ease); }
 .btn:hover .arrow, a:hover .arrow { transform: translateX(6px); }
 
 /* ---------- Reveals ---------- */
@@ -288,7 +313,7 @@ input:focus-visible + .chip { outline: 1px solid var(--accent-c); outline-offset
 .ink-cursor.is-hidden { opacity: 0; }
 
 /* menu */
-.menu-panel { transition: opacity .6s var(--ease), visibility .6s; }
+.menu-panel { overflow-y: auto; transition: opacity .6s var(--ease), visibility .6s; }
 .menu-panel[data-open='false'] { opacity: 0; visibility: hidden; }
 
 .marquee-ticks { background-image: repeating-linear-gradient(90deg, var(--rule) 0 1px, transparent 1px 24px); height: 8px; }

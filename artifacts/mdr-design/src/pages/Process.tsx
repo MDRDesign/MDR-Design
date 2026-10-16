@@ -46,7 +46,7 @@ export default function Process() {
                 <p className="label">{s.phase}</p>
                 <p className="mt-2 text-sm muted">{s.w}</p>
               </div>
-              <h2 className="col-span-4 md:col-span-4 display text-3xl md:text-4xl fade d2">{s.t}</h2>
+              <h2 className="col-span-4 md:col-span-4 display text-3xl md:text-4xl break-words fade d2">{s.t}</h2>
               <div className="col-span-4 md:col-span-4 fade d3">
                 <p className="leading-relaxed muted">{s.b}</p>
                 <p className="mt-4 text-sm"><span className="label mr-3">You get</span>{s.out}</p>

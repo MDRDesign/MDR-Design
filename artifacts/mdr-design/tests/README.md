@@ -1,5 +1,40 @@
 # Portfolio media regression checks
 
+## Public navigation and safe inquiry journeys
+
+```sh
+pnpm --filter @workspace/mdr-design test:journeys
+```
+
+Uses the existing suites' real production-build / ephemeral Vite preview /
+installed Chromium approach. Covers the non-WizFix public routes, navigation,
+service and project inquiry presets, validation, keyboard controls, pending sends,
+success, server/network failure and retry. Layout checks run at 1440, 768, 375
+and 320px, at 100% and 200% root text size after fonts finish loading. A separate
+320×568 touch-emulation check covers the enlarged phone menu. Normal-motion
+scroll checks supplement, rather than replace, the existing Home/Armada reveal
+and hero-motion suites.
+
+**Safety:** each browser context blocks every non-GET/HEAD request before opening
+a page. Inquiry tests override only `/api/inquiries` with local responses or
+network aborts. No inquiry request may reach storage or email delivery. Do not
+remove this guard or replace fixtures with real submissions.
+
+The static preview has no App Storage API. Its backend-image check explicitly
+skips; it must not be treated as a passing media check. To check the managed
+web/API services (both workflows must be running):
+
+```sh
+REVIEW_URL=http://127.0.0.1:80 pnpm --filter @workspace/mdr-design test:journeys
+```
+
+Set `REVIEW_EVIDENCE=1` to save page screenshots, or limit a repeat capture with
+Node's `--test-name-pattern`. Builds and evidence stay under ignored
+`generated-artifacts/site-review/`. These are local SPA deep-route checks,
+**not** verification of published rewrite rules. Chromium phone/touch emulation
+is not physical iPhone Safari. See [the public-page review](PUBLIC-PAGE-REVIEW.md)
+for findings, evidence filenames, command results and untested behavior.
+
 ## Content reveal visibility
 
 ```sh
