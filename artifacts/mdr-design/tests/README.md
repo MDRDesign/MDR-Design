@@ -132,6 +132,43 @@ tests with the setup reason; they are **not** successful cross-browser checks.
 Unexpected launch errors and interaction failures fail the suite. All launched
 browsers are closed during teardown, including after setup/test failures.
 
+#### Required engines for release / CI
+
+Local behavior remains optional for Firefox and WebKit. In a release or CI job
+that promises both engines, explicitly require them:
+
+```sh
+WIZFIX_REQUIRED_BROWSERS=firefox,webkit pnpm --filter @workspace/mdr-design test:wizfix
+```
+
+`WIZFIX_REQUIRED_BROWSERS` accepts a comma-separated list of `chromium`,
+`firefox`, and `webkit` (whitespace and duplicates are allowed). Require just
+`firefox` or `webkit` for an engine-specific job. Unset or blank keeps the
+optional local behavior; Chromium remains mandatory regardless. Unknown names,
+including `safari`, and empty list entries fail before building, rather than
+silently dropping coverage. Use `webkit` for the Safari-engine checks.
+
+Selected engines must launch: a missing executable or host library fails suite
+setup with the engine name, original setup reason, and installation/path advice,
+and the command exits nonzero instead of reporting skipped coverage. Engines
+not selected can still report explicit runtime skips. Unexpected launch errors
+and test/interaction failures remain failures in either mode. Provision
+Playwright's compatible browser binaries **and host dependencies** in the CI
+runner before running the required command; setting this variable does not
+install anything. Required WebKit includes both desktop and mobile-emulated
+comparison profiles, not a physical iPhone or the shipping Safari app.
+
+Small browser-independent harness checks run with `test:wizfix`, or alone:
+
+```sh
+pnpm --filter @workspace/mdr-design test:wizfix:harness
+```
+
+They simulate missing executables and host libraries for each additional engine,
+verify optional skips versus required failures and real runner exit codes,
+validate the engine list, check executable overrides and successful required
+launches, and ensure unexpected launch errors never become skips.
+
 Pointer drags hold the native range thumb while moving in both directions.
 Chromium also retains held-touch dragging via CDP at phone sizes. Playwright's
 public touch API only supports taps outside Chromium, so the mobile WebKit

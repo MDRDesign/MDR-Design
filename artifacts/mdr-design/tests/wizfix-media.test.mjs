@@ -9,8 +9,11 @@ import { execFileSync } from 'node:child_process';
 import { chromium, firefox, webkit } from 'playwright-core';
 import { build, preview } from 'vite';
 import { registerComparisonTests } from './helpers/wizfix-comparison.mjs';
+import { launchComparisonBrowser, parseRequiredBrowsers } from './helpers/wizfix-browser-runtime.mjs';
 
 const root = fileURLToPath(new URL('../', import.meta.url));
+// Validate before building so a typo cannot silently weaken promised coverage.
+const requiredBrowsers = parseRequiredBrowsers(process.env.WIZFIX_REQUIRED_BROWSERS);
 const base = '/portfolio-regression/';
 const expectedAssets = [
   'wizfix-before.webp', 'wizfix-desktop.webp', 'wizfix-desktop-960.webp',
@@ -75,31 +78,9 @@ before(async () => {
   comparisonBrowsers.set('chromium', { browser });
   for (const engine of [firefox, webkit]) {
     const name = engine.name();
-    const override = `${name.toUpperCase()}_PATH`;
-    const path = process.env[override] || engine.executablePath();
-    let unavailable;
-    try {
-      await access(path, constants.X_OK);
-    } catch {
-      unavailable = `${name} runtime unavailable: no executable at ${path}. ` +
-        `Set ${override} or run pnpm exec playwright-core install ${name}.`;
-    }
-    if (!unavailable) {
-      try {
-        comparisonBrowsers.set(name, { browser: await engine.launch({ executablePath: path }) });
-      } catch (error) {
-        // Missing host libraries are an unavailable runtime, not a passing test.
-        // Unexpected launch failures must still fail the suite.
-        if (!/Host system is missing dependencies|error while loading shared libraries|cannot open shared object file|ENOENT/.test(error.message)) {
-          throw error;
-        }
-        unavailable = `${name} runtime unavailable: ${error.message}`;
-      }
-    }
-    if (unavailable) {
-      console.warn(unavailable);
-      comparisonBrowsers.set(name, { unavailable });
-    }
+    const runtime = await launchComparisonBrowser(engine, { required: requiredBrowsers.has(name) });
+    comparisonBrowsers.set(name, runtime);
+    if (runtime.unavailable) console.warn(runtime.unavailable);
   }
 }, { timeout: 120_000 });
 
