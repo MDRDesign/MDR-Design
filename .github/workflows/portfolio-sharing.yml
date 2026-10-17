@@ -1,0 +1,61 @@
+name: Portfolio sharing
+
+on:
+  pull_request:
+  push:
+  merge_group:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  wizfix-browsers:
+    name: WizFix required browsers
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    steps:
+      - name: Check out source
+        uses: actions/checkout@v4
+
+      - name: Set up pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 10.26.1
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+          cache: pnpm
+
+      - name: Install locked workspace dependencies
+        run: pnpm install --frozen-lockfile
+
+      # Use the CLI from the locked playwright-core dependency so the downloaded
+      # browser revisions match the engines imported by the regression suite.
+      # Chromium is mandatory too, even though Firefox/WebKit are optional locally.
+      - name: Install browsers and Ubuntu host dependencies
+        run: pnpm --filter @workspace/mdr-design exec playwright-core install --with-deps chromium firefox webkit
+
+      - name: Run mandatory cross-browser checks
+        run: WIZFIX_REQUIRED_BROWSERS=firefox,webkit pnpm --filter @workspace/mdr-design test:wizfix
+
+  sharing-release:
+    name: Portfolio sharing / release
+    needs: wizfix-browsers
+    # A failed, cancelled or skipped browser job must produce a failed gate,
+    # rather than a skipped check that could be mistaken for permission to share.
+    if: ${{ always() }}
+    runs-on: ubuntu-24.04
+    timeout-minutes: 2
+    steps:
+      - name: Require successful browser coverage
+        env:
+          BROWSER_RESULT: ${{ needs.wizfix-browsers.result }}
+        run: |
+          if [ "$BROWSER_RESULT" != "success" ]; then
+            echo "::error::Portfolio sharing blocked: required browser checks ended with $BROWSER_RESULT."
+            exit 1
+          fi
+          echo "Required Chromium, Firefox and WebKit checks passed. This is not physical iPhone Safari coverage."

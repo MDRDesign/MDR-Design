@@ -134,6 +134,29 @@ browsers are closed during teardown, including after setup/test failures.
 
 #### Required engines for release / CI
 
+The GitHub Actions workflow
+[`Portfolio sharing`](../../../.github/workflows/portfolio-sharing.yml) runs
+automatically on every push (including tags), pull request and merge-queue
+candidate, and can also be run manually. It uses Ubuntu 24.04, Node 24 and the
+locked workspace dependencies. The workspace's own `playwright-core` CLI installs
+matching Chromium, Firefox and WebKit binaries **with host dependencies**, then
+runs the required command below. There are no path filters, optional jobs or
+allowed failures that can silently drop the required coverage.
+
+The dependent **Portfolio sharing / release** check fails unless **WizFix required
+browsers** succeeds, including when that job fails, is cancelled or is skipped.
+Use this gate as a prerequisite for any future automated sharing/release job
+(`needs: sharing-release` within the same workflow); do not release using
+`always()` without checking that prerequisite succeeded. This workflow checks
+readiness only: it does not publish the portfolio or contact clients.
+
+In the GitHub repository's branch protection/ruleset, require **Portfolio sharing
+/ release** before merging. Repository settings are separate from the workflow:
+adding this file does not enable branch protection or block manual sharing or
+publishing outside GitHub. This workspace has no GitHub remote configured, so
+the hosted run and required-status setting must be confirmed after connecting
+the repository. Do not describe an unexecuted hosted run as passed.
+
 Local behavior remains optional for Firefox and WebKit. In a release or CI job
 that promises both engines, explicitly require them:
 
