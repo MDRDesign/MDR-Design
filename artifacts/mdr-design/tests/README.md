@@ -176,6 +176,9 @@ profile uses native mouse dragging in a touch-capable mobile context, not
 synthetic DOM touch events. This is WebKit engine/mobile emulation coverage,
 not verification on a physical iPhone or the shipping Safari app.
 
+The [iPhone Safari review](IPHONE-SAFARI-REVIEW.md) records device-access
+availability, unverified checks, and the real-device verification procedure.
+
 The suite builds the actual app at root and nested artifact bases, serves each
 temporarily on local ephemeral ports, and closes the servers and browser
 afterward. Required `PORT` and `BASE_PATH` build values are set temporarily and
