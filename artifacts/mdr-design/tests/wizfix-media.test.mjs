@@ -113,6 +113,16 @@ for (const profile of [
   });
 }
 
+test('merge-protection negative control: deliberate failure after opening a real browser page', async () => {
+  const page = await browser.newPage();
+  try {
+    await page.goto(origin + base);
+    assert.equal(await page.title(), 'INTENTIONALLY WRONG TITLE: THIS PR MUST NEVER MERGE');
+  } finally {
+    await page.close();
+  }
+});
+
 test('all WizFix WebPs exist, resolve as images, and decode (not SPA fallback HTML)', async () => {
   const files = (await readdir(resolve(root, 'public/media'))).filter((name) => /^wizfix-.*\.webp$/.test(name));
   for (const name of expectedAssets) assert.ok(files.includes(name), `Missing ${name}`);
