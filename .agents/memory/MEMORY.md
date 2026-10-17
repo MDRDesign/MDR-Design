@@ -1,4 +1,5 @@
 - [Testing tool availability](testing-tools.md) — the documented testing subagent kind was unavailable; public-page render checks used screenshots instead.
+- [Node lifecycle harnesses](node-lifecycle-harnesses.md) — nested runners inherit worker context; TAP may omit AggregateError details; timeout guards must not orphan workers.
 - [Browser review measurements](browser-review-measurements.md) — wait for loaded fonts before reflow checks and actual panel visibility before moving focus.
 - [Media frame CSS cascade](css-cascade.md) — unlayered component styles outrank Tailwind utilities; verify computed positioning when media appears blank.
 - [Armada public address](armada-address.md) — user confirmed the www host; do not normalize it to the bare domain.

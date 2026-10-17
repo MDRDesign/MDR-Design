@@ -169,6 +169,15 @@ verify optional skips versus required failures and real runner exit codes,
 validate the engine list, check executable overrides and successful required
 launches, and ensure unexpected launch errors never become skips.
 
+The lifecycle regression also runs the actual media suite in isolated child
+processes, substituting browser launchers and Vite builds with fixtures. Chromium
+and Firefox start before required WebKit fails. Real ephemeral HTTP handles
+stand in for both browsers and both preview servers, so a leaked handle causes
+a timeout rather than a passing failure. Checks require every handle to close
+exactly once, a normal nonzero exit, and the original WebKit failure to remain
+visible, even when browser/server cleanup also reports errors. This needs no
+installed browser and is separate from physical iPhone interaction testing.
+
 Pointer drags hold the native range thumb while moving in both directions.
 Chromium also retains held-touch dragging via CDP at phone sizes. Playwright's
 public touch API only supports taps outside Chromium, so the mobile WebKit

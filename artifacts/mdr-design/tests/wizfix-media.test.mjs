@@ -85,10 +85,17 @@ before(async () => {
 }, { timeout: 120_000 });
 
 after(async () => {
-  await Promise.all([...comparisonBrowsers.values()].map((entry) => entry.browser?.close()));
-  for (const deployment of deployments) {
-    await new Promise((resolveClose, reject) =>
-      deployment.server.httpServer.close((error) => error ? reject(error) : resolveClose()));
+  // A failed close must not prevent the remaining browsers or servers closing.
+  const browserResults = await Promise.allSettled(
+    [...comparisonBrowsers.values()].map(async (entry) => entry.browser?.close()));
+  const serverResults = await Promise.allSettled(deployments.map((deployment) =>
+    new Promise((resolveClose, reject) =>
+      deployment.server.httpServer.close((error) => error ? reject(error) : resolveClose()))));
+  const errors = [...browserResults, ...serverResults]
+    .filter((result) => result.status === 'rejected').map((result) => result.reason);
+  if (errors.length) {
+    throw new AggregateError(errors,
+      `WizFix resource cleanup failed: ${errors.map((error) => error.message).join('; ')}`);
   }
 });
 
